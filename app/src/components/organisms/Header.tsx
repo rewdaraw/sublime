@@ -21,13 +21,15 @@ export const Header = () => {
       minH="100vh"
     >
       <VStack spacing={40}>
-        <Image
-          src="/assets/images/logo.svg"
-          width="60px"
-          height="60px"
-          pt={4}
-          alt="Cortofolio"
-        />
+        <Box as="h1">
+          <Image
+            src="/assets/images/logo.svg"
+            width="45px"
+            height="45px"
+            mt={10}
+            alt="Cortofolio"
+          />
+        </Box>
         <VStack spacing={2} w="100%">
           <IconButton
             as="button"
@@ -88,8 +90,7 @@ export const Header = () => {
           src="https://bit.ly/ryan-florence"
           w="40px"
           h="40px"
-        >
-        </Avatar>
+        ></Avatar>
       </VStack>
     </Flex>
   );
