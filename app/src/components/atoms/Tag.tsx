@@ -9,7 +9,16 @@ interface ITag {
 
 export const Tag: React.VFC<ITag> = ({ bgColor, color, text }) => {
   return (
-    <Center px={3} py={0.5} bg={bgColor} color={color} borderRadius={8} mr={2}>
+    <Center
+      px={3}
+      py={0.5}
+      pb={1}
+      fontSize="13px"
+      bg={bgColor}
+      color={color}
+      borderRadius={4}
+      mr={4}
+    >
       {text}
     </Center>
   );

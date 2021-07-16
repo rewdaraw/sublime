@@ -14,6 +14,7 @@ export const Header = () => {
   return (
     <Flex
       as="header"
+      pos="fixed"
       direction="column"
       w="70px"
       minW="70px"
@@ -52,7 +53,7 @@ export const Header = () => {
               h: "40px",
               borderRadius: "2px",
               verticalAlign: "middle",
-              bg: "purple",
+              bg: "#660296",
             }}
           />
           <IconButton
@@ -71,7 +72,7 @@ export const Header = () => {
         </VStack>
       </VStack>
       <Spacer />
-      <VStack spacing={4} pb={4}>
+      <VStack spacing={4} pb={8}>
         <Avatar
           as="button"
           name=""
@@ -80,7 +81,7 @@ export const Header = () => {
           w="24px"
           h="24px"
         >
-          <AvatarBadge bg="coral" w="0.7em" h="0.75em" borderWidth="2px" />
+          <AvatarBadge bg="coral" w="0.7em" h="0.7em" borderWidth="2px" />
         </Avatar>
 
         <Avatar
