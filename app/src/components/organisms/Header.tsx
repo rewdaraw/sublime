@@ -16,9 +16,9 @@ export const Header = () => {
       as="header"
       direction="column"
       w="70px"
+      minW="70px"
       bg="white"
       minH="100vh"
-      borderRight="1px solid #ccc"
     >
       <VStack spacing={40}>
         <Image
@@ -43,14 +43,14 @@ export const Header = () => {
             }
             pos="relative"
             _before={{
-              pos:"absolute",
-              left:"-15px",
+              pos: "absolute",
+              left: "-15px",
               content: '""',
-              w: "6px",
+              w: "4px",
               h: "40px",
-              borderRadius: "3px",
+              borderRadius: "2px",
               verticalAlign: "middle",
-              bg:"purple"
+              bg: "purple",
             }}
           />
           <IconButton
@@ -89,7 +89,6 @@ export const Header = () => {
           w="40px"
           h="40px"
         >
-          {/* <AvatarBadge bg="tomato" w="1em" h="1.05em" /> */}
         </Avatar>
       </VStack>
     </Flex>
