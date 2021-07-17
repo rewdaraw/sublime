@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Spacer, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, IconButton, Spacer, Text, Image } from "@chakra-ui/react";
 import { NextPage } from "next";
 import React from "react";
 import { ProjectList } from "../../components/organisms/projects/List";
@@ -12,6 +12,20 @@ export const ProjectListsPage: NextPage = () => {
         <Spacer />
         <Text>25件 / 125件中</Text>
         <Spacer />
+        <Flex>
+          <IconButton
+            as="button"
+            bg="white"
+            aria-label="Search People"
+            icon={
+              <Image
+                src="/assets/images/icons/Fold.svg"
+                boxSize={4}
+                alt="折りたたむ"
+              />
+            }
+          />
+        </Flex>
       </Flex>
       <Box mb={2}>
         <ProjectList />

@@ -5,6 +5,7 @@ import {
   Flex,
   Spacer,
   Image,
+  Tag,
   Text,
   Icon,
   Wrap,
@@ -16,7 +17,6 @@ import { PersonAdd as Expert } from "@styled-icons/evaicons-solid/PersonAdd";
 import { Engineering as Engineer} from "@styled-icons/material/Engineering";
 import { Adobe as Designer } from "@styled-icons/boxicons-logos/Adobe";
 import React from "react";
-import { Tag } from "../../atoms/Tag";
 
 export const ProjectList: React.VFC = () => {
   return (
@@ -44,16 +44,46 @@ export const ProjectList: React.VFC = () => {
                 borderRadius={8}
                 alt=""
               />
-              <Text fontWeight="bold" minW={40} mr={16}>
+              <Text fontWeight="bold" minW={20} mr={16} isTruncated>
                 人材マッチングサイト
               </Text>
               {/* タグのリピート */}
-              <Tag bgColor="#660296" color="white" text="react" />
-              <Tag bgColor="#660296" color="white" text="nextjs" />
-              <Tag bgColor="#660296" color="white" text="graphql" />
-              {/* <Tag bgColor="purple.600" color="white" text="prisma" />
-              <Tag bgColor="purple.600" color="white" text="express" />
-              <Tag bgColor="purple.600" color="white" text="mongodb" /> */}
+              <Tag
+                size="md"
+                variant="solid"
+                colorScheme="purple"
+                color="white"
+                mr={3}
+              >
+                React
+              </Tag>
+              <Tag
+                size="md"
+                variant="solid"
+                colorScheme="purple"
+                color="white"
+                mr={3}
+              >
+                Nextjs
+              </Tag>
+              <Tag
+                size="md"
+                variant="solid"
+                colorScheme="purple"
+                color="white"
+                mr={3}
+              >
+                GraphQL
+              </Tag>
+              <Tag
+                size="md"
+                variant="solid"
+                colorScheme="purple"
+                color="white"
+                mr={3}
+              >
+                TypeScript
+              </Tag>
             </Flex>
           </Box>
           <Spacer />
@@ -63,12 +93,8 @@ export const ProjectList: React.VFC = () => {
           </Flex>
         </Flex>
         {/* 下段 */}
-        <Flex w="100%">
+        {/* <Flex w="100%">
           <Wrap>
-            {/* <Tag bgColor="gray.100" color="black" text="企業案件" />
-            <Tag bgColor="gray.100" color="black" text="実務経験者在籍" />
-            <Tag bgColor="gray.100" color="black" text="デザイナー募集中" />
-            <Tag bgColor="gray.100" color="black" text="エンジニア募集中" /> */}
             <Text fontSize="13px" color="gray.500" pr={3}>
               <Icon
                 as={Office}
@@ -118,7 +144,7 @@ export const ProjectList: React.VFC = () => {
           <Text fontSize="13px" maxW="80px" color="yellow.500">
             開発進行中
           </Text>
-        </Flex>
+        </Flex> */}
       </VStack>
     </Link>
   );
