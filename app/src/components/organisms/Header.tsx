@@ -54,7 +54,7 @@ export const Header = () => {
               h: "40px",
               borderRadius: "2px",
               verticalAlign: "middle",
-              bg: "#660296",
+              bg: "#805BD5",
             }}
           />
           <IconButton
