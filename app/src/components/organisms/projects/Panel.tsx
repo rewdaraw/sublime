@@ -15,14 +15,14 @@ export const ProjectSearchPanel: React.FC<IProjectSearchPanel> = ({
   subtitle,
 }) => {
   return (
-    <Box bg="#F7F9FC" rounded={16} p={8}>
+    <Box maxW="300px" bg="#F7F9FC" rounded={16} p={8}>
       <Flex align="center" mb={2}>
         <Image d="inline-flex" src={imageSrc} alt="" boxSize={5} mr={2} />
         <Heading as="h3" fontSize="16px">
           {title}
         </Heading>
       </Flex>
-      <Text fontSize="10px" mb={7}>
+      <Text fontSize="11px" color="gray.500" mb={7}>
         {subtitle}
       </Text>
       {children}

@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Checkbox,
+  CheckboxGroup,
+  HStack,
+  Heading,
+  Wrap,
+} from "@chakra-ui/react";
 import { ProjectSearchPanel } from "./projects/Panel";
 
 export const Aside: React.FC = () => {
@@ -13,7 +20,7 @@ export const Aside: React.FC = () => {
       top="0"
       right="0"
       py={12}
-      px={8}
+      px={6}
       overflow="scroll"
     >
       <Box mb={8} pos="relative">
@@ -51,7 +58,20 @@ export const Aside: React.FC = () => {
             title="種類"
             subtitle="作ってみたいアプリケーション"
           >
-            bbb
+            <CheckboxGroup
+              colorScheme="purple"
+              size="sm"
+              defaultValue={["sns", "ec"]}
+            >
+              <Wrap>
+                <Checkbox value="sns">SNS</Checkbox>
+                <Checkbox value="ec">EC</Checkbox>
+                <Checkbox value="homepage">ホームページ</Checkbox>
+                <Checkbox value="blog">ブログサイト</Checkbox>
+                <Checkbox value="partial">一部機能のみ</Checkbox>
+                <Checkbox value="other">その他</Checkbox>
+              </Wrap>
+            </CheckboxGroup>
           </ProjectSearchPanel>
         </Box>
         <Box mb={4}>
@@ -60,7 +80,19 @@ export const Aside: React.FC = () => {
             title="特徴"
             subtitle="プロジェクトの特徴"
           >
-            bbb
+            <CheckboxGroup
+              colorScheme="purple"
+              size="sm"
+              defaultValue={["company", "reward"]}
+            >
+              <Wrap>
+                <Checkbox value="company">企業案件</Checkbox>
+                <Checkbox value="reward">報酬あり</Checkbox>
+                <Checkbox value="expert">実務経験者在籍</Checkbox>
+                <Checkbox value="designer">デザイナー募集中</Checkbox>
+                <Checkbox value="engineer">エンジニア募集中</Checkbox>
+              </Wrap>
+            </CheckboxGroup>
           </ProjectSearchPanel>
         </Box>
       </Box>
