@@ -22,14 +22,12 @@ export const ProjectList: React.VFC = () => {
   return (
     <Link href="/" _hover={{ style: "none", boxShadow: "3px, 3px" }}>
       <VStack
-        // minW="850px"
         rounded="xl"
         spacing={4}
         px={6}
         py={6}
         pb={5}
         bg="white"
-        // boxShadow="4px 4px 4px #ddd"
         _hover={{ boxShadow: "4px 4px 4px #ddd" }}
       >
         {/* 上段 */}
@@ -103,7 +101,7 @@ export const ProjectList: React.VFC = () => {
           </Flex>
         </Flex>
         {/* 下段 */}
-        <Flex w="100%">
+        {/* <Flex w="100%">
           <Wrap>
             <Text fontSize="13px" color="gray.500" pr={3}>
               <Icon
@@ -154,7 +152,7 @@ export const ProjectList: React.VFC = () => {
           <Text fontSize="13px" maxW="80px" color="yellow.500">
             開発進行中
           </Text>
-        </Flex>
+        </Flex> */}
       </VStack>
     </Link>
   );
