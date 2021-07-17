@@ -19,7 +19,7 @@ export const DashboardTemplate: React.FC<IDashboardTemplate> = ({
       <Head>
         <title>{title}</title>
       </Head>
-      <Flex className="wrapper" w="100vw">
+      <Flex className="wrapper">
         <Header />
         <Main>{children}</Main>
         <Aside />

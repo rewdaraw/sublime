@@ -14,6 +14,7 @@ export const Header = () => {
   return (
     <Flex
       as="header"
+      d={{ base: "none", sm: "flex" }}
       pos="fixed"
       direction="column"
       w="70px"
