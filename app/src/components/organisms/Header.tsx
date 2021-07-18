@@ -84,16 +84,6 @@ export const Header = () => {
       </VStack>
       <Spacer />
       <VStack spacing={4} pb={8}>
-        {/* <Avatar
-          as="button"
-          name=""
-          bg="white"
-          src="/assets/images/icons/Bell.svg"
-          w="24px"
-          h="24px"
-        >
-          <AvatarBadge bg="coral" w="0.7em" h="0.7em" borderWidth="2px" />
-        </Avatar> */}
         <IconButton
           bg="transparent"
           aria-label="Search People"
@@ -106,7 +96,6 @@ export const Header = () => {
             />
           }
         />
-
         <Avatar
           as="button"
           name=""

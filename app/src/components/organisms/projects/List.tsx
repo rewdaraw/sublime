@@ -96,63 +96,90 @@ export const ProjectList: React.VFC = () => {
           </Box>
           <Spacer />
           <Flex align="center">
-            <Icon as={EmptyHeart} w="16px" h="17px" mr={2} />
+            <Image
+              src="/assets/images/icons/FilledHeart.svg"
+              w="16px"
+              h="16px"
+              mr={2}
+              alt="お気に入り"
+            />
             <Text>9</Text>
           </Flex>
         </Flex>
         {/* 下段 */}
-        {/* <Flex w="100%">
+        <Flex w="100%">
           <Wrap>
-            <Text fontSize="13px" color="gray.500" pr={3}>
-              <Icon
-                as={Office}
+            <Flex>
+              <Image
+                src="/assets/images/icons/Office.svg"
+                d="inline-flex"
                 w="16px"
                 h="16px"
-                color="gray.400"
-                mb="2px"
                 mr={1}
+                alt="企業案件"
               />
-              企業案件
-            </Text>
-            <Text fontSize="13px" color="gray.500" pr={3}>
-              <Icon
-                as={Expert}
+              <Text fontSize="13px" color="gray.500" pr={3}>
+                企業案件
+              </Text>
+            </Flex>
+            <Flex>
+              <Image
+                src="/assets/images/icons/Expert.svg"
+                d="inline-flex"
                 w="16px"
                 h="16px"
-                color="gray.400"
-                mb="2px"
                 mr={1}
+                alt="実務経験者在籍"
               />
-              実務経験者在籍
-            </Text>
-            <Text fontSize="13px" color="gray.500" pr={3}>
-              <Icon
-                as={Designer}
+              <Text fontSize="13px" color="gray.500" pr={3}>
+                実務経験者在籍
+              </Text>
+            </Flex>
+            <Flex>
+              <Image
+                src="/assets/images/icons/Designer.svg"
+                d="inline-flex"
                 w="16px"
                 h="16px"
-                color="gray.400"
-                mb="2px"
                 mr={1}
+                alt="デザイナー募集中"
               />
-              デザイナー募集中
-            </Text>
-            <Text fontSize="13px" color="gray.500" pr={3}>
-              <Icon
-                as={Engineer}
+              <Text fontSize="13px" color="gray.500" pr={3}>
+                デザイナー募集中
+              </Text>
+            </Flex>
+            <Flex>
+              <Image
+                src="/assets/images/icons/Engineer.svg"
+                d="inline-flex"
                 w="16px"
                 h="16px"
-                color="gray.400"
-                mb="2px"
                 mr={1}
+                alt="エンジニア募集中"
               />
-              エンジニア募集中
-            </Text>
+              <Text fontSize="13px" color="gray.500" pr={3}>
+                エンジニア募集中
+              </Text>
+            </Flex>
+            <Flex>
+              <Image
+                src="/assets/images/icons/Reward.svg"
+                d="inline-flex"
+                w="16px"
+                h="16px"
+                mr={1}
+                alt="報酬あり"
+              />
+              <Text fontSize="13px" color="gray.500" pr={3}>
+                報酬あり
+              </Text>
+            </Flex>
           </Wrap>
           <Spacer />
           <Text fontSize="13px" maxW="80px" color="yellow.500">
             開発進行中
           </Text>
-        </Flex> */}
+        </Flex>
       </VStack>
     </Link>
   );
