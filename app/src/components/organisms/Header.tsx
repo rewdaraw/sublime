@@ -84,7 +84,7 @@ export const Header = () => {
       </VStack>
       <Spacer />
       <VStack spacing={4} pb={8}>
-        <Avatar
+        {/* <Avatar
           as="button"
           name=""
           bg="white"
@@ -93,7 +93,19 @@ export const Header = () => {
           h="24px"
         >
           <AvatarBadge bg="coral" w="0.7em" h="0.7em" borderWidth="2px" />
-        </Avatar>
+        </Avatar> */}
+        <IconButton
+          bg="transparent"
+          aria-label="Search People"
+          icon={
+            <Image
+              src="/assets/images/icons/BadgedBell.svg"
+              width="24px"
+              height="24px"
+              alt="お知らせ"
+            />
+          }
+        />
 
         <Avatar
           as="button"
@@ -102,6 +114,7 @@ export const Header = () => {
           src="https://bit.ly/ryan-florence"
           w="40px"
           h="40px"
+          _hover={{ opacity: "0.7" }}
         ></Avatar>
       </VStack>
     </Flex>
