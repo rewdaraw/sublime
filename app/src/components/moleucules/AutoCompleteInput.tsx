@@ -1,19 +1,20 @@
 import React from "react";
 import { CUIAutoComplete } from "chakra-ui-autocomplete";
-import { Avatar, Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Search2Icon } from "@chakra-ui/icons";
 
 export interface Item {
   label: string;
   value: string;
 }
 const countries = [
-  { value: "nodejs", label: "Nodejs" },
-  { value: "react", label: "React" },
-  { value: "nextjs", label: "Nextjs" },
-  { value: "graphql", label: "GraphQL" },
-  { value: "express", label: "express" },
-  { value: "prisma", label: "Prisma" },
-  { value: "php", label: "PHP" },
+  { value: "ghana", label: "Ghana" },
+  { value: "nigeria", label: "Nigeria" },
+  { value: "kenya", label: "Kenya" },
+  { value: "southAfrica", label: "South Africa" },
+  { value: "unitedStates", label: "United States" },
+  { value: "canada", label: "Canada" },
+  { value: "germany", label: "Germany" },
 ];
 
 export const AutoCompleteInput = () => {
@@ -53,32 +54,35 @@ export const AutoCompleteInput = () => {
 
   return (
     <>
+      <HStack spacing={2} align="center" h="40px">
+        <Search2Icon color="gray.700" p="2px" h={6} w={6} />
+        <Text fontWeight="bold">参加したいプロジェクトを探す</Text>
+      </HStack>
+
       <CUIAutoComplete
         tagStyleProps={{
-          variant: "solid",
-          colorScheme: "purple",
+          rounded: "full",
+          pt: 1,
+          pb: 2,
+          px: 2,
           mb: "8px !important",
+          fontSize: "1rem",
         }}
         inputStyleProps={{
           bg: "transparent",
           rounded: "none",
           border: 0,
-          borderBottom: "2px solid #ddd",
+          borderBottom: "1px solid #ccc",
           _focus: { outline: "none" },
-          paddingLeft: "0px"
-        }}
-        toggleButtonStyleProps={{
-          borderRadius: "50%",
-          bg: "white",
-          color: "#ccc"
         }}
         listStyleProps={{
           border: "0px",
-          boxShadow: "0px",
+          boxShadow: "0px"
         }}
+        hideToggleButton
         disableCreateItem
         label=""
-        placeholder="React、Vue、PHP"
+        placeholder="(例) php, react"
         onCreateItem={handleCreateItem}
         items={pickerItems}
         itemRenderer={customRender}

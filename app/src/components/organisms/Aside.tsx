@@ -46,17 +46,6 @@ export const Aside: React.FC = () => {
         </Heading>
         <Box mb={4}>
           <ProjectSearchPanel
-            imageSrc="/assets/images/icons/Skill.svg"
-            title="技術"
-            subtitle="経験を積みたい技術"
-          >
-            <Box mt="-20px">
-              <AutoCompleteInput />
-            </Box>
-          </ProjectSearchPanel>
-        </Box>
-        <Box mb={4}>
-          <ProjectSearchPanel
             imageSrc="/assets/images/icons/Type.svg"
             title="種類"
             subtitle="作ってみたいアプリケーション"
@@ -96,6 +85,17 @@ export const Aside: React.FC = () => {
                 <Checkbox value="engineer">エンジニア募集中</Checkbox>
               </Wrap>
             </CheckboxGroup>
+          </ProjectSearchPanel>
+        </Box>
+        <Box mb={4}>
+          <ProjectSearchPanel
+            imageSrc="/assets/images/icons/Skill.svg"
+            title="技術 / ツール"
+            subtitle="経験を積みたい技術"
+          >
+            <Box mt="-20px">
+              <AutoCompleteInput />
+            </Box>
           </ProjectSearchPanel>
         </Box>
       </Box>

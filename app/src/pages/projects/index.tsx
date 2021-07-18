@@ -16,6 +16,7 @@ export const ProjectListsPage: NextPage = () => {
           <IconButton
             as="button"
             bg="white"
+            rounded="full"
             aria-label="Search People"
             icon={
               <Image
