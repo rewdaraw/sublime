@@ -32,7 +32,7 @@ export const AutoCompleteInput = () => {
 
   return (
     <CUIAutoComplete
-      label="Choose preferred work locations"
+      label=""
       placeholder="Type a Country"
       onCreateItem={handleCreateItem}
       items={pickerItems}

@@ -50,7 +50,9 @@ export const Aside: React.FC = () => {
             title="技術"
             subtitle="経験を積みたい技術"
           >
-            <AutoCompleteInput />
+            <Box mt="-20px">
+              <AutoCompleteInput />
+            </Box>
           </ProjectSearchPanel>
         </Box>
         <Box mb={4}>
