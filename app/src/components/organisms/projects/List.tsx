@@ -10,12 +10,6 @@ import {
   Icon,
   Wrap,
 } from "@chakra-ui/react";
-import { Heart as EmptyHeart } from "@styled-icons/boxicons-regular/Heart";
-import { Heart as FilledHeart } from "@styled-icons/boxicons-solid/Heart";
-import { OfficeBuilding as Office } from "@styled-icons/heroicons-outline/OfficeBuilding";
-import { PersonAdd as Expert } from "@styled-icons/evaicons-solid/PersonAdd";
-import { Engineering as Engineer } from "@styled-icons/material/Engineering";
-import { Adobe as Designer } from "@styled-icons/boxicons-logos/Adobe";
 import React from "react";
 
 export const ProjectList: React.VFC = () => {
