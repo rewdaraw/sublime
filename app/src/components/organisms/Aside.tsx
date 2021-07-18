@@ -8,6 +8,7 @@ import {
   Wrap,
 } from "@chakra-ui/react";
 import { ProjectSearchPanel } from "./projects/Panel";
+import { AutoCompleteInput } from "./projects/AutoCompleteInput";
 
 export const Aside: React.FC = () => {
   return (
@@ -49,7 +50,7 @@ export const Aside: React.FC = () => {
             title="技術"
             subtitle="経験を積みたい技術"
           >
-            aaa
+            <AutoCompleteInput />
           </ProjectSearchPanel>
         </Box>
         <Box mb={4}>
