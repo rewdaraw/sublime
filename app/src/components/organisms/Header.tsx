@@ -3,6 +3,7 @@ import {
   Image,
   Flex,
   Spacer,
+  Text,
   VStack,
   Avatar,
   AvatarBadge,
@@ -32,44 +33,53 @@ export const Header = () => {
             alt="Cortofolio"
           />
         </Box>
-        <VStack spacing={2} w="100%">
-          <IconButton
-            as="button"
-            bg="transparent"
-            aria-label="Search Projects"
-            icon={
-              <Image
-                src="/assets/images/icons/Project.svg"
-                width="24px"
-                height="24px"
-                alt="Cortofolio"
-              />
-            }
-            pos="relative"
-            _before={{
-              pos: "absolute",
-              left: "-15px",
-              content: '""',
-              w: "4px",
-              h: "40px",
-              borderRadius: "2px",
-              verticalAlign: "middle",
-              bg: "#805BD5",
-            }}
-          />
-          <IconButton
-            as="button"
-            bg="transparent"
-            aria-label="Search People"
-            icon={
-              <Image
-                src="/assets/images/icons/People.svg"
-                width="24px"
-                height="24px"
-                alt="Cortofolio"
-              />
-            }
-          />
+        <VStack spacing={3} w="100%">
+          <VStack spacing={1} w="100%">
+            <IconButton
+              bg="transparent"
+              aria-label="Search Projects"
+              icon={
+                <Image
+                  src="/assets/images/icons/Project.svg"
+                  width="24px"
+                  height="24px"
+                  alt="プロジェクトを探す"
+                />
+              }
+              pos="relative"
+              _before={{
+                pos: "absolute",
+                left: "-15px",
+                top: "7px",
+                content: '""',
+                w: "4px",
+                h: "50px",
+                borderRadius: "2px",
+                verticalAlign: "middle",
+                bg: "#805BD5",
+              }}
+            />
+            <Text fontSize="xs" mt="0px !important">
+              Project
+            </Text>
+          </VStack>
+          <VStack w="100%">
+            <IconButton
+              bg="transparent"
+              aria-label="Search People"
+              icon={
+                <Image
+                  src="/assets/images/icons/People.svg"
+                  width="24px"
+                  height="24px"
+                  alt="共同作業者を探す"
+                />
+              }
+            />
+            <Text fontSize="xs" mt="0px !important">
+              Partner
+            </Text>
+          </VStack>
         </VStack>
       </VStack>
       <Spacer />
