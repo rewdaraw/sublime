@@ -1,10 +1,18 @@
-import { Box, Flex, Heading, IconButton, Spacer, Text, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  IconButton,
+  Spacer,
+  Text,
+  Image,
+} from "@chakra-ui/react";
 import { NextPage } from "next";
 import React from "react";
 import { ProjectList } from "../../components/organisms/projects/List";
 import { DashboardTemplate } from "../../components/templates/DashboardTemplate";
 
-export const ProjectListsPage: NextPage = () => {
+const ProjectListsPage: NextPage = () => {
   return (
     <DashboardTemplate title="project list page">
       <Flex mb={8}>
