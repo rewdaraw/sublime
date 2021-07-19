@@ -15,7 +15,7 @@ export const ProjectSearchPanel: React.FC<IProjectSearchPanel> = ({
   subtitle,
 }) => {
   return (
-    <Box maxW="300px" bg="#F7F9FC" rounded={16} p={8}>
+    <Box w="100%" bg="#F7F9FC" rounded={16} p={8}>
       <Flex align="center" mb={2}>
         <Image d="inline-flex" src={imageSrc} alt="" boxSize={5} mr={2} />
         <Heading as="h3" fontSize="16px">

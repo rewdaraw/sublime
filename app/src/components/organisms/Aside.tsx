@@ -15,7 +15,7 @@ export const Aside: React.FC = () => {
     <Box
       as="aside"
       d={{ base: "none", sm: "none", md: "none", lg: "none", xl: "block" }}
-      minW="25%"
+      w="25vw"
       h="100vh"
       pos="fixed"
       top="0"
