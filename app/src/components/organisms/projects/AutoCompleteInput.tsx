@@ -56,7 +56,7 @@ export const AutoCompleteInput = () => {
       <CUIAutoComplete
         tagStyleProps={{
           variant: "solid",
-          colorScheme: "purple",
+          bg: "linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)",
           mb: "8px !important",
         }}
         inputStyleProps={{
@@ -65,12 +65,14 @@ export const AutoCompleteInput = () => {
           border: 0,
           borderBottom: "2px solid #ddd",
           _focus: { outline: "none" },
-          paddingLeft: "0px"
+          paddingLeft: "0px",
         }}
         toggleButtonStyleProps={{
           borderRadius: "50%",
+          // bg: "linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)",
           bg: "white",
-          color: "#ccc"
+          color: "red",
+          boxShadow: "lg",
         }}
         listStyleProps={{
           border: "0px",

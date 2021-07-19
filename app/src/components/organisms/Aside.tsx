@@ -6,6 +6,7 @@ import {
   HStack,
   Heading,
   Wrap,
+  VStack,
 } from "@chakra-ui/react";
 import { ProjectSearchPanel } from "./projects/Panel";
 import { AutoCompleteInput } from "./projects/AutoCompleteInput";
@@ -37,7 +38,7 @@ export const Aside: React.FC = () => {
             width: "4px",
             height: "22px",
             background:
-              "linear-gradient(0deg, rgba(72,1,131,1) 0%, rgba(128,91,213,1) 100%);",
+              "linear-gradient(#E84B81 0%, #FF7F50 56.25%, #E3BB53 100%);",
             borderRadius: "2px",
             marginRight: "8px",
           }}
@@ -51,18 +52,18 @@ export const Aside: React.FC = () => {
             subtitle="作ってみたいアプリケーション"
           >
             <CheckboxGroup
-              colorScheme="purple"
-              size="sm"
+              colorScheme="red"
+              size="md"
               defaultValue={["sns", "ec"]}
             >
-              <Wrap>
+              <VStack align="left">
                 <Checkbox value="sns">SNS</Checkbox>
                 <Checkbox value="ec">EC</Checkbox>
                 <Checkbox value="homepage">ホームページ</Checkbox>
                 <Checkbox value="blog">ブログサイト</Checkbox>
                 <Checkbox value="partial">一部機能のみ</Checkbox>
                 <Checkbox value="other">その他</Checkbox>
-              </Wrap>
+              </VStack>
             </CheckboxGroup>
           </ProjectSearchPanel>
         </Box>
@@ -73,17 +74,17 @@ export const Aside: React.FC = () => {
             subtitle="プロジェクトの特徴"
           >
             <CheckboxGroup
-              colorScheme="purple"
-              size="sm"
+              colorScheme="red"
+              size="md"
               defaultValue={["company", "reward"]}
             >
-              <Wrap>
+              <VStack align="left">
                 <Checkbox value="company">企業案件</Checkbox>
                 <Checkbox value="reward">報酬あり</Checkbox>
                 <Checkbox value="expert">実務経験者在籍</Checkbox>
                 <Checkbox value="designer">デザイナー募集中</Checkbox>
                 <Checkbox value="engineer">エンジニア募集中</Checkbox>
-              </Wrap>
+              </VStack>
             </CheckboxGroup>
           </ProjectSearchPanel>
         </Box>

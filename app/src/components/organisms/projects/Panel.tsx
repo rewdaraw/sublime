@@ -22,7 +22,7 @@ export const ProjectSearchPanel: React.FC<IProjectSearchPanel> = ({
           {title}
         </Heading>
       </Flex>
-      <Text fontSize="11px" color="gray.500" mb={7}>
+      <Text fontSize="11px" color="#666666" mb={7}>
         {subtitle}
       </Text>
       {children}
