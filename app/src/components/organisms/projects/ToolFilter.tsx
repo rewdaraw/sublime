@@ -1,6 +1,6 @@
 import React from "react";
 import { CUIAutoComplete } from "chakra-ui-autocomplete";
-import { Avatar, Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 
 export interface Item {
   label: string;
@@ -16,7 +16,7 @@ const countries = [
   { value: "php", label: "PHP" },
 ];
 
-export const AutoCompleteInput = () => {
+export const ToolFilter = () => {
   const [pickerItems, setPickerItems] = React.useState(countries);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
 
@@ -69,7 +69,6 @@ export const AutoCompleteInput = () => {
         }}
         toggleButtonStyleProps={{
           borderRadius: "50%",
-          // bg: "linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)",
           bg: "white",
           color: "red",
           boxShadow: "lg",

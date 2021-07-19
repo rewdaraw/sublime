@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  Box,
-  Checkbox,
-  CheckboxGroup,
-  HStack,
-  Heading,
-  Wrap,
-  VStack,
-} from "@chakra-ui/react";
-import { ProjectSearchPanel } from "./projects/Panel";
-import { AutoCompleteInput } from "./projects/AutoCompleteInput";
+import { Box, Heading } from "@chakra-ui/react";
+import { Panel } from "./projects/Panel";
+import { ToolFilter } from "./projects/ToolFilter";
+import { TypeFilter } from "./projects/TypeFilter";
+import { FeatureFilter } from "./projects/FeatureFilter";
 
 export const Aside: React.FC = () => {
   return (
@@ -46,58 +40,33 @@ export const Aside: React.FC = () => {
           プロジェクトを探す
         </Heading>
         <Box mb={4}>
-          <ProjectSearchPanel
+          <Panel
             imageSrc="/assets/images/icons/Type.svg"
             title="種類"
             subtitle="作ってみたいアプリケーション"
           >
-            <CheckboxGroup
-              colorScheme="red"
-              size="md"
-              defaultValue={["sns", "ec"]}
-            >
-              <VStack align="left">
-                <Checkbox value="sns">SNS</Checkbox>
-                <Checkbox value="ec">EC</Checkbox>
-                <Checkbox value="homepage">ホームページ</Checkbox>
-                <Checkbox value="blog">ブログサイト</Checkbox>
-                <Checkbox value="partial">一部機能のみ</Checkbox>
-                <Checkbox value="other">その他</Checkbox>
-              </VStack>
-            </CheckboxGroup>
-          </ProjectSearchPanel>
+            <TypeFilter />
+          </Panel>
         </Box>
         <Box mb={4}>
-          <ProjectSearchPanel
+          <Panel
             imageSrc="/assets/images/icons/Feature.svg"
             title="特徴"
             subtitle="プロジェクトの特徴"
           >
-            <CheckboxGroup
-              colorScheme="red"
-              size="md"
-              defaultValue={["company", "reward"]}
-            >
-              <VStack align="left">
-                <Checkbox value="company">企業案件</Checkbox>
-                <Checkbox value="reward">報酬あり</Checkbox>
-                <Checkbox value="expert">実務経験者在籍</Checkbox>
-                <Checkbox value="designer">デザイナー募集中</Checkbox>
-                <Checkbox value="engineer">エンジニア募集中</Checkbox>
-              </VStack>
-            </CheckboxGroup>
-          </ProjectSearchPanel>
+            <FeatureFilter />
+          </Panel>
         </Box>
         <Box mb={4}>
-          <ProjectSearchPanel
+          <Panel
             imageSrc="/assets/images/icons/Skill.svg"
             title="技術 / ツール"
             subtitle="経験を積みたい技術"
           >
             <Box mt="-20px">
-              <AutoCompleteInput />
+              <ToolFilter />
             </Box>
-          </ProjectSearchPanel>
+          </Panel>
         </Box>
       </Box>
     </Box>

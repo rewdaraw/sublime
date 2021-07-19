@@ -1,14 +1,14 @@
 import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
 import React from "react";
 
-interface IProjectSearchPanel {
+interface IPanel {
   children: React.ReactNode;
   imageSrc: string;
   title: string;
   subtitle: string;
 }
 
-export const ProjectSearchPanel: React.FC<IProjectSearchPanel> = ({
+export const Panel: React.FC<IPanel> = ({
   children,
   imageSrc,
   title,
