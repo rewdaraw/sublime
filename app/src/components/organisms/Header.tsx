@@ -59,7 +59,7 @@ export const Header = () => {
                 bg: "#805BD5",
               }}
             />
-            <Text fontSize="xs" mt="0px !important">
+            <Text fontSize="11px" mt="0px !important">
               Project
             </Text>
           </VStack>
@@ -76,7 +76,7 @@ export const Header = () => {
                 />
               }
             />
-            <Text fontSize="xs" mt="0px !important">
+            <Text fontSize="11px" mt="0px !important">
               Partner
             </Text>
           </VStack>
