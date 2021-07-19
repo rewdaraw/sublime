@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 import { Header } from "../organisms/Header";
 import { Main } from "../organisms/Main";
 import { Flex } from "@chakra-ui/react";
