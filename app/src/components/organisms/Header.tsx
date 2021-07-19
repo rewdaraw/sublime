@@ -6,7 +6,6 @@ import {
   Text,
   VStack,
   Avatar,
-  AvatarBadge,
   IconButton,
 } from "@chakra-ui/react";
 import React from "react";
@@ -28,7 +27,7 @@ export const Header = () => {
           <Image
             src="/assets/images/logo.svg"
             width="45px"
-            height="45px"
+            // height="45px"
             mt={10}
             alt="Cortofolio"
           />
@@ -56,7 +55,7 @@ export const Header = () => {
                 h: "50px",
                 borderRadius: "2px",
                 verticalAlign: "middle",
-                bg: "#805BD5",
+                bg: "linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)",
               }}
             />
             <Text fontSize="11px" mt="0px !important">
