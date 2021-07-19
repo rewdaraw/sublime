@@ -1,7 +1,12 @@
 import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
 
-export const Aside: React.FC<React.ReactNode> = ({ children }) => {
+interface IAside {
+  children: React.ReactNode;
+  title: string;
+}
+
+export const Aside: React.FC<IAside> = ({ children, title }) => {
   return (
     <Box
       as="aside"
@@ -33,7 +38,7 @@ export const Aside: React.FC<React.ReactNode> = ({ children }) => {
             marginRight: "8px",
           }}
         >
-          プロジェクトを探す
+          {title}
         </Heading>
         {children}
       </Box>

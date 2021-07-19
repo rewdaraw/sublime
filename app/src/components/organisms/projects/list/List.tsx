@@ -14,7 +14,7 @@ import React from "react";
 
 export const ProjectList: React.VFC = () => {
   return (
-    <Link href="/" _hover={{ style: "none" }}>
+    <Link href="/projects/a" _hover={{ style: "none" }}>
       <VStack
         rounded="xl"
         spacing={4}

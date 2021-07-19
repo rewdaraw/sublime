@@ -28,7 +28,7 @@ const ProjectListsPage: NextPage = () => {
       <Header />
       <Main>
         <Flex mb={8}>
-          <Heading size="md">結果一覧</Heading>
+          <Heading size="md">プロジェクト一覧</Heading>
           <Spacer />
           <Text>25件 / 125件中</Text>
           <Spacer />
@@ -65,12 +65,12 @@ const ProjectListsPage: NextPage = () => {
           <ProjectList />
         </Box>
       </Main>
-      <Aside>
+      <Aside title="プロジェクトを探す">
         <Box mb={4}>
           <Panel
             imageSrc="/assets/images/icons/Type.svg"
-            title="種類"
-            subtitle="作ってみたいアプリケーション"
+            title="種別"
+            subtitle="作りたいポートフォリオ"
           >
             <TypeFilter />
           </Panel>
@@ -79,7 +79,7 @@ const ProjectListsPage: NextPage = () => {
           <Panel
             imageSrc="/assets/images/icons/Feature.svg"
             title="特徴"
-            subtitle="プロジェクトの特徴"
+            subtitle="プロジェクトの特徴など"
           >
             <FeatureFilter />
           </Panel>
@@ -88,7 +88,7 @@ const ProjectListsPage: NextPage = () => {
           <Panel
             imageSrc="/assets/images/icons/Skill.svg"
             title="技術 / ツール"
-            subtitle="経験を積みたい技術"
+            subtitle="経験を積みたい技術やツール"
           >
             <Box mt="-20px">
               <ToolFilter />
