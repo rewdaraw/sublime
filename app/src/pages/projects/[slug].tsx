@@ -1,13 +1,8 @@
 import { NextPage } from "next";
 import React from "react";
-import { DashboardTemplate } from "../../components/templates/DashboardTemplate";
 
 const ProjectDetailPage: NextPage = () => {
-  return (
-    <DashboardTemplate title="project detail page">
-      <div>vd</div>
-    </DashboardTemplate>
-  );
+  return <div>vd</div>;
 };
 
 export default ProjectDetailPage;
@@ -27,7 +22,7 @@ export function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Fetch necessary data for the blog post using params.id
-  const data = {}
+  const data = {};
   return {
     props: {
       data,

@@ -1,11 +1,7 @@
 import React from "react";
 import { Box, Heading } from "@chakra-ui/react";
-import { Panel } from "./projects/Panel";
-import { ToolFilter } from "./projects/ToolFilter";
-import { TypeFilter } from "./projects/TypeFilter";
-import { FeatureFilter } from "./projects/FeatureFilter";
 
-export const Aside: React.FC = () => {
+export const Aside: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <Box
       as="aside"
@@ -39,35 +35,7 @@ export const Aside: React.FC = () => {
         >
           プロジェクトを探す
         </Heading>
-        <Box mb={4}>
-          <Panel
-            imageSrc="/assets/images/icons/Type.svg"
-            title="種類"
-            subtitle="作ってみたいアプリケーション"
-          >
-            <TypeFilter />
-          </Panel>
-        </Box>
-        <Box mb={4}>
-          <Panel
-            imageSrc="/assets/images/icons/Feature.svg"
-            title="特徴"
-            subtitle="プロジェクトの特徴"
-          >
-            <FeatureFilter />
-          </Panel>
-        </Box>
-        <Box mb={4}>
-          <Panel
-            imageSrc="/assets/images/icons/Skill.svg"
-            title="技術 / ツール"
-            subtitle="経験を積みたい技術"
-          >
-            <Box mt="-20px">
-              <ToolFilter />
-            </Box>
-          </Panel>
-        </Box>
+        {children}
       </Box>
     </Box>
   );
