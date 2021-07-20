@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, HStack } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
@@ -9,6 +9,7 @@ import { DetailMainPanel } from "../../components/organisms/projects/DetailMainP
 import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
 import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
 import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
+import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -36,6 +37,14 @@ const ProjectDetailPage: NextPage = () => {
             <FeatureInfo />
           </DetailMainPanel>
         </Box>
+        <HStack mb={4} spacing={4}>
+          <DetailMainPanel>
+            <DevelopmentInfo />
+          </DetailMainPanel>
+          <DetailMainPanel>
+            <DevelopmentInfo />
+          </DetailMainPanel>
+        </HStack>
       </Main>
       <Aside title="Action">lll</Aside>
     </>
