@@ -7,14 +7,14 @@
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="ts" />
-      <option name="immediateSync" value="false" />
+      <option name="immediateSync" value="true" />
       <option name="name" value="Prettier" />
       <option name="output" value="$FilePathRelativeToProjectRoot$" />
       <option name="outputFilters">
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
+      <option name="program" value="$ProjectFileDir$/app/node_modules/.bin/prettier" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
@@ -27,14 +27,14 @@
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="tsx" />
-      <option name="immediateSync" value="false" />
+      <option name="immediateSync" value="true" />
       <option name="name" value="Prettier" />
       <option name="output" value="$FilePathRelativeToProjectRoot$" />
       <option name="outputFilters">
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
+      <option name="program" value="$ProjectFileDir$/app/node_modules/.bin/prettier" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
@@ -47,14 +47,14 @@
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="js" />
-      <option name="immediateSync" value="false" />
+      <option name="immediateSync" value="true" />
       <option name="name" value="Prettier" />
       <option name="output" value="$FilePathRelativeToProjectRoot$" />
       <option name="outputFilters">
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
+      <option name="program" value="$ProjectFileDir$/app/node_modules/.bin/prettier" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
@@ -67,14 +67,14 @@
       <option name="description" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="jsx" />
-      <option name="immediateSync" value="false" />
+      <option name="immediateSync" value="true" />
       <option name="name" value="Prettier" />
       <option name="output" value="$FilePathRelativeToProjectRoot$" />
       <option name="outputFilters">
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="$ProjectFileDir$/node_modules/.bin/prettier" />
+      <option name="program" value="$ProjectFileDir$/app/node_modules/.bin/prettier" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
