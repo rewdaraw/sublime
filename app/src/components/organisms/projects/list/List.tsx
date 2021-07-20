@@ -1,29 +1,20 @@
 import {
   Box,
   Link,
-  VStack,
   Flex,
   Spacer,
   Image,
   Tag,
   Text,
-  Icon,
   Wrap,
 } from "@chakra-ui/react";
 import React from "react";
+import { MainPanel } from "../MainPanel";
 
 export const ProjectList: React.VFC = () => {
   return (
     <Link href="/projects/a" _hover={{ style: "none" }}>
-      <VStack
-        rounded="xl"
-        spacing={4}
-        px={6}
-        py={6}
-        pb={5}
-        bg="white"
-        _hover={{ boxShadow: "lg" }}
-      >
+      <MainPanel>
         {/* 上段 */}
         <Flex w="100%" align="center">
           <Box>
@@ -168,7 +159,7 @@ export const ProjectList: React.VFC = () => {
             </Text>
           </Flex>
         </Wrap>
-      </VStack>
+      </MainPanel>
     </Link>
   );
 };

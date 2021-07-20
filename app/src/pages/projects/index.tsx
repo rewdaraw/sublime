@@ -14,7 +14,7 @@ import { ProjectList } from "../../components/organisms/projects/list/List";
 import { Header } from "../../components/organisms/Header";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
-import { Panel } from "../../components/organisms/projects/Panel";
+import { AsidePanel } from "../../components/organisms/projects/AsidePanel";
 import { ToolFilter } from "../../components/organisms/projects/list/ToolFilter";
 import { TypeFilter } from "../../components/organisms/projects/list/TypeFilter";
 import { FeatureFilter } from "../../components/organisms/projects/list/FeatureFilter";
@@ -67,25 +67,25 @@ const ProjectListsPage: NextPage = () => {
       </Main>
       <Aside title="プロジェクトを探す">
         <Box mb={4}>
-          <Panel
+          <AsidePanel
             imageSrc="/assets/images/icons/Type.svg"
             title="種別"
             subtitle="作りたいポートフォリオ"
           >
             <TypeFilter />
-          </Panel>
+          </AsidePanel>
         </Box>
         <Box mb={4}>
-          <Panel
+          <AsidePanel
             imageSrc="/assets/images/icons/Feature.svg"
             title="特徴"
             subtitle="プロジェクトの特徴など"
           >
             <FeatureFilter />
-          </Panel>
+          </AsidePanel>
         </Box>
         <Box mb={4}>
-          <Panel
+          <AsidePanel
             imageSrc="/assets/images/icons/Skill.svg"
             title="技術 / ツール"
             subtitle="経験を積みたい技術やツール"
@@ -93,7 +93,7 @@ const ProjectListsPage: NextPage = () => {
             <Box mt="-20px">
               <ToolFilter />
             </Box>
-          </Panel>
+          </AsidePanel>
         </Box>
       </Aside>
     </>
