@@ -1,19 +1,50 @@
 import React from "react";
-import { Box, Heading, Text } from "@chakra-ui/react";
-import { OutlinedFeatureList } from "../../../molecules/OutlinedFeatureList";
+import {
+  Image,
+  Heading,
+  Wrap,
+  WrapItem,
+  Table,
+  Tbody,
+  Tr,
+  Td,
+} from "@chakra-ui/react";
 
-export const DevelopmentInfo = () => {
+export const DevelopmentInfo: React.VFC = () => {
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>
         開発状況
       </Heading>
-      <OutlinedFeatureList />
-      <Box mt="24px !important">
-        <Text fontSize="md" lineHeight="1.9em !important">
-          engineer参加の方は、DockerとGitに関して操作問題ない方だと嬉しいです。
-        </Text>
-      </Box>
+      <Wrap mt="0px !important">
+        <WrapItem>
+          <Table variant="simple" w={{ base: "100%", lg: "350px" }}>
+            <Tbody>
+              <Tr>
+                <Td w="60px" pl={0}>
+                  2021.10.21
+                </Td>
+                <Td pr={0}>草案作成</Td>
+              </Tr>
+              <Tr>
+                <Td pl={0}>2021.11.1</Td>
+                <Td pr={0}>一部デザイン完了</Td>
+              </Tr>
+              <Tr>
+                <Td pl={0}>2021.12.24</Td>
+                <Td pr={0}>開発環境構築完了</Td>
+              </Tr>
+            </Tbody>
+          </Table>
+        </WrapItem>
+        <WrapItem d="inline-block" pl={8}>
+          <Image
+            src="/assets/images/dummy-chart.png"
+            boxSize="140px"
+            alt="chart"
+          />
+        </WrapItem>
+      </Wrap>
     </>
   );
 };

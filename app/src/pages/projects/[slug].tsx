@@ -41,9 +41,6 @@ const ProjectDetailPage: NextPage = () => {
           <DetailMainPanel>
             <DevelopmentInfo />
           </DetailMainPanel>
-          <DetailMainPanel>
-            <DevelopmentInfo />
-          </DetailMainPanel>
         </HStack>
       </Main>
       <Aside title="Action">lll</Aside>
