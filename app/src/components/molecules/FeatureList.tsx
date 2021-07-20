@@ -5,12 +5,20 @@ export const FeatureList: React.VFC = () => {
   return (
     <Wrap w="100%">
       <WrapItem>
-        <Tag size="md" variant="solid" bg="white" color="gray.400">
+        <Tag
+          size="md"
+          variant="solid"
+          bg="white"
+          color="gray.400"
+          ps={0}
+          pe={0}
+        >
           <Image
             src="/assets/images/icons/Office.svg"
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="企業案件"
           />
           <TagLabel>企業案件</TagLabel>
@@ -23,6 +31,7 @@ export const FeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="報酬あり"
           />
           <TagLabel>報酬あり</TagLabel>
@@ -35,6 +44,7 @@ export const FeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="実務経験者在籍"
           />
           <TagLabel>実務経験者在籍</TagLabel>
@@ -47,6 +57,7 @@ export const FeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="デザイナー募集中"
           />
           <TagLabel>デザイナー募集中</TagLabel>
@@ -59,6 +70,7 @@ export const FeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="エンジニア募集中"
           />
           <TagLabel>エンジニア募集中</TagLabel>

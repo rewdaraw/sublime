@@ -11,6 +11,7 @@ export const OutlinedFeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="企業案件"
           />
           <TagLabel>企業案件</TagLabel>
@@ -23,6 +24,7 @@ export const OutlinedFeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="報酬あり"
           />
           <TagLabel>報酬あり</TagLabel>
@@ -35,6 +37,7 @@ export const OutlinedFeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="実務経験者在籍"
           />
           <TagLabel>実務経験者在籍</TagLabel>
@@ -47,6 +50,7 @@ export const OutlinedFeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="デザイナー募集中"
           />
           <TagLabel>デザイナー募集中</TagLabel>
@@ -59,6 +63,7 @@ export const OutlinedFeatureList: React.VFC = () => {
             d="inline-flex"
             w="14px"
             h="14px"
+            mr={1}
             alt="エンジニア募集中"
           />
           <TagLabel>エンジニア募集中</TagLabel>
