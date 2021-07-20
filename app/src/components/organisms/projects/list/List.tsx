@@ -6,6 +6,7 @@ import {
   Image,
   Text,
   Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
 import { FeatureList } from "../../../molecules/FeatureList";
@@ -18,8 +19,8 @@ export const ProjectList: React.VFC = () => {
       <ListMainPanel>
         {/* 上段 */}
         <Flex w="100%" align="center">
-          <Box>
-            <Wrap align="center">
+          <Wrap align="center">
+            <WrapItem>
               {/* 画像とプロジェクト名 */}
               <Flex align="center">
                 <Image
@@ -39,10 +40,12 @@ export const ProjectList: React.VFC = () => {
                   人材マッチングサイト
                 </Text>
               </Flex>
-              {/* タグ */}
+            </WrapItem>
+            {/* タグ */}
+            <WrapItem isTruncated>
               <SkillList />
-            </Wrap>
-          </Box>
+            </WrapItem>
+          </Wrap>
           <Spacer />
           <Flex align="center">
             <Image
