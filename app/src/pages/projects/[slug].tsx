@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
@@ -66,7 +66,7 @@ const ProjectDetailPage: NextPage = () => {
             <TitleWithButton title="参加リクエストを送る" iconName="Send" />
           </SendRequestion>
         </Box>
-        <Box>
+        <Box mb={8}>
           <SendRequestion placeholder="何名くらいで開発を行う予定でしょうか？">
             <TitleWithButton
               title="プロジェクトについて質問する"
@@ -74,6 +74,24 @@ const ProjectDetailPage: NextPage = () => {
             />
           </SendRequestion>
         </Box>
+        <Box mb={4}>
+          <TitleWithButton
+            title="お気に入りに登録する"
+            iconName="WhiteOutlinedHeart"
+          />
+        </Box>
+        <Text mb={4} fontSize="sm">
+          現在
+          <Box as="span" color="red" fontSize="2xl" fontWeight="bold" px={2}>
+            9
+          </Box>
+          人がお気に入りに登録しています
+        </Text>
+        <Text fontSize="sm">
+          オーナーは、プロジェクトをお気に入り登録した人に
+          参加オファーを送ることができます。
+          お気に入りに登録すると参加オファーが届く可能性 が発生します。
+        </Text>
       </Aside>
     </>
   );
