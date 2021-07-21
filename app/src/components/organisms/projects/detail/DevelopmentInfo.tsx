@@ -8,6 +8,7 @@ import {
   Tbody,
   Tr,
   Td,
+  Spacer,
 } from "@chakra-ui/react";
 
 export const DevelopmentInfo: React.VFC = () => {
@@ -16,19 +17,21 @@ export const DevelopmentInfo: React.VFC = () => {
       <Heading as="h3" size="sm" mb={4}>
         開発状況
       </Heading>
-      <Wrap mt="0px !important">
+      <Wrap align="center" mt="0px !important">
         <WrapItem>
-          <Table variant="simple" w={{ base: "100%", lg: "350px" }}>
+          <Table variant="simple">
             <Tbody>
               <Tr>
-                <Td w="60px" pl={0}>
+                <Td pl={0} minW="120px">
                   2021.10.21
                 </Td>
-                <Td pr={0}>草案作成</Td>
+                <Td pr={0}>
+                  草案作成
+                </Td>
               </Tr>
               <Tr>
                 <Td pl={0}>2021.11.1</Td>
-                <Td pr={0}>一部デザイン完了</Td>
+                <Td pr={0}>一部デザイン完了完了完了完了完了</Td>
               </Tr>
               <Tr>
                 <Td pl={0}>2021.12.24</Td>
@@ -37,7 +40,8 @@ export const DevelopmentInfo: React.VFC = () => {
             </Tbody>
           </Table>
         </WrapItem>
-        <WrapItem d="inline-block" pl={8}>
+        <Spacer d={{ base: "none", md: "block" }} />
+        <WrapItem d="inline-block">
           <Image
             src="/assets/images/dummy-chart.png"
             boxSize="140px"

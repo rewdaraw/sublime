@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
-export const BasicInfo = () => {
+export const BasicInfo: React.VFC = () => {
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

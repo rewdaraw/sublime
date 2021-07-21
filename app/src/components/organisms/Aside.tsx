@@ -10,8 +10,8 @@ export const Aside: React.FC<IAside> = ({ children, title }) => {
   return (
     <Box
       as="aside"
-      d={{ base: "none", sm: "none", md: "none", lg: "none", xl: "block" }}
-      w="25vw"
+      d={{ base: "none", xl: "block" }}
+      w={{ base: "none", xl: "25vw" }}
       h="100vh"
       pos="fixed"
       top="0"

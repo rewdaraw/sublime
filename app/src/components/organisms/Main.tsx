@@ -11,7 +11,7 @@ export const Main: React.FC<IMain> = ({ children }) => {
       as="main"
       bg="#F7F9FC"
       rounded={30}
-      w={{ base: "100%", sm: "80vw", md: "70vw" }}
+      w={{ base: "100vw", xl: "70vw" }}
       p={{ base: "8px", sm: "48px" }}
       ml={{ base: "0px", sm: "72px" }}
     >
