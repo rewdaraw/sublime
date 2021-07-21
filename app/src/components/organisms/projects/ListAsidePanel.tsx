@@ -8,7 +8,7 @@ interface IPanel {
   subtitle: string;
 }
 
-export const AsidePanel: React.FC<IPanel> = ({
+export const ListAsidePanel: React.FC<IPanel> = ({
   children,
   imageSrc,
   title,
