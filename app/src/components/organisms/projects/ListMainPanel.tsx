@@ -5,7 +5,7 @@ export const ListMainPanel: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <VStack
       align="left"
-      rounded="xl"
+      rounded={30}
       spacing={4}
       px={6}
       py={6}

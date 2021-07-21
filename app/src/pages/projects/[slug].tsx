@@ -11,6 +11,7 @@ import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo"
 import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
 import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
 import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
+import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -46,6 +47,11 @@ const ProjectDetailPage: NextPage = () => {
         <Box mb={4}>
           <DetailMainPanel>
             <OwnersInfo />
+          </DetailMainPanel>
+        </Box>
+        <Box mb={4}>
+          <DetailMainPanel>
+            <FaqInfo />
           </DetailMainPanel>
         </Box>
       </Main>

@@ -5,7 +5,7 @@ export const DetailMainPanel: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <VStack
       align="left"
-      rounded="xl"
+      rounded={30}
       spacing={4}
       px={10}
       py={10}

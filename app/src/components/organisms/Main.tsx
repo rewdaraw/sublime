@@ -10,7 +10,7 @@ export const Main: React.FC<IMain> = ({ children }) => {
     <Box
       as="main"
       bg="#F7F9FC"
-      rounded={30}
+      rounded={60}
       w={{ base: "100vw", xl: "70vw" }}
       p={{ base: "8px", sm: "48px" }}
       ml={{ base: "0px", sm: "72px" }}
