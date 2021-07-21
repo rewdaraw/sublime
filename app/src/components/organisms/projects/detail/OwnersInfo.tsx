@@ -1,5 +1,6 @@
 import React from "react";
-import { Image, Heading, Box, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Heading, Wrap, WrapItem } from "@chakra-ui/react";
+import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
 
 export const OwnersInfo: React.VFC = () => {
   return (
@@ -8,31 +9,11 @@ export const OwnersInfo: React.VFC = () => {
         共同オーナー(参加者)
       </Heading>
       <Wrap>
-        <WrapItem pr={8}>
-          <Image
-            src="/assets/images/avatar.jpg"
-            boxSize={12}
-            alt="engineer"
-            rounded="full"
-            mr={4}
-          />
-          <Box textAlign="center">
-            <Text fontSize="sm">engineer</Text>
-            <Text>近藤シャロン</Text>
-          </Box>
+        <WrapItem pr={8} pb={2}>
+          <PeopleInfoLabel />
         </WrapItem>
-        <WrapItem>
-          <Image
-            src="/assets/images/avatar.jpg"
-            boxSize={12}
-            alt="engineer"
-            rounded="full"
-            mr={4}
-          />
-          <Box textAlign="center">
-            <Text fontSize="sm">designer</Text>
-            <Text>近藤シャロン</Text>
-          </Box>
+        <WrapItem pr={8} pb={2}>
+          <PeopleInfoLabel />
         </WrapItem>
       </Wrap>
     </>

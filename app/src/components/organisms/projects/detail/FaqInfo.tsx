@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Heading,
-  Wrap,
-  WrapItem,
-  Table,
-  Tbody,
-  Tr,
-  Td,
-  Spacer,
-} from "@chakra-ui/react";
+import { Heading, VStack, Box, Text, Divider } from "@chakra-ui/react";
+import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
 
 export const FaqInfo: React.VFC = () => {
   return (
@@ -17,36 +8,32 @@ export const FaqInfo: React.VFC = () => {
       <Heading as="h3" size="sm" mb={4}>
         質問と回答
       </Heading>
-      <Wrap align="center" mt="0px !important">
-        <WrapItem>
-          <Table variant="simple">
-            <Tbody>
-              <Tr>
-                <Td pl={0} minW="120px">
-                  2021.10.21
-                </Td>
-                <Td pr={0}>草案作成</Td>
-              </Tr>
-              <Tr>
-                <Td pl={0}>2021.11.1</Td>
-                <Td pr={0}>一部デザイン完了完了完了完了完了</Td>
-              </Tr>
-              <Tr>
-                <Td pl={0}>2021.12.24</Td>
-                <Td pr={0}>開発環境構築完了</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </WrapItem>
-        <Spacer d={{ base: "none", md: "block" }} />
-        <WrapItem d="inline-block">
-          <Image
-            src="/assets/images/dummy-chart.png"
-            boxSize="140px"
-            alt="chart"
-          />
-        </WrapItem>
-      </Wrap>
+      <VStack spacing={8}>
+        <Box w="100%" align="">
+          <Text fontSize="xs" color="red">
+            2021.12.16
+          </Text>
+          <Text mt={2}>Docker及びGit初心者なんですが、大丈夫でしょうか？</Text>
+          <Box mt={4} justifyContent="right">
+            <PeopleInfoLabel />
+          </Box>
+        </Box>
+        <Divider />
+        <Box w="100%" align="">
+          <Text fontSize="xs" color="red">
+            2021.12.16
+          </Text>
+          <Text mt={2}>
+            engineer参加の方は、DockerとGitに関して操作問題ない方だと嬉しいです。
+            もし経験ない場合はご相談ください、教えますので一緒にスキルアップしましょう！
+            TypeScriptやReact / Nextの経験者は是非！！
+          </Text>
+          <Box mt={4} justifyContent="right">
+            <PeopleInfoLabel />
+          </Box>
+        </Box>
+        {/* <Divider /> */}
+      </VStack>
     </>
   );
 };

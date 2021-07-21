@@ -8,15 +8,15 @@ export const BasicInfo: React.VFC = () => {
         基本情報
       </Heading>
       <VStack spacing={4} align="left">
-        <Text fontSize="11px" color="red">
-          タイトル
+        <Text fontSize="xs" color="red">
+          プロジェクト名
         </Text>
         <Text fontSize="md" mt="0px !important">
           人材マッチングSNS
         </Text>
       </VStack>
       <VStack spacing={4} align="left">
-        <Text fontSize="11px" color="red">
+        <Text fontSize="xs" color="red">
           アプリケーションの種類
         </Text>
         <Text fontSize="md" mt="0px !important">
@@ -24,8 +24,8 @@ export const BasicInfo: React.VFC = () => {
         </Text>
       </VStack>
       <VStack spacing={4} align="left">
-        <Text fontSize="11px" color="red">
-          詳細
+        <Text fontSize="xs" color="red">
+          プロジェクト詳細
         </Text>
         <Text fontSize="md" lineHeight="1.9em !important" mt="0px !important">
           ポートフォリオに何を作ったらよいか迷う人 /<br />

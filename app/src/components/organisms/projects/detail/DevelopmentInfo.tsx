@@ -22,20 +22,28 @@ export const DevelopmentInfo: React.VFC = () => {
           <Table variant="simple">
             <Tbody>
               <Tr>
-                <Td pl={0} minW="120px">
+                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
                   2021.10.21
                 </Td>
-                <Td pr={0}>
+                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
                   草案作成
                 </Td>
               </Tr>
               <Tr>
-                <Td pl={0}>2021.11.1</Td>
-                <Td pr={0}>一部デザイン完了完了完了完了完了</Td>
+                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
+                  2021.11.1
+                </Td>
+                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
+                  一部デザイン完了完了完了完了完了
+                </Td>
               </Tr>
               <Tr>
-                <Td pl={0}>2021.12.24</Td>
-                <Td pr={0}>開発環境構築完了</Td>
+                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
+                  2021.12.24
+                </Td>
+                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
+                  開発環境構築完了
+                </Td>
               </Tr>
             </Tbody>
           </Table>
