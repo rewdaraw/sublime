@@ -34,7 +34,7 @@ const ProjectListsPage: NextPage = () => {
           <Spacer />
           <Flex>
             <IconButton
-              as="button"
+              size="sm"
               bg="white"
               rounded="full"
               boxShadow="lg"

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-export const Header = () => {
+export const Header: React.VFC = () => {
   return (
     <Flex
       as="header"

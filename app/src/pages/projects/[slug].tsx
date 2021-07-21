@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, VStack } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
@@ -12,6 +12,8 @@ import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureI
 import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
 import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
 import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
+import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
+import { TitleWithButton } from "../../components/molecules/TitleWithButton";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -55,7 +57,24 @@ const ProjectDetailPage: NextPage = () => {
           </DetailMainPanel>
         </Box>
       </Main>
-      <Aside title="Action">lll</Aside>
+      <Aside title="Action">
+        <Box mb={8}>
+          <SendRequestion
+            placeholder="(例)はじめまして、xxxです。こちらのプロジェクトに参加したいです。
+        よろしくお願いします。"
+          >
+            <TitleWithButton title="参加リクエストを送る" iconName="Send" />
+          </SendRequestion>
+        </Box>
+        <Box>
+          <SendRequestion placeholder="何名くらいで開発を行う予定でしょうか？">
+            <TitleWithButton
+              title="プロジェクトについて質問する"
+              iconName="Send"
+            />
+          </SendRequestion>
+        </Box>
+      </Aside>
     </>
   );
 };
