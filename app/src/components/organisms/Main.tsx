@@ -10,10 +10,10 @@ export const Main: React.FC<IMain> = ({ children }) => {
     <Box
       as="main"
       bg="#F7F9FC"
-      rounded={{base: "0px", sm: "48px"}}
+      rounded={{ base: "0px", sm: "48px" }}
       w={{ base: "100vw", xl: "70vw" }}
-      p={{ base: "8px", sm: "48px" }}
-      ml={{ base: "0px", sm: "72px" }}
+      pt={{ base: "8px", sm: "48px" }}
+      pr={{ base: "8px", sm: "48px" }}
     >
       {children}
     </Box>

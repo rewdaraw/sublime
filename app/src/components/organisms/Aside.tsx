@@ -13,9 +13,9 @@ export const Aside: React.FC<IAside> = ({ children, title }) => {
       d={{ base: "none", xl: "block" }}
       w={{ base: "none", xl: "25vw" }}
       h="100vh"
-      pos="fixed"
-      top="0"
-      right="0"
+      // pos="fixed"
+      // top="0"
+      // right="0"
       py={12}
       px={6}
       overflow="scroll"
