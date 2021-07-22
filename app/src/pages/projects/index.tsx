@@ -29,7 +29,7 @@ const ProjectListsPage: NextPage = () => {
       </Head>
       <Header />
       {/* <VerticalHeader /> */}
-      <Box w="100%" bg="#F7F9FC" pt="72px">
+      <Box w="100%" minH="100vh" bg="#F7F9FC" pt="72px">
         <Container maxW="container.xl">
           <Flex>
             <Main>
@@ -55,6 +55,18 @@ const ProjectListsPage: NextPage = () => {
                   />
                 </Flex>
               </Flex>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
               <Box mb={2}>
                 <ProjectList />
               </Box>

@@ -12,23 +12,18 @@ export const Aside: React.FC<IAside> = ({ children, title }) => {
       as="aside"
       d={{ base: "none", xl: "block" }}
       w={{ base: "none", xl: "25vw" }}
-      h="100vh"
-      // pos="fixed"
-      // top="0"
-      // right="0"
       py={12}
-      px={6}
       overflow="scroll"
     >
       <Box mb={8} pos="relative">
         <Heading
           size="md"
           ml={4}
-          mb={8}
+          mb={10}
           _before={{
             position: "absolute",
             top: "2px",
-            left: "-2px",
+            left: "0px",
             content: '""',
             width: "4px",
             height: "22px",
