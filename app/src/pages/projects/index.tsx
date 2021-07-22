@@ -11,7 +11,7 @@ import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
 import { ProjectList } from "../../components/organisms/projects/list/List";
-import { Header } from "../../components/organisms/Header";
+import { VerticalHeader } from "../../components/organisms/VerticalHeader";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
 import { ListAsidePanel } from "../../components/organisms/projects/ListAsidePanel";
@@ -25,7 +25,7 @@ const ProjectListsPage: NextPage = () => {
       <Head>
         <title>project index page</title>
       </Head>
-      <Header />
+      <VerticalHeader />
       <Main>
         <Flex mb={8}>
           <Heading size="md">プロジェクト一覧</Heading>

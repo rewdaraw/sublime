@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
-import { Header } from "../../components/organisms/Header";
+import { VerticalHeader } from "../../components/organisms/VerticalHeader";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
 import { DetailMainPanel } from "../../components/organisms/projects/DetailMainPanel";
@@ -21,7 +21,7 @@ const ProjectDetailPage: NextPage = () => {
       <Head>
         <title>project detail page</title>
       </Head>
-      <Header />
+      <VerticalHeader />
       <Main>
         <Flex mb={8}>
           <Heading size="md">プロジェクト情報</Heading>
