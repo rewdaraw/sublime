@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { SkillList } from "../../../molecules/SkillList";
 
-export const SkillInfo = () => {
+export const SkillInfo: React.VFC = () => {
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

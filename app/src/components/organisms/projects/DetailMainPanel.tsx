@@ -5,9 +5,9 @@ export const DetailMainPanel: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <VStack
       align="left"
-      rounded={{ base: "8px", sm: "32px" }}
+      rounded={{ base: "8px", sm: "16px" }}
       spacing={4}
-      p={{ base: "16px", sm: "60px" }}
+      p={{ base: "16px", sm: "32px" }}
       bg="white"
     >
       {children}

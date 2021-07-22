@@ -16,10 +16,11 @@ export const SendRequestion: React.FC<ISendRequestion> = ({
       <Textarea
         mt={4}
         minH="150px"
-        bg="#F7F9FC"
+        bg="white"
         focusBorderColor="none"
         border="none"
         rounded="xl"
+        fontSize="sm"
         placeholder={placeholder}
       />
     </Box>

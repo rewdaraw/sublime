@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { OutlinedFeatureList } from "../../../molecules/OutlinedFeatureList";
 
-export const FeatureInfo = () => {
+export const FeatureInfo: React.VFC = () => {
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

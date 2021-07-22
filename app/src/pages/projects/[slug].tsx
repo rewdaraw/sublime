@@ -1,8 +1,7 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
-import { VerticalHeader } from "../../components/organisms/VerticalHeader";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
 import { DetailMainPanel } from "../../components/organisms/projects/DetailMainPanel";
@@ -14,6 +13,7 @@ import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInf
 import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
 import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
 import { TitleWithButton } from "../../components/molecules/TitleWithButton";
+import { Header } from "../../components/organisms/Header";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -21,78 +21,95 @@ const ProjectDetailPage: NextPage = () => {
       <Head>
         <title>project detail page</title>
       </Head>
-      <VerticalHeader />
-      <Main>
-        <Flex mb={8}>
-          <Heading size="md">プロジェクト情報</Heading>
-        </Flex>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <BasicInfo />
-          </DetailMainPanel>
-        </Box>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <SkillInfo />
-          </DetailMainPanel>
-        </Box>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <FeatureInfo />
-          </DetailMainPanel>
-        </Box>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <DevelopmentInfo />
-          </DetailMainPanel>
-        </Box>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <OwnersInfo />
-          </DetailMainPanel>
-        </Box>
-        <Box mb={4}>
-          <DetailMainPanel>
-            <FaqInfo />
-          </DetailMainPanel>
-        </Box>
-      </Main>
-      <Aside title="Action">
-        <Box mb={8}>
-          <SendRequestion
-            placeholder="(例)はじめまして、xxxです。こちらのプロジェクトに参加したいです。
+      <Header />
+      <Box w="100%" minH="100vh" bg="#F7F9FC" pt="72px">
+        <Container maxW="1120px">
+          <Flex>
+            <Main>
+              <Flex mb={8}>
+                <Heading size="md">プロジェクト情報</Heading>
+              </Flex>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <BasicInfo />
+                </DetailMainPanel>
+              </Box>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <SkillInfo />
+                </DetailMainPanel>
+              </Box>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <FeatureInfo />
+                </DetailMainPanel>
+              </Box>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <DevelopmentInfo />
+                </DetailMainPanel>
+              </Box>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <OwnersInfo />
+                </DetailMainPanel>
+              </Box>
+              <Box mb={4}>
+                <DetailMainPanel>
+                  <FaqInfo />
+                </DetailMainPanel>
+              </Box>
+            </Main>
+            <Aside title="Action">
+              <Box mb={2}>
+                <TitleWithButton
+                  title="お気に入りに登録する"
+                  iconName="WhiteOutlinedHeart"
+                />
+              </Box>
+              <Text mb={4} fontSize="sm">
+                現在
+                <Box
+                  as="span"
+                  color="red"
+                  fontSize="2xl"
+                  fontWeight="bold"
+                  px={2}
+                >
+                  9
+                </Box>
+                人がお気に入りに登録しています
+              </Text>
+              <Text fontSize="sm" mb={16}>
+                オーナーは、プロジェクトをお気に入り登録した人に
+                参加オファーを送ることができます。
+                お気に入りに登録すると参加オファーが届く可能性 が発生します。
+              </Text>
+
+              <Box mb={16}>
+                <SendRequestion placeholder="何名くらいで開発を行う予定でしょうか？">
+                  <TitleWithButton
+                    title="プロジェクトについて質問する"
+                    iconName="Send"
+                  />
+                </SendRequestion>
+              </Box>
+
+              <Box mb={8}>
+                <SendRequestion
+                  placeholder="(例)はじめまして、xxxです。こちらのプロジェクトに参加したいです。
         よろしくお願いします。"
-          >
-            <TitleWithButton title="参加リクエストを送る" iconName="Send" />
-          </SendRequestion>
-        </Box>
-        <Box mb={8}>
-          <SendRequestion placeholder="何名くらいで開発を行う予定でしょうか？">
-            <TitleWithButton
-              title="プロジェクトについて質問する"
-              iconName="Send"
-            />
-          </SendRequestion>
-        </Box>
-        <Box mb={4}>
-          <TitleWithButton
-            title="お気に入りに登録する"
-            iconName="WhiteOutlinedHeart"
-          />
-        </Box>
-        <Text mb={4} fontSize="sm">
-          現在
-          <Box as="span" color="red" fontSize="2xl" fontWeight="bold" px={2}>
-            9
-          </Box>
-          人がお気に入りに登録しています
-        </Text>
-        <Text fontSize="sm">
-          オーナーは、プロジェクトをお気に入り登録した人に
-          参加オファーを送ることができます。
-          お気に入りに登録すると参加オファーが届く可能性 が発生します。
-        </Text>
-      </Aside>
+                >
+                  <TitleWithButton
+                    title="参加リクエストを送る"
+                    iconName="Send"
+                  />
+                </SendRequestion>
+              </Box>
+            </Aside>
+          </Flex>
+        </Container>
+      </Box>
     </>
   );
 };
