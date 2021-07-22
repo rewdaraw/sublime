@@ -11,9 +11,8 @@ export const Aside: React.FC<IAside> = ({ children, title }) => {
     <Box
       as="aside"
       d={{ base: "none", xl: "block" }}
-      w={{ base: "none", xl: "25vw" }}
+      w={{ base: "none", xl: "25%" }}
       py={12}
-      overflow="scroll"
     >
       <Box mb={8} pos="relative">
         <Heading

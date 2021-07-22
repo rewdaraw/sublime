@@ -16,7 +16,7 @@ const countries = [
   { value: "php", label: "PHP" },
 ];
 
-export const ToolFilter = () => {
+export const ToolFilter: React.VFC = () => {
   const [pickerItems, setPickerItems] = React.useState(countries);
   const [selectedItems, setSelectedItems] = React.useState<Item[]>([]);
 

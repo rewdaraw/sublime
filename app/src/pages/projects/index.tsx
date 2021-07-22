@@ -12,7 +12,6 @@ import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
 import { ProjectList } from "../../components/organisms/projects/list/List";
-import { VerticalHeader } from "../../components/organisms/VerticalHeader";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
 import { ListAsidePanel } from "../../components/organisms/projects/ListAsidePanel";
@@ -28,9 +27,8 @@ const ProjectListsPage: NextPage = () => {
         <title>project index page</title>
       </Head>
       <Header />
-      {/* <VerticalHeader /> */}
       <Box w="100%" minH="100vh" bg="#F7F9FC" pt="72px">
-        <Container maxW="container.xl">
+        <Container maxW="1120px">
           <Flex>
             <Main>
               <Flex mb={8}>
@@ -38,6 +36,7 @@ const ProjectListsPage: NextPage = () => {
                 <Spacer />
                 <Text>25件 / 125件中</Text>
                 <Spacer />
+                {/* 広げるボタン */}
                 <Flex>
                   <IconButton
                     size="sm"
@@ -55,6 +54,18 @@ const ProjectListsPage: NextPage = () => {
                   />
                 </Flex>
               </Flex>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
+              <Box mb={2}>
+                <ProjectList />
+              </Box>
               <Box mb={2}>
                 <ProjectList />
               </Box>

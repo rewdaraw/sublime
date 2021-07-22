@@ -1,11 +1,11 @@
 import React from "react";
 import { Checkbox, CheckboxGroup, VStack } from "@chakra-ui/react";
 
-export const FeatureFilter = () => {
+export const FeatureFilter: React.VFC = () => {
   return (
     <CheckboxGroup
       colorScheme="red"
-      size="md"
+      size="sm"
       defaultValue={["", ""]}
     >
       <VStack align="left">
