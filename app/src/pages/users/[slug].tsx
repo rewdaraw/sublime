@@ -2,11 +2,11 @@ import { Box, Container, Flex, Heading } from "@chakra-ui/react";
 import Head from "next/head";
 import { NextPage } from "next";
 import React from "react";
-import { Main } from "../../components/organisms/Main";
 import { DetailMainPanel } from "../../components/organisms/projects/DetailMainPanel";
 import { Header } from "../../components/organisms/Header";
 import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
 import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
+import { WideMain } from "../../components/organisms/WideMain";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const ProjectDetailPage: NextPage = () => {
       <Box w="100%" minH="100vh" bg="#F7F9FC" pt="72px">
         <Container maxW="1120px">
           <Flex>
-            <Main>
+            <WideMain>
               <Flex mb={8}>
                 <Heading size="md">お知らせ</Heading>
               </Flex>
@@ -35,7 +35,7 @@ const ProjectDetailPage: NextPage = () => {
                   <UserInfo />
                 </DetailMainPanel>
               </Box>
-            </Main>
+            </WideMain>
           </Flex>
         </Container>
       </Box>
