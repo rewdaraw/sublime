@@ -6,6 +6,7 @@ import { Main } from "../../components/organisms/Main";
 import { DetailMainPanel } from "../../components/organisms/projects/DetailMainPanel";
 import { Header } from "../../components/organisms/Header";
 import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
+import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -26,12 +27,14 @@ const ProjectDetailPage: NextPage = () => {
                   <NotificationInfo />
                 </DetailMainPanel>
               </Box>
-              <Flex mb={8}>
-                <Heading size="md">ユーザー情報</Heading>
+              <Box mb={8}>
+                <Heading size="md" mb={8}>
+                  ユーザー情報
+                </Heading>
                 <DetailMainPanel>
-                  
+                  <UserInfo />
                 </DetailMainPanel>
-              </Flex>
+              </Box>
             </Main>
           </Flex>
         </Container>

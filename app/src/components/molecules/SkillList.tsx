@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrap, WrapItem, Tag } from "@chakra-ui/react";
 
-export const SkillList = () => {
+export const SkillList: React.VFC = () => {
   return (
     <Wrap>
       <WrapItem>
