@@ -4,7 +4,7 @@ import { NextPage } from "next";
 import React from "react";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
-import { DetailMainPanel } from "../../components/organisms/projects/DetailMainPanel";
+import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
 import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
 import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
 import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
@@ -30,34 +30,34 @@ const ProjectDetailPage: NextPage = () => {
                 <Heading size="md">プロジェクト情報</Heading>
               </Flex>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <BasicInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <SkillInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <FeatureInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <DevelopmentInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <OwnersInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
-                <DetailMainPanel>
+                <WhiteRoundedCard>
                   <FaqInfo />
-                </DetailMainPanel>
+                </WhiteRoundedCard>
               </Box>
             </Main>
             <Aside title="Action">

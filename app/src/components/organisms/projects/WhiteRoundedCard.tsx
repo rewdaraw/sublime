@@ -1,7 +1,7 @@
 import React from "react";
 import { VStack } from "@chakra-ui/react";
 
-export const DetailMainPanel: React.FC<React.ReactNode> = ({ children }) => {
+export const WhiteRoundedCard: React.FC<React.ReactNode> = ({ children }) => {
   return (
     <VStack
       align="left"

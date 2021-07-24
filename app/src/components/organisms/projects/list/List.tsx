@@ -10,12 +10,12 @@ import {
 import React from "react";
 import { FeatureList } from "../../../molecules/FeatureList";
 import { SkillList } from "../../../molecules/SkillList";
-import { ListMainPanel } from "../ListMainPanel";
+import { WhiteRoundedList } from "../WhiteRoundedList";
 
 export const ProjectList: React.VFC = () => {
   return (
     <Link href="/projects/a" _hover={{ style: "none" }}>
-      <ListMainPanel>
+      <WhiteRoundedList>
         {/* 上段 */}
         <Flex w="100%" align="center">
           <Wrap align="center">
@@ -59,7 +59,7 @@ export const ProjectList: React.VFC = () => {
         </Flex>
         {/* 下段 */}
         <FeatureList />
-      </ListMainPanel>
+      </WhiteRoundedList>
     </Link>
   );
 };
