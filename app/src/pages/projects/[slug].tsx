@@ -26,9 +26,9 @@ const ProjectDetailPage: NextPage = () => {
         <Container maxW="1120px">
           <Flex>
             <Main>
-              <Flex mb={8}>
-                <Heading size="md">プロジェクト情報</Heading>
-              </Flex>
+              <Heading size="md" mb={6}>
+                プロジェクト情報
+              </Heading>
               <Box mb={4}>
                 <WhiteRoundedCard>
                   <BasicInfo />

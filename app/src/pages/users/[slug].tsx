@@ -19,18 +19,26 @@ const ProjectDetailPage: NextPage = () => {
         <Container maxW="1120px">
           <Flex>
             <WideMain>
-              <Flex mb={8}>
-                <Heading size="md">お知らせ</Heading>
-              </Flex>
+              <Heading size="md" mb={6}>
+                お知らせ
+              </Heading>
               <Box mb={12}>
                 <WhiteRoundedCard>
                   <NotificationInfo />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={8}>
-                <Heading size="md" mb={8}>
-                  ユーザー情報
-                </Heading>
+              <Heading size="md" mb={6}>
+                ユーザー情報
+              </Heading>
+              <Box mb={12}>
+                <WhiteRoundedCard>
+                  <UserInfo />
+                </WhiteRoundedCard>
+              </Box>
+              <Heading size="md" mb={6}>
+                関連プロジェクト
+              </Heading>
+              <Box mb={12}>
                 <WhiteRoundedCard>
                   <UserInfo />
                 </WhiteRoundedCard>

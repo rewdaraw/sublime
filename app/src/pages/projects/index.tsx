@@ -31,7 +31,7 @@ const ProjectListsPage: NextPage = () => {
         <Container maxW="1120px">
           <Flex>
             <Main>
-              <Flex mb={8}>
+              <Flex mb={6}>
                 <Heading size="md">プロジェクト一覧</Heading>
                 <Spacer />
                 <Text>25件 / 125件中</Text>
