@@ -7,6 +7,7 @@ import { Header } from "../../components/organisms/Header";
 import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
 import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
 import { WideMain } from "../../components/organisms/WideMain";
+import { RelatedProjectInfo } from "../../components/organisms/users/detail/RelatedProjectInfo";
 
 const ProjectDetailPage: NextPage = () => {
   return (
@@ -39,9 +40,7 @@ const ProjectDetailPage: NextPage = () => {
                 関連プロジェクト
               </Heading>
               <Box mb={12}>
-                <WhiteRoundedCard>
-                  <UserInfo />
-                </WhiteRoundedCard>
+                <RelatedProjectInfo />
               </Box>
             </WideMain>
           </Flex>
