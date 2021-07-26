@@ -26,3 +26,23 @@ model User {
   @@map("users")
 }
 
+model Project {
+  id            Int         @id @default(autoincrement())
+  title         String
+  description   String
+  projectType   ProjectType @relation(fields: [projectTypeId], references: [id])
+  projectTypeId Int
+  updatedAt     DateTime    @updatedAt
+
+  @@map("projects")
+}
+
+// sns | ecサイト | ホームページ ...
+model ProjectType {
+  id          Int       @id @default(autoincrement())
+  description String
+  projects     Project[]
+  updatedAt   DateTime  @updatedAt
+
+  @@map("project_types")
+}
