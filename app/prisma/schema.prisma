@@ -33,9 +33,31 @@ model Project {
   projectType     ProjectType               @relation(fields: [projectTypeId], references: [id])
   projectTypeId   Int
   projectFeatures ProjectToProjectFeature[]
+  projectStatuses ProjectToProgressStatus[]
   updatedAt       DateTime                  @updatedAt
 
   @@map("projects")
+}
+
+// 10% | 20%
+model ProgressStatus {
+  id        Int                       @id @default(autoincrement())
+  rate      String
+  projects  ProjectToProgressStatus[]
+  updatedAt DateTime                  @updatedAt
+
+  @@map("progress_statuses")
+}
+
+model ProjectToProgressStatus {
+  id               Int            @id @default(autoincrement())
+  progressStatus   ProgressStatus @relation(fields: [progressStatusId], references: [id])
+  progressStatusId Int
+  project          Project        @relation(fields: [projectId], references: [id])
+  projectId        Int
+  updatedAt        DateTime       @updatedAt
+
+  @@map("projectsToprogress_statuses")
 }
 
 // 企業案件 | 報酬あり | xxx募集中 ...
