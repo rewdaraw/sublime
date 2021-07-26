@@ -71,12 +71,12 @@ model ProjectFeature {
 }
 
 model ProjectToProjectFeature {
-  id               Int             @id @default(autoincrement())
-  Project          Project?        @relation(fields: [projectId], references: [id])
-  projectId        Int?
-  ProjectFeature   ProjectFeature? @relation(fields: [projectFeatureId], references: [id])
-  projectFeatureId Int?
-  updatedAt        DateTime        @updatedAt
+  id               Int            @id @default(autoincrement())
+  Project          Project        @relation(fields: [projectId], references: [id])
+  projectId        Int
+  ProjectFeature   ProjectFeature @relation(fields: [projectFeatureId], references: [id])
+  projectFeatureId Int
+  updatedAt        DateTime       @updatedAt
 
   @@map("projectsToproject_features")
 }
