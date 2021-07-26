@@ -7,6 +7,22 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
   binaryTargets = ["native", "darwin"]
 }
+
+// model definition ------------------------------------------------------
+
+model User {
+  id                  Int     @id @default(autoincrement())
+  email               String? @unique
+  github_account_url  String?
+  twitter_account_url String?
+  image_url           String
+  type                String
+  experience          String
+  description         String
+
+  @@map("users")
+}
+
