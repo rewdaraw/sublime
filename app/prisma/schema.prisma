@@ -13,10 +13,11 @@ generator client {
 
 // model definition ------------------------------------------------------
 model Skill {
-  id          Int           @id @default(autoincrement())
+  id          Int              @id @default(autoincrement())
   description String
   users       SkillToUser[]
-  updatedAt   DateTime      @updatedAt
+  projects    ProjectToSkill[]
+  updatedAt   DateTime         @updatedAt
 
   @@map("skills")
 }
@@ -30,6 +31,17 @@ model SkillToUser {
   updatedAt DateTime @updatedAt
 
   @@map("skillsTousers")
+}
+
+model ProjectToSkill {
+  id        Int      @id @default(autoincrement())
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  skill     Skill    @relation(fields: [skillId], references: [id])
+  skillId   Int
+  updatedAt DateTime @updatedAt
+
+  @@map("projectsToskills")
 }
 
 model User {
@@ -55,6 +67,7 @@ model Project {
   projectTypeId   Int
   projectFeatures ProjectToProjectFeature[]
   projectStatuses ProjectToProgressStatus[]
+  skills          ProjectToSkill[]
   updatedAt       DateTime                  @updatedAt
 
   @@map("projects")
