@@ -27,21 +27,43 @@ model User {
 }
 
 model Project {
-  id            Int         @id @default(autoincrement())
-  title         String
-  description   String
-  projectType   ProjectType @relation(fields: [projectTypeId], references: [id])
-  projectTypeId Int
-  updatedAt     DateTime    @updatedAt
+  id              Int                       @id @default(autoincrement())
+  title           String
+  description     String
+  projectType     ProjectType               @relation(fields: [projectTypeId], references: [id])
+  projectTypeId   Int
+  projectFeatures ProjectToProjectFeature[]
+  updatedAt       DateTime                  @updatedAt
 
   @@map("projects")
+}
+
+// 企業案件 | 報酬あり | xxx募集中 ...
+model ProjectFeature {
+  id          Int                       @id @default(autoincrement())
+  description String
+  projects    ProjectToProjectFeature[]
+  updatedAt   DateTime                  @updatedAt
+
+  @@map("project_features")
+}
+
+model ProjectToProjectFeature {
+  id               Int             @id @default(autoincrement())
+  Project          Project?        @relation(fields: [projectId], references: [id])
+  projectId        Int?
+  ProjectFeature   ProjectFeature? @relation(fields: [projectFeatureId], references: [id])
+  projectFeatureId Int?
+  updatedAt        DateTime        @updatedAt
+
+  @@map("projectsToproject_features")
 }
 
 // sns | ecサイト | ホームページ ...
 model ProjectType {
   id          Int       @id @default(autoincrement())
   description String
-  projects     Project[]
+  projects    Project[]
   updatedAt   DateTime  @updatedAt
 
   @@map("project_types")
