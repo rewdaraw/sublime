@@ -3,7 +3,7 @@ import { Checkbox, CheckboxGroup, VStack } from "@chakra-ui/react";
 
 export const TypeFilter: React.VFC = () => {
   return (
-    <CheckboxGroup  colorScheme="red" size="sm" defaultValue={["", ""]}>
+    <CheckboxGroup colorScheme="red" size="sm" defaultValue={["", ""]}>
       <VStack align="left">
         <Checkbox value="sns">SNS</Checkbox>
         <Checkbox value="ec">EC</Checkbox>

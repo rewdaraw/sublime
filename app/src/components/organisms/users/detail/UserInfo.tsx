@@ -54,10 +54,7 @@ export const UserInfo: React.VFC = () => {
             w="fit-content"
             mx={{ base: "0px", sm: "auto" }}
           >
-            <Link
-              href="/"
-              target="_blank"
-            >
+            <Link href="/" target="_blank">
               <Image
                 src="/assets/images/icons/mail.svg"
                 boxSize="24px"

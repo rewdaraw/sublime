@@ -23,7 +23,7 @@ export const Header: React.VFC = () => {
       pos="fixed"
       zIndex={999}
     >
-      <Container maxW="1120px" px={{base: "0px", sm: "16px"}}>
+      <Container maxW="1120px" px={{ base: "0px", sm: "16px" }}>
         <Flex align="center">
           {/* logo */}
           <Heading as="h1">
