@@ -8,5 +8,5 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
-  "ignorePatterns": ["src/generated/graphql.ts"]
+  "ignorePatterns": ["src/graphql/generated/types.ts"]
 }
