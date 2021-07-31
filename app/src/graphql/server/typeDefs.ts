@@ -10,7 +10,7 @@ export const typeDefs = gql`
 
   type Skill {
     id: Int!
-    description: String!
+    description: String
   }
 
   type User {
@@ -29,53 +29,49 @@ export const typeDefs = gql`
     updatedAt: String
   }
 
-  # type Project {
-  #   id: Int!
-  #   title: String
-  #   description: String
-  #   projectType: String
-  #   projectFeatures: [ProjectFeature]
-  #   projectStatuses: [ProgressStatus]
-  #   skills: [Skill]
-  #   usersLiked: [User]
-  #   usersRequested: [User]
-  #   usersAsked: [User]
-  #   created_at: String!
-  #   updatedAt: String
-  # }
   type Project {
     id: Int!
     title: String
     description: String
-    projectType: String
+    projectType: ProjectType
     projectFeatures: [ProjectFeature]
     projectStatuses: [ProgressStatus]
-    skills: [Skill]
+    skills: [ProjectToSkill!]
     usersLiked: [User]
     usersRequested: [User]
     usersAsked: [User]
-    created_at: String!
+    created_at: String
     updatedAt: String
   }
 
   type ProjectType {
     id: Int!
-    description: String!
-    created_at: String!
+    description: String
+    created_at: String
     updatedAt: String
   }
 
   type ProjectFeature {
     id: Int!
-    description: String!
-    created_at: String!
+    description: String
+    created_at: String
     updatedAt: String
   }
 
   type ProgressStatus {
     id: Int!
-    rate: String!
-    created_at: String!
+    rate: String
+    created_at: String
+    updatedAt: String
+  }
+
+  type ProjectToSkill {
+    id: Int
+    project: Project
+    projectId: Int
+    skill: Skill
+    skillId: Int
+    created_at: String
     updatedAt: String
   }
 `;
