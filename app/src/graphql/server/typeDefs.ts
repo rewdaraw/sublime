@@ -15,6 +15,7 @@ export const typeDefs = gql`
 
   type User {
     id: Int!
+    userName: String
     email: String
     twitter_account_url: String
     image_url: String
