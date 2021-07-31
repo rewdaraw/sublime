@@ -9,10 +9,11 @@ export const skills = [
   { id: 7, description: "Python" },
   { id: 8, description: "Go" },
   // FW
+  { id: 9, description: "Laravel" },
   // Tool
-  { id: 8, description: "Git" },
-  { id: 8, description: "Docker" },
-  { id: 8, description: "Figma" },
-  { id: 8, description: "XD" },
-  { id: 8, description: "Sketch" },
+  { id: 10, description: "Git" },
+  { id: 11, description: "Docker" },
+  { id: 12, description: "Figma" },
+  { id: 13, description: "XD" },
+  { id: 14, description: "Sketch" },
 ];
