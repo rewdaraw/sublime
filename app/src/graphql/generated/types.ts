@@ -15,11 +15,33 @@ export type Scalars = {
   Float: number;
 };
 
+export type JoinRequest = {
+  __typename?: 'JoinRequest';
+  id: Scalars['Int'];
+  user?: Maybe<User>;
+  userId?: Maybe<Scalars['Int']>;
+  project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
+};
+
+export type Like = {
+  __typename?: 'Like';
+  id: Scalars['Int'];
+  user?: Maybe<User>;
+  userId?: Maybe<Scalars['Int']>;
+  project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
+};
+
 export type ProgressStatus = {
   __typename?: 'ProgressStatus';
   id: Scalars['Int'];
-  rate: Scalars['String'];
-  created_at: Scalars['String'];
+  rate?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['String']>;
 };
 
@@ -28,31 +50,75 @@ export type Project = {
   id: Scalars['Int'];
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  projectType?: Maybe<Scalars['String']>;
-  projectFeatures?: Maybe<Array<Maybe<ProjectFeature>>>;
-  projectStatuses?: Maybe<Array<Maybe<ProgressStatus>>>;
-  skills?: Maybe<Array<Maybe<Skill>>>;
-  usersLiked?: Maybe<Array<Maybe<User>>>;
-  usersRequested?: Maybe<Array<Maybe<User>>>;
-  usersAsked?: Maybe<Array<Maybe<User>>>;
-  created_at: Scalars['String'];
+  projectType?: Maybe<ProjectType>;
+  projectFeatures?: Maybe<Array<ProjectToProjectFeature>>;
+  projectStatuses?: Maybe<Array<ProjectToProgressStatus>>;
+  skills?: Maybe<Array<ProjectToSkill>>;
+  usersLiked?: Maybe<Array<Like>>;
+  usersRequested?: Maybe<Array<JoinRequest>>;
+  usersAsked?: Maybe<Array<Qa>>;
+  created_at?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['String']>;
 };
 
 export type ProjectFeature = {
   __typename?: 'ProjectFeature';
   id: Scalars['Int'];
-  description: Scalars['String'];
-  created_at: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['String']>;
+};
+
+export type ProjectToProgressStatus = {
+  __typename?: 'ProjectToProgressStatus';
+  id: Scalars['Int'];
+  progressStatus?: Maybe<ProgressStatus>;
+  progressStatusId?: Maybe<Scalars['Int']>;
+  project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
+};
+
+export type ProjectToProjectFeature = {
+  __typename?: 'ProjectToProjectFeature';
+  id: Scalars['Int'];
+  Project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  ProjectFeature?: Maybe<ProjectFeature>;
+  projectFeatureId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
+};
+
+export type ProjectToSkill = {
+  __typename?: 'ProjectToSkill';
+  id: Scalars['Int'];
+  project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  skill?: Maybe<Skill>;
+  skillId?: Maybe<Scalars['Int']>;
+  created_at?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['String']>;
 };
 
 export type ProjectType = {
   __typename?: 'ProjectType';
   id: Scalars['Int'];
-  description: Scalars['String'];
-  created_at: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
   updatedAt?: Maybe<Scalars['String']>;
+};
+
+export type Qa = {
+  __typename?: 'Qa';
+  id: Scalars['Int'];
+  user?: Maybe<User>;
+  userId?: Maybe<Scalars['Int']>;
+  project?: Maybe<Project>;
+  projectId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
 };
 
 export type Query = {
@@ -63,21 +129,34 @@ export type Query = {
 export type Skill = {
   __typename?: 'Skill';
   id: Scalars['Int'];
-  description: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+};
+
+export type SkillToUser = {
+  __typename?: 'SkillToUser';
+  id: Scalars['Int'];
+  skill?: Maybe<Skill>;
+  skillId?: Maybe<Scalars['Int']>;
+  user?: Maybe<User>;
+  userId?: Maybe<Scalars['Int']>;
+  updatedAt?: Maybe<Scalars['String']>;
+  created_at?: Maybe<Scalars['String']>;
 };
 
 export type User = {
   __typename?: 'User';
   id: Scalars['Int'];
+  user_name?: Maybe<Scalars['String']>;
   email?: Maybe<Scalars['String']>;
   twitter_account_url?: Maybe<Scalars['String']>;
+  github_account_url?: Maybe<Scalars['String']>;
   image_url?: Maybe<Scalars['String']>;
   type?: Maybe<Scalars['String']>;
   experience?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
-  skills?: Maybe<Array<Skill>>;
-  projectsLiked?: Maybe<Array<Project>>;
-  projectsRequested?: Maybe<Array<Project>>;
+  skills?: Maybe<Array<SkillToUser>>;
+  projectsLiked?: Maybe<Array<Like>>;
+  projectsRequested?: Maybe<Array<JoinRequest>>;
   projectsQa?: Maybe<Array<Project>>;
   created_at: Scalars['String'];
   updatedAt?: Maybe<Scalars['String']>;
@@ -90,7 +169,68 @@ export type GetAllProjectsQuery = (
   { __typename?: 'Query' }
   & { getAllProjects?: Maybe<Array<Maybe<(
     { __typename?: 'Project' }
-    & Pick<Project, 'id' | 'title' | 'description' | 'projectType' | 'created_at' | 'updatedAt'>
+    & Pick<Project, 'id' | 'title' | 'description' | 'created_at' | 'updatedAt'>
+    & { projectType?: Maybe<(
+      { __typename?: 'ProjectType' }
+      & Pick<ProjectType, 'id' | 'description'>
+    )>, projectFeatures?: Maybe<Array<(
+      { __typename?: 'ProjectToProjectFeature' }
+      & { ProjectFeature?: Maybe<(
+        { __typename?: 'ProjectFeature' }
+        & Pick<ProjectFeature, 'id' | 'description'>
+      )> }
+    )>>, projectStatuses?: Maybe<Array<(
+      { __typename?: 'ProjectToProgressStatus' }
+      & { progressStatus?: Maybe<(
+        { __typename?: 'ProgressStatus' }
+        & Pick<ProgressStatus, 'id' | 'rate'>
+      )> }
+    )>>, skills?: Maybe<Array<(
+      { __typename?: 'ProjectToSkill' }
+      & { skill?: Maybe<(
+        { __typename?: 'Skill' }
+        & Pick<Skill, 'id' | 'description'>
+      )> }
+    )>>, usersLiked?: Maybe<Array<(
+      { __typename?: 'Like' }
+      & { user?: Maybe<(
+        { __typename?: 'User' }
+        & Pick<User, 'id' | 'user_name' | 'email' | 'twitter_account_url' | 'github_account_url' | 'image_url' | 'type' | 'experience' | 'description'>
+        & { skills?: Maybe<Array<(
+          { __typename?: 'SkillToUser' }
+          & { skill?: Maybe<(
+            { __typename?: 'Skill' }
+            & Pick<Skill, 'id' | 'description'>
+          )> }
+        )>> }
+      )> }
+    )>>, usersAsked?: Maybe<Array<(
+      { __typename?: 'Qa' }
+      & { user?: Maybe<(
+        { __typename?: 'User' }
+        & Pick<User, 'id' | 'user_name' | 'email' | 'twitter_account_url' | 'github_account_url' | 'image_url' | 'type' | 'experience' | 'description'>
+        & { skills?: Maybe<Array<(
+          { __typename?: 'SkillToUser' }
+          & { skill?: Maybe<(
+            { __typename?: 'Skill' }
+            & Pick<Skill, 'id' | 'description'>
+          )> }
+        )>> }
+      )> }
+    )>>, usersRequested?: Maybe<Array<(
+      { __typename?: 'JoinRequest' }
+      & { user?: Maybe<(
+        { __typename?: 'User' }
+        & Pick<User, 'id' | 'user_name' | 'email' | 'twitter_account_url' | 'github_account_url' | 'image_url' | 'type' | 'experience' | 'description'>
+        & { skills?: Maybe<Array<(
+          { __typename?: 'SkillToUser' }
+          & { skill?: Maybe<(
+            { __typename?: 'Skill' }
+            & Pick<Skill, 'id' | 'description'>
+          )> }
+        )>> }
+      )> }
+    )>> }
   )>>> }
 );
 
@@ -177,36 +317,72 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  ProgressStatus: ResolverTypeWrapper<ProgressStatus>;
+  JoinRequest: ResolverTypeWrapper<JoinRequest>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
   String: ResolverTypeWrapper<Scalars['String']>;
+  Like: ResolverTypeWrapper<Like>;
+  ProgressStatus: ResolverTypeWrapper<ProgressStatus>;
   Project: ResolverTypeWrapper<Project>;
   ProjectFeature: ResolverTypeWrapper<ProjectFeature>;
+  ProjectToProgressStatus: ResolverTypeWrapper<ProjectToProgressStatus>;
+  ProjectToProjectFeature: ResolverTypeWrapper<ProjectToProjectFeature>;
+  ProjectToSkill: ResolverTypeWrapper<ProjectToSkill>;
   ProjectType: ResolverTypeWrapper<ProjectType>;
+  Qa: ResolverTypeWrapper<Qa>;
   Query: ResolverTypeWrapper<{}>;
   Skill: ResolverTypeWrapper<Skill>;
+  SkillToUser: ResolverTypeWrapper<SkillToUser>;
   User: ResolverTypeWrapper<User>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  ProgressStatus: ProgressStatus;
+  JoinRequest: JoinRequest;
   Int: Scalars['Int'];
   String: Scalars['String'];
+  Like: Like;
+  ProgressStatus: ProgressStatus;
   Project: Project;
   ProjectFeature: ProjectFeature;
+  ProjectToProgressStatus: ProjectToProgressStatus;
+  ProjectToProjectFeature: ProjectToProjectFeature;
+  ProjectToSkill: ProjectToSkill;
   ProjectType: ProjectType;
+  Qa: Qa;
   Query: {};
   Skill: Skill;
+  SkillToUser: SkillToUser;
   User: User;
   Boolean: Scalars['Boolean'];
 };
 
+export type JoinRequestResolvers<ContextType = any, ParentType extends ResolversParentTypes['JoinRequest'] = ResolversParentTypes['JoinRequest']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type LikeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Like'] = ResolversParentTypes['Like']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type ProgressStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProgressStatus'] = ResolversParentTypes['ProgressStatus']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  rate?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  created_at?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  rate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
@@ -215,31 +391,75 @@ export type ProjectResolvers<ContextType = any, ParentType extends ResolversPare
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  projectType?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  projectFeatures?: Resolver<Maybe<Array<Maybe<ResolversTypes['ProjectFeature']>>>, ParentType, ContextType>;
-  projectStatuses?: Resolver<Maybe<Array<Maybe<ResolversTypes['ProgressStatus']>>>, ParentType, ContextType>;
-  skills?: Resolver<Maybe<Array<Maybe<ResolversTypes['Skill']>>>, ParentType, ContextType>;
-  usersLiked?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
-  usersRequested?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
-  usersAsked?: Resolver<Maybe<Array<Maybe<ResolversTypes['User']>>>, ParentType, ContextType>;
-  created_at?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  projectType?: Resolver<Maybe<ResolversTypes['ProjectType']>, ParentType, ContextType>;
+  projectFeatures?: Resolver<Maybe<Array<ResolversTypes['ProjectToProjectFeature']>>, ParentType, ContextType>;
+  projectStatuses?: Resolver<Maybe<Array<ResolversTypes['ProjectToProgressStatus']>>, ParentType, ContextType>;
+  skills?: Resolver<Maybe<Array<ResolversTypes['ProjectToSkill']>>, ParentType, ContextType>;
+  usersLiked?: Resolver<Maybe<Array<ResolversTypes['Like']>>, ParentType, ContextType>;
+  usersRequested?: Resolver<Maybe<Array<ResolversTypes['JoinRequest']>>, ParentType, ContextType>;
+  usersAsked?: Resolver<Maybe<Array<ResolversTypes['Qa']>>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ProjectFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectFeature'] = ResolversParentTypes['ProjectFeature']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  created_at?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ProjectToProgressStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectToProgressStatus'] = ResolversParentTypes['ProjectToProgressStatus']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  progressStatus?: Resolver<Maybe<ResolversTypes['ProgressStatus']>, ParentType, ContextType>;
+  progressStatusId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ProjectToProjectFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectToProjectFeature'] = ResolversParentTypes['ProjectToProjectFeature']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  Project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  ProjectFeature?: Resolver<Maybe<ResolversTypes['ProjectFeature']>, ParentType, ContextType>;
+  projectFeatureId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type ProjectToSkillResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectToSkill'] = ResolversParentTypes['ProjectToSkill']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  skill?: Resolver<Maybe<ResolversTypes['Skill']>, ParentType, ContextType>;
+  skillId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ProjectTypeResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectType'] = ResolversParentTypes['ProjectType']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  created_at?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type QaResolvers<ContextType = any, ParentType extends ResolversParentTypes['Qa'] = ResolversParentTypes['Qa']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
+  projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -249,21 +469,34 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
 
 export type SkillResolvers<ContextType = any, ParentType extends ResolversParentTypes['Skill'] = ResolversParentTypes['Skill']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
-  description?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
+export type SkillToUserResolvers<ContextType = any, ParentType extends ResolversParentTypes['SkillToUser'] = ResolversParentTypes['SkillToUser']> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  skill?: Resolver<Maybe<ResolversTypes['Skill']>, ParentType, ContextType>;
+  skillId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
+  userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
   id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  user_name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   email?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   twitter_account_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  github_account_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   image_url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   experience?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  skills?: Resolver<Maybe<Array<ResolversTypes['Skill']>>, ParentType, ContextType>;
-  projectsLiked?: Resolver<Maybe<Array<ResolversTypes['Project']>>, ParentType, ContextType>;
-  projectsRequested?: Resolver<Maybe<Array<ResolversTypes['Project']>>, ParentType, ContextType>;
+  skills?: Resolver<Maybe<Array<ResolversTypes['SkillToUser']>>, ParentType, ContextType>;
+  projectsLiked?: Resolver<Maybe<Array<ResolversTypes['Like']>>, ParentType, ContextType>;
+  projectsRequested?: Resolver<Maybe<Array<ResolversTypes['JoinRequest']>>, ParentType, ContextType>;
   projectsQa?: Resolver<Maybe<Array<ResolversTypes['Project']>>, ParentType, ContextType>;
   created_at?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -271,12 +504,19 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
 };
 
 export type Resolvers<ContextType = any> = {
+  JoinRequest?: JoinRequestResolvers<ContextType>;
+  Like?: LikeResolvers<ContextType>;
   ProgressStatus?: ProgressStatusResolvers<ContextType>;
   Project?: ProjectResolvers<ContextType>;
   ProjectFeature?: ProjectFeatureResolvers<ContextType>;
+  ProjectToProgressStatus?: ProjectToProgressStatusResolvers<ContextType>;
+  ProjectToProjectFeature?: ProjectToProjectFeatureResolvers<ContextType>;
+  ProjectToSkill?: ProjectToSkillResolvers<ContextType>;
   ProjectType?: ProjectTypeResolvers<ContextType>;
+  Qa?: QaResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Skill?: SkillResolvers<ContextType>;
+  SkillToUser?: SkillToUserResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
 };
 
@@ -294,7 +534,85 @@ export const GetAllProjectsDocument = gql`
     id
     title
     description
-    projectType
+    projectType {
+      id
+      description
+    }
+    projectFeatures {
+      ProjectFeature {
+        id
+        description
+      }
+    }
+    projectStatuses {
+      progressStatus {
+        id
+        rate
+      }
+    }
+    skills {
+      skill {
+        id
+        description
+      }
+    }
+    usersLiked {
+      user {
+        id
+        user_name
+        email
+        twitter_account_url
+        github_account_url
+        image_url
+        type
+        experience
+        description
+        skills {
+          skill {
+            id
+            description
+          }
+        }
+      }
+    }
+    usersAsked {
+      user {
+        id
+        user_name
+        email
+        twitter_account_url
+        github_account_url
+        image_url
+        type
+        experience
+        description
+        skills {
+          skill {
+            id
+            description
+          }
+        }
+      }
+    }
+    usersRequested {
+      user {
+        id
+        user_name
+        email
+        twitter_account_url
+        github_account_url
+        image_url
+        type
+        experience
+        description
+        skills {
+          skill {
+            id
+            description
+          }
+        }
+      }
+    }
     created_at
     updatedAt
   }
