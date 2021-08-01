@@ -9,7 +9,11 @@ export const resolvers = {
       const allProjects = await prisma.project.findMany({
         include: {
           projectType: true,
-          projectFeatures: true,
+          projectFeatures: {
+            include: {
+              ProjectFeature: true,
+            },
+          },
           projectStatuses: {
             include: {
               progressStatus: true,
@@ -20,12 +24,23 @@ export const resolvers = {
               skill: true,
             },
           },
-          usersLiked: true,
-          usersRequested: true,
-          usersAsked: true,
+          usersLiked: {
+            include: {
+              user: true,
+            },
+          },
+          usersRequested: {
+            include: {
+              user: true,
+            },
+          },
+          usersAsked: {
+            include: {
+              user: true,
+            },
+          },
         },
       });
-      console.log(allProjects);
       return allProjects;
     },
   },
