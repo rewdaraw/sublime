@@ -20,7 +20,12 @@ import { TypeFilter } from "../../components/organisms/projects/list/TypeFilter"
 import { FeatureFilter } from "../../components/organisms/projects/list/FeatureFilter";
 import { Header } from "../../components/organisms/Header";
 
-const ProjectListsPage: NextPage = () => {
+interface IProjectListsPage {
+  launches: [];
+}
+
+const ProjectListsPage: NextPage<IProjectListsPage> = ({ launches }) => {
+  console.log("launches", launches);
   return (
     <>
       <Head>
@@ -54,42 +59,6 @@ const ProjectListsPage: NextPage = () => {
                   />
                 </Flex>
               </Flex>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
               <Box mb={2}>
                 <ProjectList />
               </Box>
@@ -133,3 +102,11 @@ const ProjectListsPage: NextPage = () => {
 };
 
 export default ProjectListsPage;
+
+export async function getStaticProps() {
+  return {
+    props: {
+      launches: [],
+    },
+  };
+}
