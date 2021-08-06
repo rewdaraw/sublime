@@ -19,6 +19,8 @@ import { ToolFilter } from "../../components/organisms/projects/list/ToolFilter"
 import { TypeFilter } from "../../components/organisms/projects/list/TypeFilter";
 import { FeatureFilter } from "../../components/organisms/projects/list/FeatureFilter";
 import { Header } from "../../components/organisms/Header";
+import { apolloClient } from "../../graphql/client";
+import { GET_ALL_PROJECTS } from "../../graphql/client/queries";
 
 interface IProjectListsPage {
   launches: [];
@@ -103,7 +105,13 @@ const ProjectListsPage: NextPage<IProjectListsPage> = ({ launches }) => {
 
 export default ProjectListsPage;
 
-export async function getStaticProps() {
+export async function getServersideProps() {
+  const { data } = await apolloClient.query({
+    query: GET_ALL_PROJECTS,
+  });
+
+  console.log({ data });
+
   return {
     props: {
       launches: [],
