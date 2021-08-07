@@ -9,7 +9,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import Head from "next/head";
-import { NextPage } from "next";
+import { InferGetServerSidePropsType, NextPage } from "next";
 import React from "react";
 import { ProjectList } from "../../components/organisms/projects/list/List";
 import { Main } from "../../components/organisms/Main";
@@ -21,13 +21,14 @@ import { FeatureFilter } from "../../components/organisms/projects/list/FeatureF
 import { Header } from "../../components/organisms/Header";
 import { apolloClient } from "../../graphql/client";
 import { GET_ALL_PROJECTS } from "../../graphql/client/queries";
+import { GetAllProjectsQuery } from "../../graphql/generated/types";
 
-interface IProjectListsPage {
-  launches: [];
-}
+type ProjectListsPageType = InferGetServerSidePropsType<
+  typeof getServerSideProps
+>;
 
-const ProjectListsPage: NextPage<IProjectListsPage> = ({ launches }) => {
-  console.log("launches", launches);
+const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
+  console.log(projects);
   return (
     <>
       <Head>
@@ -105,16 +106,32 @@ const ProjectListsPage: NextPage<IProjectListsPage> = ({ launches }) => {
 
 export default ProjectListsPage;
 
-export async function getServersideProps() {
-  const { data } = await apolloClient.query({
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getServerSideProps() {
+  const apolloQueryResult = await apolloClient.query<GetAllProjectsQuery>({
     query: GET_ALL_PROJECTS,
   });
 
-  console.log({ data });
+  // make manyToMany relation data objects shallow for handle
+  const projects = apolloQueryResult.data.getAllProjects.map((project) => {
+    return {
+      ...project,
+      projectFeatures: project.projectFeatures.map(
+        (projectFeature) => projectFeature.projectFeature
+      ),
+      projectStatuses: project.projectStatuses.map(
+        (projectStatus) => projectStatus.progressStatus
+      ),
+      skills: project.skills.map((skill) => skill.skill),
+      usersAsked: project.usersAsked.map((user) => user.user),
+      usersLiked: project.usersAsked.map((user) => user.user),
+      usersRequested: project.usersAsked.map((user) => user.user),
+    };
+  });
 
   return {
     props: {
-      launches: [],
+      projects,
     },
   };
 }
