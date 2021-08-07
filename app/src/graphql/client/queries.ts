@@ -11,7 +11,7 @@ export const GET_ALL_PROJECTS = gql`
         description
       }
       projectFeatures {
-        ProjectFeature {
+        projectFeature {
           id
           description
         }

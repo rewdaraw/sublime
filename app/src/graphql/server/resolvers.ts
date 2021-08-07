@@ -11,7 +11,7 @@ export const resolvers = {
           projectType: true,
           projectFeatures: {
             include: {
-              ProjectFeature: true,
+              projectFeature: true,
             },
           },
           projectStatuses: {

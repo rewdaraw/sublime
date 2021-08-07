@@ -91,7 +91,7 @@ export const typeDefs = gql`
     id: Int!
     Project: Project
     projectId: Int
-    ProjectFeature: ProjectFeature
+    projectFeature: ProjectFeature
     projectFeatureId: Int
     updatedAt: String
     created_at: String
