@@ -1,9 +1,10 @@
 import { PrismaClient } from "@prisma/client";
+import { Resolvers } from "../generated/types";
 
 const prisma = new PrismaClient();
 
 // TODO: 型を当てる
-export const resolvers = {
+export const resolvers: Resolvers = {
   Query: {
     async getAllProjects() {
       const allProjects = await prisma.project.findMany({

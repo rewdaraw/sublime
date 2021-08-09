@@ -85,7 +85,7 @@ export const GET_ALL_PROJECTS = gql`
           }
         }
       }
-      created_at
+      createdAt
       updatedAt
     }
   }
