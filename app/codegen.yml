@@ -3,6 +3,9 @@ schema: "http://localhost:3000/api/graphql" # graphqlのエンドポイントを
 documents: "src/**/*.{ts,tsx}" # clientで使うqueryやmutationが書いてあるファイルを指定
 generates:
   src/graphql/generated/types.ts:
+    config:
+      scalars:
+        DateTime: Date
     plugins:
       - "typescript"
       - "typescript-operations"
