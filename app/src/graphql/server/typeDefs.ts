@@ -9,12 +9,12 @@ export const typeDefs = gql`
   # --------------------------------------------------
 
   type Skill {
-    id: Int!
+    id: Int
     description: String
   }
 
   type User {
-    id: Int!
+    id: Int
     user_name: String
     email: String
     twitter_account_url: String
@@ -23,52 +23,52 @@ export const typeDefs = gql`
     type: String
     experience: String
     description: String
-    skills: [SkillToUser!]
-    projectsLiked: [Like!]
-    projectsRequested: [JoinRequest!]
-    projectsQa: [Project!]
-    created_at: String!
+    skills: [SkillToUser]
+    projectsLiked: [Like]
+    projectsRequested: [JoinRequest]
+    projectsQa: [Project]
+    created_at: String
     updatedAt: String
   }
 
   type Project {
-    id: Int!
+    id: Int
     title: String
     description: String
     projectType: ProjectType
-    projectFeatures: [ProjectToProjectFeature!]
-    projectStatuses: [ProjectToProgressStatus!]
-    skills: [ProjectToSkill!]
-    usersLiked: [Like!]
-    usersRequested: [JoinRequest!]
-    usersAsked: [Qa!]
+    projectFeatures: [ProjectToProjectFeature]
+    projectStatuses: [ProjectToProgressStatus]
+    skills: [ProjectToSkill]
+    usersLiked: [Like]
+    usersRequested: [JoinRequest]
+    usersAsked: [Qa]
     created_at: String
     updatedAt: String
   }
 
   type ProjectType {
-    id: Int!
+    id: Int
     description: String
     created_at: String
     updatedAt: String
   }
 
   type ProjectFeature {
-    id: Int!
+    id: Int
     description: String
     created_at: String
     updatedAt: String
   }
 
   type ProgressStatus {
-    id: Int!
+    id: Int
     rate: String
     created_at: String
     updatedAt: String
   }
 
   type ProjectToSkill {
-    id: Int!
+    id: Int
     project: Project
     projectId: Int
     skill: Skill
@@ -78,7 +78,7 @@ export const typeDefs = gql`
   }
 
   type ProjectToProgressStatus {
-    id: Int!
+    id: Int
     progressStatus: ProgressStatus
     progressStatusId: Int
     project: Project
@@ -88,7 +88,7 @@ export const typeDefs = gql`
   }
 
   type ProjectToProjectFeature {
-    id: Int!
+    id: Int
     Project: Project
     projectId: Int
     projectFeature: ProjectFeature
@@ -98,7 +98,7 @@ export const typeDefs = gql`
   }
 
   type SkillToUser {
-    id: Int!
+    id: Int
     skill: Skill
     skillId: Int
     user: User
@@ -108,7 +108,7 @@ export const typeDefs = gql`
   }
 
   type Like {
-    id: Int!
+    id: Int
     user: User
     userId: Int
     project: Project
@@ -118,7 +118,7 @@ export const typeDefs = gql`
   }
 
   type JoinRequest {
-    id: Int!
+    id: Int
     user: User
     userId: Int
     project: Project
@@ -128,7 +128,7 @@ export const typeDefs = gql`
   }
 
   type Qa {
-    id: Int!
+    id: Int
     user: User
     userId: Int
     project: Project
