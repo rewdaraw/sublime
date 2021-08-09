@@ -1,4 +1,4 @@
-import { GraphQLResolveInfo } from 'graphql';
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from 'graphql';
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
@@ -13,6 +13,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  DateTime: Date;
 };
 
 export type JoinRequest = {
@@ -22,8 +23,8 @@ export type JoinRequest = {
   userId?: Maybe<Scalars['Int']>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type Like = {
@@ -33,16 +34,16 @@ export type Like = {
   userId?: Maybe<Scalars['Int']>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProgressStatus = {
   __typename?: 'ProgressStatus';
   id?: Maybe<Scalars['Int']>;
   rate?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type Project = {
@@ -57,16 +58,16 @@ export type Project = {
   usersLiked?: Maybe<Array<Maybe<Like>>>;
   usersRequested?: Maybe<Array<Maybe<JoinRequest>>>;
   usersAsked?: Maybe<Array<Maybe<Qa>>>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProjectFeature = {
   __typename?: 'ProjectFeature';
   id?: Maybe<Scalars['Int']>;
   description?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProjectToProgressStatus = {
@@ -76,8 +77,8 @@ export type ProjectToProgressStatus = {
   progressStatusId?: Maybe<Scalars['Int']>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProjectToProjectFeature = {
@@ -87,8 +88,8 @@ export type ProjectToProjectFeature = {
   projectId?: Maybe<Scalars['Int']>;
   projectFeature?: Maybe<ProjectFeature>;
   projectFeatureId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProjectToSkill = {
@@ -98,16 +99,16 @@ export type ProjectToSkill = {
   projectId?: Maybe<Scalars['Int']>;
   skill?: Maybe<Skill>;
   skillId?: Maybe<Scalars['Int']>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type ProjectType = {
   __typename?: 'ProjectType';
   id?: Maybe<Scalars['Int']>;
   description?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type Qa = {
@@ -117,8 +118,8 @@ export type Qa = {
   userId?: Maybe<Scalars['Int']>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type Query = {
@@ -139,8 +140,8 @@ export type SkillToUser = {
   skillId?: Maybe<Scalars['Int']>;
   user?: Maybe<User>;
   userId?: Maybe<Scalars['Int']>;
-  updatedAt?: Maybe<Scalars['String']>;
-  created_at?: Maybe<Scalars['String']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type User = {
@@ -158,14 +159,14 @@ export type User = {
   projectsLiked?: Maybe<Array<Maybe<Like>>>;
   projectsRequested?: Maybe<Array<Maybe<JoinRequest>>>;
   projectsQa?: Maybe<Array<Maybe<Project>>>;
-  created_at?: Maybe<Scalars['String']>;
-  updatedAt?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
 export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllProjectsQuery = { __typename?: 'Query', getAllProjects?: Maybe<Array<Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, created_at?: Maybe<string>, updatedAt?: Maybe<string>, projectType?: Maybe<{ __typename?: 'ProjectType', id?: Maybe<number>, description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', id?: Maybe<number>, description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', id?: Maybe<number>, rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersAsked?: Maybe<Array<Maybe<{ __typename?: 'Qa', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersRequested?: Maybe<Array<Maybe<{ __typename?: 'JoinRequest', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>> }>>> };
+export type GetAllProjectsQuery = { __typename?: 'Query', getAllProjects?: Maybe<Array<Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, createdAt?: Maybe<Date>, updatedAt?: Maybe<Date>, projectType?: Maybe<{ __typename?: 'ProjectType', id?: Maybe<number>, description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', id?: Maybe<number>, description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', id?: Maybe<number>, rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersAsked?: Maybe<Array<Maybe<{ __typename?: 'Qa', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersRequested?: Maybe<Array<Maybe<{ __typename?: 'JoinRequest', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>> }>>> };
 
 
 
@@ -236,11 +237,12 @@ export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  DateTime: ResolverTypeWrapper<Scalars['DateTime']>;
   JoinRequest: ResolverTypeWrapper<JoinRequest>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
-  String: ResolverTypeWrapper<Scalars['String']>;
   Like: ResolverTypeWrapper<Like>;
   ProgressStatus: ResolverTypeWrapper<ProgressStatus>;
+  String: ResolverTypeWrapper<Scalars['String']>;
   Project: ResolverTypeWrapper<Project>;
   ProjectFeature: ResolverTypeWrapper<ProjectFeature>;
   ProjectToProgressStatus: ResolverTypeWrapper<ProjectToProgressStatus>;
@@ -257,11 +259,12 @@ export type ResolversTypes = {
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  DateTime: Scalars['DateTime'];
   JoinRequest: JoinRequest;
   Int: Scalars['Int'];
-  String: Scalars['String'];
   Like: Like;
   ProgressStatus: ProgressStatus;
+  String: Scalars['String'];
   Project: Project;
   ProjectFeature: ProjectFeature;
   ProjectToProgressStatus: ProjectToProgressStatus;
@@ -276,14 +279,18 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
 };
 
+export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['DateTime'], any> {
+  name: 'DateTime';
+}
+
 export type JoinRequestResolvers<ContextType = any, ParentType extends ResolversParentTypes['JoinRequest'] = ResolversParentTypes['JoinRequest']> = {
   id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -293,16 +300,16 @@ export type LikeResolvers<ContextType = any, ParentType extends ResolversParentT
   userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ProgressStatusResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProgressStatus'] = ResolversParentTypes['ProgressStatus']> = {
   id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   rate?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -317,16 +324,16 @@ export type ProjectResolvers<ContextType = any, ParentType extends ResolversPare
   usersLiked?: Resolver<Maybe<Array<Maybe<ResolversTypes['Like']>>>, ParentType, ContextType>;
   usersRequested?: Resolver<Maybe<Array<Maybe<ResolversTypes['JoinRequest']>>>, ParentType, ContextType>;
   usersAsked?: Resolver<Maybe<Array<Maybe<ResolversTypes['Qa']>>>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ProjectFeatureResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectFeature'] = ResolversParentTypes['ProjectFeature']> = {
   id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -336,8 +343,8 @@ export type ProjectToProgressStatusResolvers<ContextType = any, ParentType exten
   progressStatusId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -347,8 +354,8 @@ export type ProjectToProjectFeatureResolvers<ContextType = any, ParentType exten
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   projectFeature?: Resolver<Maybe<ResolversTypes['ProjectFeature']>, ParentType, ContextType>;
   projectFeatureId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -358,16 +365,16 @@ export type ProjectToSkillResolvers<ContextType = any, ParentType extends Resolv
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   skill?: Resolver<Maybe<ResolversTypes['Skill']>, ParentType, ContextType>;
   skillId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type ProjectTypeResolvers<ContextType = any, ParentType extends ResolversParentTypes['ProjectType'] = ResolversParentTypes['ProjectType']> = {
   id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   description?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -377,8 +384,8 @@ export type QaResolvers<ContextType = any, ParentType extends ResolversParentTyp
   userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -398,8 +405,8 @@ export type SkillToUserResolvers<ContextType = any, ParentType extends Resolvers
   skillId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
   userId?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -417,12 +424,13 @@ export type UserResolvers<ContextType = any, ParentType extends ResolversParentT
   projectsLiked?: Resolver<Maybe<Array<Maybe<ResolversTypes['Like']>>>, ParentType, ContextType>;
   projectsRequested?: Resolver<Maybe<Array<Maybe<ResolversTypes['JoinRequest']>>>, ParentType, ContextType>;
   projectsQa?: Resolver<Maybe<Array<Maybe<ResolversTypes['Project']>>>, ParentType, ContextType>;
-  created_at?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  updatedAt?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
+  DateTime?: GraphQLScalarType;
   JoinRequest?: JoinRequestResolvers<ContextType>;
   Like?: LikeResolvers<ContextType>;
   ProgressStatus?: ProgressStatusResolvers<ContextType>;
@@ -526,7 +534,7 @@ export const GetAllProjectsDocument = gql`
         }
       }
     }
-    created_at
+    createdAt
     updatedAt
   }
 }
