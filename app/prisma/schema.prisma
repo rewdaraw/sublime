@@ -17,7 +17,7 @@ model Skill {
   description String
   users       SkillToUser[]
   projects    ProjectToSkill[]
-  updatedAt   DateTime         @updatedAt
+  updatedAt   DateTime         @default(now())
   createdAt   DateTime         @default(now())
 
   @@map("skills")
@@ -29,7 +29,7 @@ model SkillToUser {
   skillId   Int
   user      User     @relation(fields: [userId], references: [id])
   userId    Int
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   createdAt DateTime @default(now())
 
   @@map("skillsTousers")
@@ -41,7 +41,7 @@ model ProjectToSkill {
   projectId Int
   skill     Skill    @relation(fields: [skillId], references: [id])
   skillId   Int
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   createdAt DateTime @default(now())
 
   @@map("projectsToskills")
@@ -61,7 +61,7 @@ model User {
   projectsLiked       Like[]
   projectsRequested   JoinRequest[]
   projectsQa          Qa[]
-  updatedAt           DateTime      @updatedAt
+  updatedAt           DateTime      @default(now())
   createdAt           DateTime      @default(now())
 
   @@map("users")
@@ -79,7 +79,7 @@ model Project {
   usersLiked      Like[]
   usersRequested  JoinRequest[]
   usersAsked      Qa[]
-  updatedAt       DateTime                  @updatedAt
+  updatedAt       DateTime                  @default(now())
   createdAt       DateTime                  @default(now())
 
   @@map("projects")
@@ -91,7 +91,7 @@ model Like {
   userId    Int
   project   Project  @relation(fields: [projectId], references: [id])
   projectId Int
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   createdAt DateTime @default(now())
 
   @@map("likes")
@@ -103,7 +103,7 @@ model JoinRequest {
   userId    Int
   project   Project  @relation(fields: [projectId], references: [id])
   projectId Int
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   createdAt DateTime @default(now())
 
   @@map("join_requests")
@@ -115,7 +115,7 @@ model Qa {
   userId    Int
   project   Project  @relation(fields: [projectId], references: [id])
   projectId Int
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now())
   createdAt DateTime @default(now())
 
   @@map("qas")
@@ -126,7 +126,7 @@ model ProgressStatus {
   id        Int                       @id @default(autoincrement())
   rate      String
   projects  ProjectToProgressStatus[]
-  updatedAt DateTime                  @updatedAt
+  updatedAt DateTime                  @default(now())
   createdAt DateTime                  @default(now())
 
   @@map("progress_statuses")
@@ -138,7 +138,7 @@ model ProjectToProgressStatus {
   progressStatusId Int
   project          Project        @relation(fields: [projectId], references: [id])
   projectId        Int
-  updatedAt        DateTime       @updatedAt
+  updatedAt        DateTime       @default(now())
   createdAt        DateTime       @default(now())
 
   @@map("projectsToprogress_statuses")
@@ -149,7 +149,7 @@ model ProjectFeature {
   id          Int                       @id @default(autoincrement())
   description String
   projects    ProjectToProjectFeature[]
-  updatedAt   DateTime                  @updatedAt
+  updatedAt   DateTime                  @default(now())
   createdAt   DateTime                  @default(now())
 
   @@map("project_features")
@@ -161,7 +161,7 @@ model ProjectToProjectFeature {
   projectId        Int
   projectFeature   ProjectFeature @relation(fields: [projectFeatureId], references: [id])
   projectFeatureId Int
-  updatedAt        DateTime       @updatedAt
+  updatedAt        DateTime       @default(now())
   createdAt        DateTime       @default(now())
 
   @@map("projectsToproject_features")
@@ -172,7 +172,7 @@ model ProjectType {
   id          Int       @id @default(autoincrement())
   description String
   projects    Project[]
-  updatedAt   DateTime  @updatedAt
+  updatedAt   DateTime  @default(now())
   createdAt   DateTime  @default(now())
 
   @@map("project_types")
