@@ -1,49 +1,29 @@
 import React from "react";
 import { Wrap, WrapItem, Tag } from "@chakra-ui/react";
+import { ProjectToSkill } from "../../graphql/generated/types";
 
-export const SkillList: React.VFC = () => {
+interface ISkills {
+  skills: ProjectToSkill[];
+}
+
+export const SkillList: React.VFC<ISkills> = ({ skills }) => {
+  console.log("SkillList component rendered!");
+
   return (
     <Wrap>
-      <WrapItem>
-        <Tag
-          size="md"
-          variant="solid"
-          bg="linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)"
-          color="white"
-        >
-          React
-        </Tag>
-      </WrapItem>
-      <WrapItem>
-        <Tag
-          size="md"
-          variant="solid"
-          bg="linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)"
-          color="white"
-        >
-          Nextjs
-        </Tag>
-      </WrapItem>
-      <WrapItem>
-        <Tag
-          size="md"
-          variant="solid"
-          bg="linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)"
-          color="white"
-        >
-          GraphQL
-        </Tag>
-      </WrapItem>
-      <WrapItem>
-        <Tag
-          size="md"
-          variant="solid"
-          bg="linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)"
-          color="white"
-        >
-          TypeScript
-        </Tag>
-      </WrapItem>
+      {skills &&
+        skills.map((skill, i) => (
+          <WrapItem key={i}>
+            <Tag
+              size="md"
+              variant="solid"
+              bg="linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)"
+              color="white"
+            >
+              {skill.skill.description}
+            </Tag>
+          </WrapItem>
+        ))}
     </Wrap>
   );
 };

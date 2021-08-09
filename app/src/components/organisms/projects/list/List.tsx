@@ -19,7 +19,7 @@ interface IProject {
 
 export const ProjectList: React.VFC<IProject> = ({ project }) => {
   console.log("ProjectList component rendered!");
-  console.log(project);
+
   return (
     <Link href="/projects/a" _hover={{ style: "none" }}>
       <WhiteRoundedList>
@@ -30,7 +30,7 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
               {/* 画像とプロジェクト名 */}
               <Flex align="center">
                 <Image
-                  src="https://bit.ly/ryan-florence"
+                  src={project.usersRequested[0]?.user?.image_url}
                   d="inline-block"
                   w="50px"
                   h="50px"
@@ -43,13 +43,13 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
                   mr={{ base: "16px", sm: "32px" }}
                   isTruncated
                 >
-                  人材マッチングサイト
+                  {project.title}
                 </Text>
               </Flex>
             </WrapItem>
             {/* タグ */}
             <WrapItem isTruncated>
-              <SkillList />
+              <SkillList skills={project.skills} />
             </WrapItem>
           </Wrap>
           <Spacer />
@@ -61,11 +61,11 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
               mr={2}
               alt="お気に入り"
             />
-            <Text>9</Text>
+            <Text>{project.usersLiked.length}</Text>
           </Flex>
         </Flex>
         {/* 下段 */}
-        <FeatureList />
+        <FeatureList features={project.projectFeatures} />
       </WhiteRoundedList>
     </Link>
   );
