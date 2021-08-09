@@ -28,6 +28,7 @@ type ProjectListsPageType = InferGetServerSidePropsType<
 >;
 
 const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
+  console.log("ProjectListsPage rendered!");
   console.log(projects);
   return (
     <>
@@ -62,9 +63,12 @@ const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
                   />
                 </Flex>
               </Flex>
-              <Box mb={2}>
-                <ProjectList />
-              </Box>
+              {projects &&
+                projects.map((project) => (
+                  <Box key={project.id} mb={2}>
+                    <ProjectList project={project} />
+                  </Box>
+                ))}
             </Main>
             <Aside title="プロジェクトを探す">
               <Box mb={4}>
@@ -112,22 +116,26 @@ export async function getServerSideProps() {
     query: GET_ALL_PROJECTS,
   });
 
+  const projects = apolloQueryResult.data.getAllProjects;
+
   // make manyToMany relation data objects shallow for handle
-  const projects = apolloQueryResult.data.getAllProjects.map((project) => {
-    return {
-      ...project,
-      projectFeatures: project.projectFeatures.map(
-        (projectFeature) => projectFeature.projectFeature
-      ),
-      projectStatuses: project.projectStatuses.map(
-        (projectStatus) => projectStatus.progressStatus
-      ),
-      skills: project.skills.map((skill) => skill.skill),
-      usersAsked: project.usersAsked.map((user) => user.user),
-      usersLiked: project.usersAsked.map((user) => user.user),
-      usersRequested: project.usersAsked.map((user) => user.user),
-    };
-  });
+  // after all I can't this for type error...
+  
+  // const projects = apolloQueryResult.data.getAllProjects.map((project) => {
+  //   return {
+  //     ...project,
+  //     projectFeatures: project.projectFeatures.map(
+  //       (projectFeature) => projectFeature.projectFeature
+  //     ),
+  //     projectStatuses: project.projectStatuses.map(
+  //       (projectStatus) => projectStatus.progressStatus
+  //     ),
+  //     skills: project.skills.map((skill) => skill.skill),
+  //     usersAsked: project.usersAsked.map((user) => user.user),
+  //     usersLiked: project.usersAsked.map((user) => user.user),
+  //     usersRequested: project.usersAsked.map((user) => user.user),
+  //   };
+  // });
 
   return {
     props: {

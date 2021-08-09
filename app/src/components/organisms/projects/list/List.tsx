@@ -8,11 +8,18 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
+import { Project } from "../../../../graphql/generated/types";
 import { FeatureList } from "../../../molecules/FeatureList";
 import { SkillList } from "../../../molecules/SkillList";
 import { WhiteRoundedList } from "../WhiteRoundedList";
 
-export const ProjectList: React.VFC = () => {
+interface IProject {
+  project: Project;
+}
+
+export const ProjectList: React.VFC<IProject> = ({ project }) => {
+  console.log("ProjectList component rendered!");
+  console.log(project);
   return (
     <Link href="/projects/a" _hover={{ style: "none" }}>
       <WhiteRoundedList>
