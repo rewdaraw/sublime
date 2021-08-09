@@ -3,7 +3,6 @@ import { Resolvers } from "../generated/types";
 
 const prisma = new PrismaClient();
 
-// TODO: 型を当てる
 export const resolvers: Resolvers = {
   Query: {
     async getAllProjects() {
@@ -43,6 +42,14 @@ export const resolvers: Resolvers = {
         },
       });
       return allProjects;
+    },
+    async getProjectById(parent, args) {
+      const project = await prisma.project.findUnique({
+        where: {
+          id: args.id,
+        },
+      });
+      return project;
     },
   },
 };
