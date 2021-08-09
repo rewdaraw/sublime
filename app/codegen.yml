@@ -1,6 +1,6 @@
 overwrite: true
 schema: "http://localhost:3000/api/graphql" # graphqlのエンドポイントを指定
-documents: "src/**/!(*.d).{ts,tsx}" # clientで使うqueryやmutationが書いてあるファイルを指定
+documents: "src/**/*.{ts,tsx}" # clientで使うqueryやmutationが書いてあるファイルを指定
 generates:
   src/graphql/generated/types.ts:
     plugins:
@@ -8,6 +8,3 @@ generates:
       - "typescript-operations"
       - "typescript-resolvers"
       - "typescript-react-apollo"
-  # ./graphql.schema.json:
-  #   plugins:
-  #     - "introspection"
