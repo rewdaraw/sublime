@@ -1,6 +1,8 @@
 import { gql } from "apollo-server-micro";
 
 export const typeDefs = gql`
+  scalar DateTime
+
   type Query {
     # 以下Fields
     getAllProjects: [Project]
@@ -27,8 +29,8 @@ export const typeDefs = gql`
     projectsLiked: [Like]
     projectsRequested: [JoinRequest]
     projectsQa: [Project]
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type Project {
@@ -42,29 +44,29 @@ export const typeDefs = gql`
     usersLiked: [Like]
     usersRequested: [JoinRequest]
     usersAsked: [Qa]
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type ProjectType {
     id: Int
     description: String
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type ProjectFeature {
     id: Int
     description: String
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type ProgressStatus {
     id: Int
     rate: String
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type ProjectToSkill {
@@ -73,8 +75,8 @@ export const typeDefs = gql`
     projectId: Int
     skill: Skill
     skillId: Int
-    created_at: String
-    updatedAt: String
+    createdAt: DateTime
+    updatedAt: DateTime
   }
 
   type ProjectToProgressStatus {
@@ -83,8 +85,8 @@ export const typeDefs = gql`
     progressStatusId: Int
     project: Project
     projectId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 
   type ProjectToProjectFeature {
@@ -93,8 +95,8 @@ export const typeDefs = gql`
     projectId: Int
     projectFeature: ProjectFeature
     projectFeatureId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 
   type SkillToUser {
@@ -103,8 +105,8 @@ export const typeDefs = gql`
     skillId: Int
     user: User
     userId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 
   type Like {
@@ -113,8 +115,8 @@ export const typeDefs = gql`
     userId: Int
     project: Project
     projectId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 
   type JoinRequest {
@@ -123,8 +125,8 @@ export const typeDefs = gql`
     userId: Int
     project: Project
     projectId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 
   type Qa {
@@ -133,7 +135,7 @@ export const typeDefs = gql`
     userId: Int
     project: Project
     projectId: Int
-    updatedAt: String
-    created_at: String
+    updatedAt: DateTime
+    createdAt: DateTime
   }
 `;
