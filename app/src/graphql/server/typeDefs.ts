@@ -5,7 +5,8 @@ export const typeDefs = gql`
 
   type Query {
     # 以下Fields
-    getAllProjects: [Project]
+    getAllProjects: [Project],
+    getProjectById(id: Int!): Project,
   }
 
   # --------------------------------------------------
