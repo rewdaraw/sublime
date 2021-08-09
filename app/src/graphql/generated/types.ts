@@ -5,6 +5,7 @@ export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type RequireFields<T, K extends keyof T> = { [X in Exclude<keyof T, K>]?: T[X] } & { [P in K]-?: NonNullable<T[P]> };
 const defaultOptions =  {}
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -15,6 +16,7 @@ export type Scalars = {
   Float: number;
   DateTime: Date;
 };
+
 
 export type JoinRequest = {
   __typename?: 'JoinRequest';
@@ -125,6 +127,12 @@ export type Qa = {
 export type Query = {
   __typename?: 'Query';
   getAllProjects?: Maybe<Array<Maybe<Project>>>;
+  getProjectById?: Maybe<Project>;
+};
+
+
+export type QueryGetProjectByIdArgs = {
+  id: Scalars['Int'];
 };
 
 export type Skill = {
@@ -167,6 +175,13 @@ export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetAllProjectsQuery = { __typename?: 'Query', getAllProjects?: Maybe<Array<Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, createdAt?: Maybe<Date>, updatedAt?: Maybe<Date>, projectType?: Maybe<{ __typename?: 'ProjectType', id?: Maybe<number>, description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', id?: Maybe<number>, description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', id?: Maybe<number>, rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersAsked?: Maybe<Array<Maybe<{ __typename?: 'Qa', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>>, usersRequested?: Maybe<Array<Maybe<{ __typename?: 'JoinRequest', user?: Maybe<{ __typename?: 'User', id?: Maybe<number>, user_name?: Maybe<string>, email?: Maybe<string>, twitter_account_url?: Maybe<string>, github_account_url?: Maybe<string>, image_url?: Maybe<string>, type?: Maybe<string>, experience?: Maybe<string>, description?: Maybe<string>, skills?: Maybe<Array<Maybe<{ __typename?: 'SkillToUser', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>> }> }>>> }>>> };
+
+export type GetProjectByIdQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type GetProjectByIdQuery = { __typename?: 'Query', getProjectById?: Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string> }> };
 
 
 
@@ -391,6 +406,7 @@ export type QaResolvers<ContextType = any, ParentType extends ResolversParentTyp
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   getAllProjects?: Resolver<Maybe<Array<Maybe<ResolversTypes['Project']>>>, ParentType, ContextType>;
+  getProjectById?: Resolver<Maybe<ResolversTypes['Project']>, ParentType, ContextType, RequireFields<QueryGetProjectByIdArgs, 'id'>>;
 };
 
 export type SkillResolvers<ContextType = any, ParentType extends ResolversParentTypes['Skill'] = ResolversParentTypes['Skill']> = {
@@ -566,3 +582,40 @@ export function useGetAllProjectsLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type GetAllProjectsQueryHookResult = ReturnType<typeof useGetAllProjectsQuery>;
 export type GetAllProjectsLazyQueryHookResult = ReturnType<typeof useGetAllProjectsLazyQuery>;
 export type GetAllProjectsQueryResult = Apollo.QueryResult<GetAllProjectsQuery, GetAllProjectsQueryVariables>;
+export const GetProjectByIdDocument = gql`
+    query getProjectById($id: Int!) {
+  getProjectById(id: $id) {
+    id
+    title
+    description
+  }
+}
+    `;
+
+/**
+ * __useGetProjectByIdQuery__
+ *
+ * To run a query within a React component, call `useGetProjectByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProjectByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProjectByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetProjectByIdQuery(baseOptions: Apollo.QueryHookOptions<GetProjectByIdQuery, GetProjectByIdQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProjectByIdQuery, GetProjectByIdQueryVariables>(GetProjectByIdDocument, options);
+      }
+export function useGetProjectByIdLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProjectByIdQuery, GetProjectByIdQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProjectByIdQuery, GetProjectByIdQueryVariables>(GetProjectByIdDocument, options);
+        }
+export type GetProjectByIdQueryHookResult = ReturnType<typeof useGetProjectByIdQuery>;
+export type GetProjectByIdLazyQueryHookResult = ReturnType<typeof useGetProjectByIdLazyQuery>;
+export type GetProjectByIdQueryResult = Apollo.QueryResult<GetProjectByIdQuery, GetProjectByIdQueryVariables>;
