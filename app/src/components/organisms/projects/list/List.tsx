@@ -21,7 +21,7 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
   console.log("ProjectList component rendered!");
 
   return (
-    <Link href="/projects/a" _hover={{ style: "none" }}>
+    <Link href={`/projects/${project.id}`} _hover={{ style: "none" }}>
       <WhiteRoundedList>
         {/* 上段 */}
         <Flex w="100%" align="center">

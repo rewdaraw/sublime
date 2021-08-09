@@ -1,6 +1,10 @@
 import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import { NextPage } from "next";
+import {
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import React from "react";
 import { Main } from "../../components/organisms/Main";
 import { Aside } from "../../components/organisms/Aside";
@@ -14,8 +18,14 @@ import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
 import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
 import { TitleWithButton } from "../../components/molecules/TitleWithButton";
 import { Header } from "../../components/organisms/Header";
+import { apolloClient } from "../../graphql/client";
+import { GetProjectByIdQuery } from "../../graphql/generated/types";
+import { GET_PROJECT_BY_ID } from "../../graphql/client/queries";
 
-const ProjectDetailPage: NextPage = () => {
+type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
+  console.log(project);
   return (
     <>
       <Head>
@@ -116,25 +126,41 @@ const ProjectDetailPage: NextPage = () => {
 
 export default ProjectDetailPage;
 
-export function getStaticPaths() {
-  // Return a list of possible value for id
-  const paths = [
-    { params: { slug: "a" } },
-    { params: { slug: "b" } },
-    { params: { slug: "c" } },
-  ];
-  return {
-    paths,
-    fallback: false,
-  };
-}
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const apolloQueryResult = await apolloClient.query<GetProjectByIdQuery>({
+    query: GET_PROJECT_BY_ID,
+    variables: { id: Number(context.query.slug) },
+  });
 
-export async function getStaticProps({ params }) {
-  // Fetch necessary data for the blog post using params.id
-  const data = {};
+  const project = apolloQueryResult.data.getProjectById;
+
   return {
     props: {
-      data,
+      project,
     },
   };
 }
+
+// export function getStaticPaths() {
+//   // Return a list of possible value for id
+//   const paths = [
+//     { params: { slug: "a" } },
+//     { params: { slug: "b" } },
+//     { params: { slug: "c" } },
+//   ];
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps({ params }) {
+//   // Fetch necessary data for the blog post using params.id
+//   const data = {};
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
