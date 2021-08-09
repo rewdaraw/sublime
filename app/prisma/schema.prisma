@@ -18,31 +18,31 @@ model Skill {
   users       SkillToUser[]
   projects    ProjectToSkill[]
   updatedAt   DateTime         @updatedAt
-  created_at  DateTime         @default(now())
+  createdAt   DateTime         @default(now())
 
   @@map("skills")
 }
 
 model SkillToUser {
-  id         Int      @id @default(autoincrement())
-  skill      Skill    @relation(fields: [skillId], references: [id])
-  skillId    Int
-  user       User     @relation(fields: [userId], references: [id])
-  userId     Int
-  updatedAt  DateTime @updatedAt
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  skill     Skill    @relation(fields: [skillId], references: [id])
+  skillId   Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 
   @@map("skillsTousers")
 }
 
 model ProjectToSkill {
-  id         Int      @id @default(autoincrement())
-  project    Project  @relation(fields: [projectId], references: [id])
-  projectId  Int
-  skill      Skill    @relation(fields: [skillId], references: [id])
-  skillId    Int
-  updatedAt  DateTime @updatedAt
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  skill     Skill    @relation(fields: [skillId], references: [id])
+  skillId   Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 
   @@map("projectsToskills")
 }
@@ -62,7 +62,7 @@ model User {
   projectsRequested   JoinRequest[]
   projectsQa          Qa[]
   updatedAt           DateTime      @updatedAt
-  created_at          DateTime      @default(now())
+  createdAt           DateTime      @default(now())
 
   @@map("users")
 }
@@ -80,54 +80,54 @@ model Project {
   usersRequested  JoinRequest[]
   usersAsked      Qa[]
   updatedAt       DateTime                  @updatedAt
-  created_at      DateTime                  @default(now())
+  createdAt       DateTime                  @default(now())
 
   @@map("projects")
 }
 
 model Like {
-  id         Int      @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id])
-  userId     Int
-  project    Project  @relation(fields: [projectId], references: [id])
-  projectId  Int
-  updatedAt  DateTime @updatedAt
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 
   @@map("likes")
 }
 
 model JoinRequest {
-  id         Int      @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id])
-  userId     Int
-  project    Project  @relation(fields: [projectId], references: [id])
-  projectId  Int
-  updatedAt  DateTime @updatedAt
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 
   @@map("join_requests")
 }
 
 model Qa {
-  id         Int      @id @default(autoincrement())
-  user       User     @relation(fields: [userId], references: [id])
-  userId     Int
-  project    Project  @relation(fields: [projectId], references: [id])
-  projectId  Int
-  updatedAt  DateTime @updatedAt
-  created_at DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  project   Project  @relation(fields: [projectId], references: [id])
+  projectId Int
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 
   @@map("qas")
 }
 
 // 10% | 20%
 model ProgressStatus {
-  id         Int                       @id @default(autoincrement())
-  rate       String
-  projects   ProjectToProgressStatus[]
-  updatedAt  DateTime                  @updatedAt
-  created_at DateTime                  @default(now())
+  id        Int                       @id @default(autoincrement())
+  rate      String
+  projects  ProjectToProgressStatus[]
+  updatedAt DateTime                  @updatedAt
+  createdAt DateTime                  @default(now())
 
   @@map("progress_statuses")
 }
@@ -139,7 +139,7 @@ model ProjectToProgressStatus {
   project          Project        @relation(fields: [projectId], references: [id])
   projectId        Int
   updatedAt        DateTime       @updatedAt
-  created_at       DateTime       @default(now())
+  createdAt        DateTime       @default(now())
 
   @@map("projectsToprogress_statuses")
 }
@@ -150,7 +150,7 @@ model ProjectFeature {
   description String
   projects    ProjectToProjectFeature[]
   updatedAt   DateTime                  @updatedAt
-  created_at  DateTime                  @default(now())
+  createdAt   DateTime                  @default(now())
 
   @@map("project_features")
 }
@@ -162,7 +162,7 @@ model ProjectToProjectFeature {
   projectFeature   ProjectFeature @relation(fields: [projectFeatureId], references: [id])
   projectFeatureId Int
   updatedAt        DateTime       @updatedAt
-  created_at       DateTime       @default(now())
+  createdAt        DateTime       @default(now())
 
   @@map("projectsToproject_features")
 }
@@ -173,7 +173,7 @@ model ProjectType {
   description String
   projects    Project[]
   updatedAt   DateTime  @updatedAt
-  created_at  DateTime  @default(now())
+  createdAt   DateTime  @default(now())
 
   @@map("project_types")
 }
