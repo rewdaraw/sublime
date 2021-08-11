@@ -48,6 +48,37 @@ export const resolvers: Resolvers = {
         where: {
           id: args.id,
         },
+        include: {
+          projectType: {
+            select: {
+              description: true,
+            },
+          },
+          projectFeatures: {
+            include: {
+              projectFeature: {
+                select: {
+                  description: true,
+                },
+              },
+            },
+          },
+          projectStatuses: {
+            include: {
+              progressStatus: true
+            }
+          },
+          skills: {
+            include: {
+              skill: true
+            }
+          },
+          usersLiked: {
+            include: {
+              user: true
+            }
+          }
+        },
       });
       return project;
     },
