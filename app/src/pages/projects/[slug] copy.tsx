@@ -41,11 +41,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
               </Heading>
               <Box mb={4}>
                 <WhiteRoundedCard>
-                  <BasicInfo
-                    title={project.title}
-                    projectType={project.projectType.description}
-                    description={project.description}
-                  />
+                  <BasicInfo />
                 </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
