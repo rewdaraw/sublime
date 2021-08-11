@@ -181,7 +181,7 @@ export type GetProjectByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', getProjectById?: Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string> }> };
+export type GetProjectByIdQuery = { __typename?: 'Query', getProjectById?: Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, projectType?: Maybe<{ __typename?: 'ProjectType', description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number> }> }>>> }> };
 
 
 
@@ -588,6 +588,29 @@ export const GetProjectByIdDocument = gql`
     id
     title
     description
+    projectType {
+      description
+    }
+    projectFeatures {
+      projectFeature {
+        description
+      }
+    }
+    projectStatuses {
+      progressStatus {
+        rate
+      }
+    }
+    skills {
+      skill {
+        description
+      }
+    }
+    usersLiked {
+      user {
+        id
+      }
+    }
   }
 }
     `;
