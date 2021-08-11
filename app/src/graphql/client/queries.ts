@@ -97,6 +97,29 @@ export const GET_PROJECT_BY_ID = gql`
       id
       title
       description
+      projectType {
+        description
+      }
+      projectFeatures {
+        projectFeature {
+          description
+        }
+      }
+      projectStatuses {
+        progressStatus {
+          rate
+        }
+      }
+      skills {
+        skill {
+          description
+        }
+      }
+      usersLiked {
+        user {
+          id
+        }
+      }
     }
   }
 `;
