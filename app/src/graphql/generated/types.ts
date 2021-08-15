@@ -181,7 +181,7 @@ export type GetProjectByIdQueryVariables = Exact<{
 }>;
 
 
-export type GetProjectByIdQuery = { __typename?: 'Query', getProjectById?: Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, projectType?: Maybe<{ __typename?: 'ProjectType', description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number> }> }>>> }> };
+export type GetProjectByIdQuery = { __typename?: 'Query', getProjectById?: Maybe<{ __typename?: 'Project', id?: Maybe<number>, title?: Maybe<string>, description?: Maybe<string>, projectType?: Maybe<{ __typename?: 'ProjectType', description?: Maybe<string> }>, projectFeatures?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProjectFeature', projectFeature?: Maybe<{ __typename?: 'ProjectFeature', description?: Maybe<string> }> }>>>, projectStatuses?: Maybe<Array<Maybe<{ __typename?: 'ProjectToProgressStatus', progressStatus?: Maybe<{ __typename?: 'ProgressStatus', rate?: Maybe<string> }> }>>>, skills?: Maybe<Array<Maybe<{ __typename?: 'ProjectToSkill', skill?: Maybe<{ __typename?: 'Skill', id?: Maybe<number>, description?: Maybe<string> }> }>>>, usersLiked?: Maybe<Array<Maybe<{ __typename?: 'Like', user?: Maybe<{ __typename?: 'User', id?: Maybe<number> }> }>>> }> };
 
 
 
@@ -603,6 +603,7 @@ export const GetProjectByIdDocument = gql`
     }
     skills {
       skill {
+        id
         description
       }
     }

@@ -50,7 +50,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
               </Box>
               <Box mb={4}>
                 <WhiteRoundedCard>
-                  <SkillInfo />
+                  <SkillInfo skills={project.skills} />
                 </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
@@ -136,6 +136,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     query: GET_PROJECT_BY_ID,
     variables: { id: Number(context.query.slug) },
   });
+  // const apolloQueryResult = await apolloClient.query({
+  //   query: GET_PROJECT_BY_ID,
+  //   variables: { id: Number(context.query.slug) },
+  // });
 
   const project = apolloQueryResult.data.getProjectById;
 
