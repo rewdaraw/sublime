@@ -65,19 +65,19 @@ export const resolvers: Resolvers = {
           },
           projectStatuses: {
             include: {
-              progressStatus: true
-            }
+              progressStatus: true,
+            },
           },
           skills: {
             include: {
-              skill: true
-            }
+              skill: true,
+            },
           },
           usersLiked: {
             include: {
-              user: true
-            }
-          }
+              user: true,
+            },
+          },
         },
       });
       return project;

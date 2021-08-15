@@ -2,12 +2,16 @@ import React from "react";
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
 interface IBasicInfo {
-  title: string
-  projectType: string
-  description: string
+  title: string;
+  projectType: string;
+  description: string;
 }
 
-export const BasicInfo: React.VFC<IBasicInfo> = ({ title, projectType, description }) => {
+export const BasicInfo: React.VFC<IBasicInfo> = ({
+  title,
+  projectType,
+  description,
+}) => {
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

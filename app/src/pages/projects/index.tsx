@@ -120,7 +120,7 @@ export async function getServerSideProps() {
 
   // make manyToMany relation data objects shallow for handle
   // after all I can't this for type error...
-  
+
   // const projects = apolloQueryResult.data.getAllProjects.map((project) => {
   //   return {
   //     ...project,
