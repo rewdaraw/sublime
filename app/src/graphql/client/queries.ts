@@ -6,6 +6,7 @@ export const GET_ALL_PROJECTS = gql`
       id
       title
       description
+      skillDescription
       projectType {
         id
         description
@@ -97,6 +98,7 @@ export const GET_PROJECT_BY_ID = gql`
       id
       title
       description
+      skillDescription
       projectType {
         description
       }
