@@ -63,6 +63,7 @@ export type Project = {
   id?: Maybe<Scalars["Int"]>;
   title?: Maybe<Scalars["String"]>;
   description?: Maybe<Scalars["String"]>;
+  skillDescription?: Maybe<Scalars["String"]>;
   projectType?: Maybe<ProjectType>;
   projectFeatures?: Maybe<Array<Maybe<ProjectToProjectFeature>>>;
   projectStatuses?: Maybe<Array<Maybe<ProjectToProgressStatus>>>;
@@ -191,6 +192,7 @@ export type GetAllProjectsQuery = {
         id?: Maybe<number>;
         title?: Maybe<string>;
         description?: Maybe<string>;
+        skillDescription?: Maybe<string>;
         createdAt?: Maybe<Date>;
         updatedAt?: Maybe<Date>;
         projectType?: Maybe<{
@@ -343,6 +345,7 @@ export type GetProjectByIdQuery = {
     id?: Maybe<number>;
     title?: Maybe<string>;
     description?: Maybe<string>;
+    skillDescription?: Maybe<string>;
     projectType?: Maybe<{
       __typename?: "ProjectType";
       description?: Maybe<string>;
@@ -616,6 +619,11 @@ export type ProjectResolvers<
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   description?: Resolver<
+    Maybe<ResolversTypes["String"]>,
+    ParentType,
+    ContextType
+  >;
+  skillDescription?: Resolver<
     Maybe<ResolversTypes["String"]>,
     ParentType,
     ContextType
@@ -964,6 +972,7 @@ export const GetAllProjectsDocument = gql`
       id
       title
       description
+      skillDescription
       projectType {
         id
         description
@@ -1104,6 +1113,7 @@ export const GetProjectByIdDocument = gql`
       id
       title
       description
+      skillDescription
       projectType {
         description
       }
