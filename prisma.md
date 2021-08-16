@@ -8,6 +8,10 @@ npx prisma generate
 npx prisma db push
 ```
 
+```
+npx prisma db seed --preview-feature
+```
+
 ## prismaでのrelationデータの部分的取得
 
 ```

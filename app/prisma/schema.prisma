@@ -71,6 +71,7 @@ model Project {
   id              Int                       @id @default(autoincrement())
   title           String
   description     String
+  skillDescription     String
   projectType     ProjectType               @relation(fields: [projectTypeId], references: [id])
   projectTypeId   Int
   projectFeatures ProjectToProjectFeature[]
