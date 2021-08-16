@@ -50,7 +50,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
               </Box>
               <Box mb={4}>
                 <WhiteRoundedCard>
-                  <SkillInfo skills={project.skills} />
+                  <SkillInfo skills={project.skills} skillDescription={project.skillDescription} />
                 </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
