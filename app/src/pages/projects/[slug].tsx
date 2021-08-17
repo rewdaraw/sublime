@@ -25,7 +25,6 @@ import { GET_PROJECT_BY_ID } from "../../graphql/client/queries";
 type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
-  console.log(project);
   return (
     <>
       <Head>

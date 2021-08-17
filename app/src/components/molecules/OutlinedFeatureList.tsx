@@ -10,7 +10,6 @@ export const OutlinedFeatureList: React.VFC<IOutlinedFeatureList> = ({
   features,
 }) => {
   console.log("OutlinedFeatureList component rendered!");
-  console.log(features);
   return (
     <Wrap w="100%">
       {features &&

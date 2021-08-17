@@ -29,7 +29,6 @@ type ProjectListsPageType = InferGetServerSidePropsType<
 
 const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
   console.log("ProjectListsPage rendered!");
-  console.log(projects);
 
   return (
     <>
