@@ -5,9 +5,8 @@ export const GET_ALL_PROJECTS = gql`
     getAllProjects {
       id
       title
-      description
-      skillDescription
-      featureDescription
+      createdAt
+      updatedAt
       projectType {
         id
         description
@@ -16,12 +15,6 @@ export const GET_ALL_PROJECTS = gql`
         projectFeature {
           id
           description
-        }
-      }
-      projectStatuses {
-        progressStatus {
-          id
-          rate
         }
       }
       skills {
@@ -34,61 +27,15 @@ export const GET_ALL_PROJECTS = gql`
         user {
           id
           user_name
-          email
-          twitter_account_url
-          github_account_url
-          image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
-        }
-      }
-      usersAsked {
-        user {
-          id
-          user_name
-          email
-          twitter_account_url
-          github_account_url
-          image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
         }
       }
       usersRequested {
         user {
           id
           user_name
-          email
-          twitter_account_url
-          github_account_url
           image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
         }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -111,6 +58,8 @@ export const GET_PROJECT_BY_ID = gql`
         }
       }
       projectStatuses {
+        description
+        createdAt
         progressStatus {
           rate
         }
@@ -124,6 +73,26 @@ export const GET_PROJECT_BY_ID = gql`
       usersLiked {
         user {
           id
+          user_name
+        }
+      }
+      usersRequested {
+        status
+        user {
+          id
+          user_name
+          type
+          image_url
+        }
+      }
+      usersAsked {
+        description
+        createdAt
+        user {
+          id
+          user_name
+          type
+          image_url
         }
       }
     }

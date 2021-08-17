@@ -35,6 +35,7 @@ export type JoinRequest = {
   userId?: Maybe<Scalars["Int"]>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars["Int"]>;
+  status?: Maybe<Scalars["Int"]>;
   updatedAt?: Maybe<Scalars["DateTime"]>;
   createdAt?: Maybe<Scalars["DateTime"]>;
 };
@@ -91,6 +92,7 @@ export type ProjectToProgressStatus = {
   progressStatusId?: Maybe<Scalars["Int"]>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
   updatedAt?: Maybe<Scalars["DateTime"]>;
   createdAt?: Maybe<Scalars["DateTime"]>;
 };
@@ -132,6 +134,7 @@ export type Qa = {
   userId?: Maybe<Scalars["Int"]>;
   project?: Maybe<Project>;
   projectId?: Maybe<Scalars["Int"]>;
+  description?: Maybe<Scalars["String"]>;
   updatedAt?: Maybe<Scalars["DateTime"]>;
   createdAt?: Maybe<Scalars["DateTime"]>;
 };
@@ -192,9 +195,6 @@ export type GetAllProjectsQuery = {
         __typename?: "Project";
         id?: Maybe<number>;
         title?: Maybe<string>;
-        description?: Maybe<string>;
-        skillDescription?: Maybe<string>;
-        featureDescription?: Maybe<string>;
         createdAt?: Maybe<Date>;
         updatedAt?: Maybe<Date>;
         projectType?: Maybe<{
@@ -210,18 +210,6 @@ export type GetAllProjectsQuery = {
                 __typename?: "ProjectFeature";
                 id?: Maybe<number>;
                 description?: Maybe<string>;
-              }>;
-            }>
-          >
-        >;
-        projectStatuses?: Maybe<
-          Array<
-            Maybe<{
-              __typename?: "ProjectToProgressStatus";
-              progressStatus?: Maybe<{
-                __typename?: "ProgressStatus";
-                id?: Maybe<number>;
-                rate?: Maybe<string>;
               }>;
             }>
           >
@@ -246,56 +234,6 @@ export type GetAllProjectsQuery = {
                 __typename?: "User";
                 id?: Maybe<number>;
                 user_name?: Maybe<string>;
-                email?: Maybe<string>;
-                twitter_account_url?: Maybe<string>;
-                github_account_url?: Maybe<string>;
-                image_url?: Maybe<string>;
-                type?: Maybe<string>;
-                experience?: Maybe<string>;
-                description?: Maybe<string>;
-                skills?: Maybe<
-                  Array<
-                    Maybe<{
-                      __typename?: "SkillToUser";
-                      skill?: Maybe<{
-                        __typename?: "Skill";
-                        id?: Maybe<number>;
-                        description?: Maybe<string>;
-                      }>;
-                    }>
-                  >
-                >;
-              }>;
-            }>
-          >
-        >;
-        usersAsked?: Maybe<
-          Array<
-            Maybe<{
-              __typename?: "Qa";
-              user?: Maybe<{
-                __typename?: "User";
-                id?: Maybe<number>;
-                user_name?: Maybe<string>;
-                email?: Maybe<string>;
-                twitter_account_url?: Maybe<string>;
-                github_account_url?: Maybe<string>;
-                image_url?: Maybe<string>;
-                type?: Maybe<string>;
-                experience?: Maybe<string>;
-                description?: Maybe<string>;
-                skills?: Maybe<
-                  Array<
-                    Maybe<{
-                      __typename?: "SkillToUser";
-                      skill?: Maybe<{
-                        __typename?: "Skill";
-                        id?: Maybe<number>;
-                        description?: Maybe<string>;
-                      }>;
-                    }>
-                  >
-                >;
               }>;
             }>
           >
@@ -308,25 +246,7 @@ export type GetAllProjectsQuery = {
                 __typename?: "User";
                 id?: Maybe<number>;
                 user_name?: Maybe<string>;
-                email?: Maybe<string>;
-                twitter_account_url?: Maybe<string>;
-                github_account_url?: Maybe<string>;
                 image_url?: Maybe<string>;
-                type?: Maybe<string>;
-                experience?: Maybe<string>;
-                description?: Maybe<string>;
-                skills?: Maybe<
-                  Array<
-                    Maybe<{
-                      __typename?: "SkillToUser";
-                      skill?: Maybe<{
-                        __typename?: "Skill";
-                        id?: Maybe<number>;
-                        description?: Maybe<string>;
-                      }>;
-                    }>
-                  >
-                >;
               }>;
             }>
           >
@@ -369,6 +289,8 @@ export type GetProjectByIdQuery = {
       Array<
         Maybe<{
           __typename?: "ProjectToProgressStatus";
+          description?: Maybe<string>;
+          createdAt?: Maybe<Date>;
           progressStatus?: Maybe<{
             __typename?: "ProgressStatus";
             rate?: Maybe<string>;
@@ -392,7 +314,42 @@ export type GetProjectByIdQuery = {
       Array<
         Maybe<{
           __typename?: "Like";
-          user?: Maybe<{ __typename?: "User"; id?: Maybe<number> }>;
+          user?: Maybe<{
+            __typename?: "User";
+            id?: Maybe<number>;
+            user_name?: Maybe<string>;
+          }>;
+        }>
+      >
+    >;
+    usersRequested?: Maybe<
+      Array<
+        Maybe<{
+          __typename?: "JoinRequest";
+          status?: Maybe<number>;
+          user?: Maybe<{
+            __typename?: "User";
+            id?: Maybe<number>;
+            user_name?: Maybe<string>;
+            type?: Maybe<string>;
+            image_url?: Maybe<string>;
+          }>;
+        }>
+      >
+    >;
+    usersAsked?: Maybe<
+      Array<
+        Maybe<{
+          __typename?: "Qa";
+          description?: Maybe<string>;
+          createdAt?: Maybe<Date>;
+          user?: Maybe<{
+            __typename?: "User";
+            id?: Maybe<number>;
+            user_name?: Maybe<string>;
+            type?: Maybe<string>;
+            image_url?: Maybe<string>;
+          }>;
         }>
       >
     >;
@@ -562,6 +519,7 @@ export type JoinRequestResolvers<
   userId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
+  status?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   updatedAt?: Resolver<
     Maybe<ResolversTypes["DateTime"]>,
     ParentType,
@@ -725,6 +683,11 @@ export type ProjectToProgressStatusResolvers<
   >;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
+  description?: Resolver<
+    Maybe<ResolversTypes["String"]>,
+    ParentType,
+    ContextType
+  >;
   updatedAt?: Resolver<
     Maybe<ResolversTypes["DateTime"]>,
     ParentType,
@@ -822,6 +785,11 @@ export type QaResolvers<
   userId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
+  description?: Resolver<
+    Maybe<ResolversTypes["String"]>,
+    ParentType,
+    ContextType
+  >;
   updatedAt?: Resolver<
     Maybe<ResolversTypes["DateTime"]>,
     ParentType,
@@ -980,9 +948,8 @@ export const GetAllProjectsDocument = gql`
     getAllProjects {
       id
       title
-      description
-      skillDescription
-      featureDescription
+      createdAt
+      updatedAt
       projectType {
         id
         description
@@ -991,12 +958,6 @@ export const GetAllProjectsDocument = gql`
         projectFeature {
           id
           description
-        }
-      }
-      projectStatuses {
-        progressStatus {
-          id
-          rate
         }
       }
       skills {
@@ -1009,61 +970,15 @@ export const GetAllProjectsDocument = gql`
         user {
           id
           user_name
-          email
-          twitter_account_url
-          github_account_url
-          image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
-        }
-      }
-      usersAsked {
-        user {
-          id
-          user_name
-          email
-          twitter_account_url
-          github_account_url
-          image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
         }
       }
       usersRequested {
         user {
           id
           user_name
-          email
-          twitter_account_url
-          github_account_url
           image_url
-          type
-          experience
-          description
-          skills {
-            skill {
-              id
-              description
-            }
-          }
         }
       }
-      createdAt
-      updatedAt
     }
   }
 `;
@@ -1135,6 +1050,8 @@ export const GetProjectByIdDocument = gql`
         }
       }
       projectStatuses {
+        description
+        createdAt
         progressStatus {
           rate
         }
@@ -1148,6 +1065,26 @@ export const GetProjectByIdDocument = gql`
       usersLiked {
         user {
           id
+          user_name
+        }
+      }
+      usersRequested {
+        status
+        user {
+          id
+          user_name
+          type
+          image_url
+        }
+      }
+      usersAsked {
+        description
+        createdAt
+        user {
+          id
+          user_name
+          type
+          image_url
         }
       }
     }

@@ -88,6 +88,7 @@ export const typeDefs = gql`
     progressStatusId: Int
     project: Project
     projectId: Int
+    description: String
     updatedAt: DateTime
     createdAt: DateTime
   }
@@ -128,6 +129,7 @@ export const typeDefs = gql`
     userId: Int
     project: Project
     projectId: Int
+    status: Int
     updatedAt: DateTime
     createdAt: DateTime
   }
@@ -138,6 +140,7 @@ export const typeDefs = gql`
     userId: Int
     project: Project
     projectId: Int
+    description: String
     updatedAt: DateTime
     createdAt: DateTime
   }

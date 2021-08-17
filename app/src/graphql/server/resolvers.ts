@@ -14,11 +14,6 @@ export const resolvers: Resolvers = {
               projectFeature: true,
             },
           },
-          projectStatuses: {
-            include: {
-              progressStatus: true,
-            },
-          },
           skills: {
             include: {
               skill: true,
@@ -30,11 +25,6 @@ export const resolvers: Resolvers = {
             },
           },
           usersRequested: {
-            include: {
-              user: true,
-            },
-          },
-          usersAsked: {
             include: {
               user: true,
             },
@@ -70,6 +60,16 @@ export const resolvers: Resolvers = {
             },
           },
           usersLiked: {
+            include: {
+              user: true,
+            },
+          },
+          usersRequested: {
+            include: {
+              user: true,
+            },
+          },
+          usersAsked: {
             include: {
               user: true,
             },
