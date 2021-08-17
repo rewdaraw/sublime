@@ -10,8 +10,17 @@ import {
   Td,
   Spacer,
 } from "@chakra-ui/react";
+import { ProjectToProgressStatus } from "../../../../graphql/generated/types";
+import { formatDate } from "../../../../utils";
 
-export const DevelopmentInfo: React.VFC = () => {
+interface IDevelopmentInfo {
+  projectStatuses: ProjectToProgressStatus[];
+}
+
+export const DevelopmentInfo: React.VFC<IDevelopmentInfo> = ({
+  projectStatuses,
+}) => {
+  console.log("DevelopmentInfo component rendered!");
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>
@@ -21,35 +30,23 @@ export const DevelopmentInfo: React.VFC = () => {
         <WrapItem>
           <Table variant="simple">
             <Tbody>
-              <Tr>
-                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
-                  2021.10.21
-                </Td>
-                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
-                  草案作成
-                </Td>
-              </Tr>
-              <Tr>
-                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
-                  2021.11.1
-                </Td>
-                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
-                  一部デザイン完了完了完了完了完了
-                </Td>
-              </Tr>
-              <Tr>
-                <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
-                  2021.12.24
-                </Td>
-                <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
-                  開発環境構築完了
-                </Td>
-              </Tr>
+              {projectStatuses &&
+                projectStatuses.map((projectStatus, i) => (
+                  <Tr key={i}>
+                    <Td pl={0} pr={{ base: "0px", sm: "24px" }} minW="110px">
+                      {formatDate(projectStatus.createdAt)}
+                    </Td>
+                    <Td pr={0} pl={{ base: "0px", sm: "24px" }}>
+                      {projectStatus.description}
+                    </Td>
+                  </Tr>
+                ))}
             </Tbody>
           </Table>
         </WrapItem>
         <Spacer d={{ base: "none", md: "block" }} />
         <WrapItem d="inline-block">
+          {/* TODO: グラフを動的に描画する */}
           <Image
             src="/assets/images/dummy-chart.png"
             boxSize="140px"
