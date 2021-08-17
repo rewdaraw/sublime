@@ -104,6 +104,7 @@ export const GET_PROJECT_BY_ID = gql`
       }
       projectFeatures {
         projectFeature {
+          id
           description
         }
       }

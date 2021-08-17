@@ -7,6 +7,8 @@ interface IFeatureList {
 }
 
 export const FeatureList: React.VFC<IFeatureList> = ({ features }) => {
+  console.log("FeatureList component rendered!")
+  console.log(features)
   return (
     <Wrap w="100%">
       {features &&
@@ -22,7 +24,7 @@ export const FeatureList: React.VFC<IFeatureList> = ({ features }) => {
             >
               <Image
                 src={
-                  feature.projectFeature.id == 1 // 企業案件
+                  feature.projectFeature.id === 1 // 企業案件
                     ? "/assets/images/icons/Office.svg"
                     : feature.projectFeature.id === 2 // 報酬あり
                     ? "/assets/images/icons/Reward.svg"
