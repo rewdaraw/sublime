@@ -4,10 +4,13 @@ import { SkillList } from "../../../molecules/SkillList";
 import { ProjectToSkill } from "../../../../graphql/generated/types";
 interface ISkillInfo {
   skills: ProjectToSkill[];
-  skillDescription: string
+  skillDescription: string;
 }
 
-export const SkillInfo: React.VFC<ISkillInfo> = ({ skills, skillDescription }) => {
+export const SkillInfo: React.VFC<ISkillInfo> = ({
+  skills,
+  skillDescription,
+}) => {
   console.log(skillDescription);
   return (
     <>

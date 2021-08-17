@@ -56,8 +56,8 @@ export const resolvers: Resolvers = {
           },
           projectFeatures: {
             include: {
-              projectFeature: true
-            }
+              projectFeature: true,
+            },
           },
           projectStatuses: {
             include: {

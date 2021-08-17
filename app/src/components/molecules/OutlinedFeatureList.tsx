@@ -3,12 +3,14 @@ import { Image, Tag, TagLabel, Wrap, WrapItem } from "@chakra-ui/react";
 import { ProjectToProjectFeature } from "../../graphql/generated/types";
 
 interface IOutlinedFeatureList {
-  features: ProjectToProjectFeature[]
+  features: ProjectToProjectFeature[];
 }
 
-export const OutlinedFeatureList: React.VFC<IOutlinedFeatureList> = ({features}) => {
+export const OutlinedFeatureList: React.VFC<IOutlinedFeatureList> = ({
+  features,
+}) => {
   console.log("OutlinedFeatureList component rendered!");
-  console.log(features)
+  console.log(features);
   return (
     <Wrap w="100%">
       {features &&

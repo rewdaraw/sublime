@@ -7,8 +7,8 @@ interface IFeatureList {
 }
 
 export const FeatureList: React.VFC<IFeatureList> = ({ features }) => {
-  console.log("FeatureList component rendered!")
-  console.log(features)
+  console.log("FeatureList component rendered!");
+  console.log(features);
   return (
     <Wrap w="100%">
       {features &&
