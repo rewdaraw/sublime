@@ -68,20 +68,21 @@ model User {
 }
 
 model Project {
-  id              Int                       @id @default(autoincrement())
-  title           String
-  description     String
-  skillDescription     String
-  projectType     ProjectType               @relation(fields: [projectTypeId], references: [id])
-  projectTypeId   Int
-  projectFeatures ProjectToProjectFeature[]
-  projectStatuses ProjectToProgressStatus[]
-  skills          ProjectToSkill[]
-  usersLiked      Like[]
-  usersRequested  JoinRequest[]
-  usersAsked      Qa[]
-  updatedAt       DateTime                  @default(now())
-  createdAt       DateTime                  @default(now())
+  id                 Int                       @id @default(autoincrement())
+  title              String
+  description        String
+  skillDescription   String
+  featureDescription String
+  projectType        ProjectType               @relation(fields: [projectTypeId], references: [id])
+  projectTypeId      Int
+  projectFeatures    ProjectToProjectFeature[]
+  projectStatuses    ProjectToProgressStatus[]
+  skills             ProjectToSkill[]
+  usersLiked         Like[]
+  usersRequested     JoinRequest[]
+  usersAsked         Qa[]
+  updatedAt          DateTime                  @default(now())
+  createdAt          DateTime                  @default(now())
 
   @@map("projects")
 }

@@ -1,3 +1,9 @@
+## prisma schemaの作成(初期化)
+
+```
+npx prisma init
+```
+
 ## prisma schemaを修正したら
 
 ```
