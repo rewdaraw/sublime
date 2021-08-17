@@ -39,6 +39,7 @@ export const typeDefs = gql`
     title: String
     description: String
     skillDescription: String
+    featureDescription: String
     projectType: ProjectType
     projectFeatures: [ProjectToProjectFeature]
     projectStatuses: [ProjectToProgressStatus]
