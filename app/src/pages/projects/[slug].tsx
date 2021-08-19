@@ -25,6 +25,7 @@ import { GET_PROJECT_BY_ID } from "../../graphql/client/queries";
 type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
+  console.log("[slug] page rendered!");
   return (
     <>
       <Head>
@@ -70,12 +71,12 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
               </Box>
               <Box mb={4}>
                 <WhiteRoundedCard>
-                  <OwnersInfo />
+                  <OwnersInfo owners={project.usersRequested} />
                 </WhiteRoundedCard>
               </Box>
               <Box mb={4}>
                 <WhiteRoundedCard>
-                  <FaqInfo />
+                  <FaqInfo qas={project.usersAsked} />
                 </WhiteRoundedCard>
               </Box>
             </Main>

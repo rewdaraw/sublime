@@ -12,6 +12,7 @@ export const FeatureInfo: React.VFC<IFeatureInfo> = ({
   featureDescription,
   features,
 }) => {
+  console.log("FeatureInfo component rendered!");
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

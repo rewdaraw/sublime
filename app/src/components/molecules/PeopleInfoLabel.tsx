@@ -1,19 +1,25 @@
 import React from "react";
 import { Image, Box, Flex, Text } from "@chakra-ui/react";
+import { User } from "../../graphql/generated/types";
 
-export const PeopleInfoLabel: React.VFC = () => {
+interface IPeopleInfoLabel {
+  people: User;
+}
+
+export const PeopleInfoLabel: React.VFC<IPeopleInfoLabel> = ({ people }) => {
+  console.log("PeopleInfoLabel component rendered!");
   return (
     <Flex>
       <Image
-        src="/assets/images/avatar.jpg"
+        src={people.image_url}
         boxSize={12}
-        alt="engineer"
+        alt={people.type}
         rounded="full"
         mr={4}
       />
       <Box textAlign="center">
-        <Text fontSize="xs">designer</Text>
-        <Text>近藤シャロン</Text>
+        <Text fontSize="xs">{people.type}</Text>
+        <Text>{people?.user_name}</Text>
       </Box>
     </Flex>
   );

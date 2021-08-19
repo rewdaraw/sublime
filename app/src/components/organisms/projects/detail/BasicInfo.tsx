@@ -12,6 +12,7 @@ export const BasicInfo: React.VFC<IBasicInfo> = ({
   projectType,
   description,
 }) => {
+  console.log("BasicInfo component rendered!")
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>

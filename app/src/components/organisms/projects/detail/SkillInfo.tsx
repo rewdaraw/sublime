@@ -11,6 +11,7 @@ export const SkillInfo: React.VFC<ISkillInfo> = ({
   skills,
   skillDescription,
 }) => {
+  console.log("SkillInfo component rendered!");
   return (
     <>
       <Heading as="h3" size="sm" mb={4}>
