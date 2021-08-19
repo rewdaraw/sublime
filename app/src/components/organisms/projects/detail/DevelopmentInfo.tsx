@@ -23,9 +23,6 @@ export const DevelopmentInfo: React.VFC<IDevelopmentInfo> = ({
   console.log("DevelopmentInfo component rendered!");
   return (
     <>
-      <Heading as="h3" size="sm" mb={4}>
-        開発状況
-      </Heading>
       <Wrap align="center" mt="0px !important">
         <WrapItem>
           <Table variant="simple">

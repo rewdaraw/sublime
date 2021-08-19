@@ -36,10 +36,13 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
         <Container maxW="1120px">
           <Flex>
             <Main>
-              <Heading size="md" mb={6}>
-                プロジェクト情報
-              </Heading>
-              <Box mb={4}>
+              {/* <Heading size="md" mb={6}>
+                プロジェクトについて
+              </Heading> */}
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  基本情報
+                </Heading>
                 <WhiteRoundedCard>
                   <BasicInfo
                     title={project.title}
@@ -48,7 +51,10 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                   />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={4}>
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  使用している技術やツール
+                </Heading>
                 <WhiteRoundedCard>
                   <SkillInfo
                     skills={project.skills}
@@ -56,7 +62,10 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                   />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={4}>
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  特徴
+                </Heading>
                 <WhiteRoundedCard>
                   <FeatureInfo
                     features={project.projectFeatures}
@@ -64,23 +73,32 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                   />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={4}>
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  進捗状況
+                </Heading>
                 <WhiteRoundedCard>
                   <DevelopmentInfo projectStatuses={project.projectStatuses} />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={4}>
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  参加者
+                </Heading>
                 <WhiteRoundedCard>
                   <OwnersInfo owners={project.usersRequested} />
                 </WhiteRoundedCard>
               </Box>
-              <Box mb={4}>
+              <Box mb={8}>
+                <Heading as="h3" size="sm" mb={4}>
+                  質問
+                </Heading>
                 <WhiteRoundedCard>
                   <FaqInfo qas={project.usersAsked} />
                 </WhiteRoundedCard>
               </Box>
             </Main>
-            <Aside title="Action">
+            <Aside title="プロジェクトに参加する">
               <Box mb={2}>
                 <TitleWithButton
                   title="お気に入りに登録する"

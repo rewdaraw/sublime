@@ -14,9 +14,6 @@ export const SkillInfo: React.VFC<ISkillInfo> = ({
   console.log("SkillInfo component rendered!");
   return (
     <>
-      <Heading as="h3" size="sm" mb={4}>
-        使用している技術やツール
-      </Heading>
       <SkillList skills={skills} />
       <Box mt="24px !important">
         {/* TODO: projectsテーブルにskill_descriptionカラムを持たせる */}

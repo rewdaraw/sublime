@@ -57,14 +57,14 @@ export const Header: React.VFC = () => {
                   />
                 }
               />
-              <Text
+              {/* <Text
                 pos="absolute"
                 top="34px"
                 fontSize="11px"
                 mt="0px !important"
               >
                 Project
-              </Text>
+              </Text> */}
             </Box>
             {/* パートナー */}
             <Box pos="relative">
@@ -80,7 +80,7 @@ export const Header: React.VFC = () => {
                   />
                 }
               />
-              <Text
+              {/* <Text
                 pos="absolute"
                 top="34px"
                 left="9px"
@@ -88,7 +88,7 @@ export const Header: React.VFC = () => {
                 mt="0px !important"
               >
                 User
-              </Text>
+              </Text> */}
             </Box>
 
             {/* お知らせ */}
@@ -119,7 +119,6 @@ export const Header: React.VFC = () => {
             <Avatar
               as="button"
               name=""
-              borderRadius="6px"
               src="https://bit.ly/ryan-florence"
               w="40px"
               h="40px"

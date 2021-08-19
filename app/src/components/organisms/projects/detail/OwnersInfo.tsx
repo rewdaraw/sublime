@@ -14,9 +14,6 @@ export const OwnersInfo: React.VFC<IOwnersInfo> = ({ owners }) => {
 
   return (
     <>
-      <Heading as="h3" size="sm" mb={4}>
-        共同オーナー(参加者)
-      </Heading>
       <Wrap>
         {displayOwners &&
           displayOwners.map(

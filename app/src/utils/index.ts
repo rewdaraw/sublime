@@ -1,5 +1,5 @@
 /**
- * 日付をYYYY年MM月DD日の形式にフォーマットする
+ * 日付をYYYY.MM.DDの形式にフォーマットする
  * 
  * @param dateStr: Date
  * @returns formattedDate: string
@@ -10,5 +10,5 @@ export const formatDate = (dateStr: Date): string => {
   const month = date.getMonth() + 1;
   const day = date.getDate();
 
-  return `${year}年${month}月${day}日`;
+  return `${year}.${month}.${day}`;
 };
