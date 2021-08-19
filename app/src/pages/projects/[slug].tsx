@@ -36,9 +36,6 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
         <Container maxW="1120px">
           <Flex>
             <Main>
-              {/* <Heading size="md" mb={6}>
-                プロジェクトについて
-              </Heading> */}
               <Box mb={8}>
                 <Heading as="h3" size="sm" mb={4}>
                   基本情報

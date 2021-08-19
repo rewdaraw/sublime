@@ -40,6 +40,7 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
                 />
                 <Text
                   fontWeight="bold"
+                  w={{ base: "190px", sm: "70%" }}
                   mr={{ base: "16px", sm: "32px" }}
                   isTruncated
                 >
@@ -47,12 +48,9 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
                 </Text>
               </Flex>
             </WrapItem>
-            {/* タグ */}
-            <WrapItem isTruncated>
-              <SkillList skills={project.skills} />
-            </WrapItem>
           </Wrap>
           <Spacer />
+          {/* 特徴 */}
           <Flex align="center">
             <Image
               src="/assets/images/icons/FilledHeart.svg"
@@ -64,6 +62,13 @@ export const ProjectList: React.VFC<IProject> = ({ project }) => {
             <Text>{project.usersLiked.length}</Text>
           </Flex>
         </Flex>
+        {/* 中段 */}
+        <Wrap align="center">
+          {/* スキル */}
+          <WrapItem>
+            <SkillList skills={project.skills} />
+          </WrapItem>
+        </Wrap>
         {/* 下段 */}
         <FeatureList features={project.projectFeatures} />
       </WhiteRoundedList>

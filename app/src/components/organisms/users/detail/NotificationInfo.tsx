@@ -1,35 +1,30 @@
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Badge, Box, Divider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 
 export const NotificationInfo: React.VFC = () => {
   return (
-    <VStack align="left" spacing={6}>
+    <VStack align="left" spacing={6} maxH="300px" overflow="scroll">
       <Box>
-        <Text fontSize="xs" color="red">
-          2021.12.16
-        </Text>
+        <Badge mb={1}>2021.12.16</Badge>
         <Text>
           Kitsuneさんから人材マッチングサイトへ参加リクエストがありました。承認か拒否をしてください。
         </Text>
       </Box>
+      <Divider mt={4} />
       <Box>
-        <Text fontSize="xs" color="red">
-          2021.12.16
-        </Text>
+        <Badge mb={1}>2021.12.16</Badge>
         <Text>
-          Kitsuneさんから人材マッチングサイトへ参加リクエストがありました。承認か拒否をしてください。
-          Kitsuneさんから人材マッチングサイトへ参加リクエストがありました。承認か拒否をしてください。
           Kitsuneさんから人材マッチングサイトへ参加リクエストがありました。承認か拒否をしてください。
         </Text>
       </Box>
+      <Divider mt={4} />
       <Box>
-        <Text fontSize="xs" color="red">
-          2021.12.16
-        </Text>
+        <Badge mb={1}>2021.12.16</Badge>
         <Text>
           人材マッチングサイトのオーナーよりプロジェクトへの参加依頼がありました。承認か拒否をしてください。
         </Text>
       </Box>
+      <Divider mt={4} />
     </VStack>
   );
 };

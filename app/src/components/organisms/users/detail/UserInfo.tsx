@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   HStack,
   Image,
@@ -15,6 +16,7 @@ export const UserInfo: React.VFC = () => {
     <Box d={{ base: "block", md: "flex" }} alignItems="center">
       <Box
         d={{ base: "inline-flex", md: "block" }}
+        minW={{ base: "", md: "130px" }}
         mr={{ sm: "0px", md: "0px" }}
       >
         <Box
@@ -35,7 +37,6 @@ export const UserInfo: React.VFC = () => {
               d={{ sm: "flex", md: "block" }}
               mt={{ sm: "0px", md: "16px" }}
               fontSize="xs"
-              color="red"
             >
               engineer
             </Text>
@@ -88,36 +89,39 @@ export const UserInfo: React.VFC = () => {
         mt={{ base: "12px", md: "0px" }}
       >
         <Box d={{ base: "none", md: "block" }}>
-          <Text
+          {/* <Text
             d={{ sm: "none", md: "block" }}
             fontSize="xs"
             color="red"
             mb={1}
           >
             プログラム歴
-          </Text>
+          </Text> */}
+          <Badge>プログラム歴</Badge>
           <Text>2年くらい</Text>
         </Box>
         <Box>
-          <Text
+          {/* <Text
             d={{ base: "none", md: "block" }}
             fontSize="xs"
             color="red"
             mb={2}
           >
             スキル
-          </Text>
+          </Text> */}
+          <Badge>スキル</Badge>
           <SkillList />
         </Box>
         <Box>
-          <Text
+          {/* <Text
             d={{ base: "none", md: "block" }}
             fontSize="xs"
             color="red"
             mb={1}
           >
             自己紹介
-          </Text>
+          </Text> */}
+          <Badge>自己紹介</Badge>
           <Text>
             大学4年生。エンジニアを目指して日々勉強中。フロント周りに興味あり。
           </Text>

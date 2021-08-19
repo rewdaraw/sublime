@@ -18,6 +18,7 @@ import {
   AvatarGroup,
   Button,
   ButtonGroup,
+  Divider,
 } from "@chakra-ui/react";
 import { WhiteRoundedCard } from "../../projects/WhiteRoundedCard";
 import { FeatureList } from "../../../molecules/FeatureList";
@@ -25,11 +26,17 @@ import { SkillList } from "../../../molecules/SkillList";
 
 export const RelatedProjectInfo: React.FC = () => {
   return (
-    <Tabs size="sm" variant="solid-rounded" colorScheme="red">
+    <Tabs size="xs" fontSize="xs" variant="solid-rounded" colorScheme="twitter">
       <TabList mb={6}>
-        <Tab>参加済み</Tab>
-        <Tab>オファー済み</Tab>
-        <Tab>お気に入り</Tab>
+        <Tab px={3} py={2}>
+          参加済み
+        </Tab>
+        <Tab px={3} py={2}>
+          オファー済み
+        </Tab>
+        <Tab px={3} py={2}>
+          お気に入り
+        </Tab>
       </TabList>
 
       <TabPanels>
@@ -41,7 +48,7 @@ export const RelatedProjectInfo: React.FC = () => {
                   <VStack align="left" spacing={6}>
                     <Wrap>
                       <WrapItem>
-                        <Text fontWeight="bold" mr={4}>
+                        <Text fontWeight="bold" fontSize="md" mr={4}>
                           人材マッチングサイト
                         </Text>
                       </WrapItem>
@@ -139,7 +146,7 @@ export const RelatedProjectInfo: React.FC = () => {
                   <VStack align="left" spacing={6}>
                     <Wrap>
                       <WrapItem>
-                        <Text fontWeight="bold" mr={4}>
+                        <Text fontWeight="bold" fontSize="md" mr={4}>
                           人材マッチングサイト
                         </Text>
                       </WrapItem>
@@ -236,10 +243,11 @@ export const RelatedProjectInfo: React.FC = () => {
             p={{ base: "16px", sm: "32px" }}
             pt={{ base: "0px", sm: "16px" }}
           >
-            <Wrap>
+            <Wrap align="center">
               <WrapItem>
                 <Flex alignItems="center">
                   <Avatar
+                    size="sm"
                     name="Ryan Florence"
                     src="https://bit.ly/ryan-florence"
                     mr={4}
@@ -250,17 +258,21 @@ export const RelatedProjectInfo: React.FC = () => {
               <Spacer />
               <WrapItem>
                 <Box>
-                  <ButtonGroup variant="solid" spacing="6">
-                    <Button colorScheme="twitter">承認</Button>
-                    <Button>拒否</Button>
+                  <ButtonGroup variant="solid" spacing="2">
+                    <Button colorScheme="twitter" size="sm">
+                      承認
+                    </Button>
+                    <Button size="sm">拒否</Button>
                   </ButtonGroup>
                 </Box>
               </WrapItem>
             </Wrap>
-            <Wrap>
+            <Divider mx={2} />
+            <Wrap align="center">
               <WrapItem>
                 <Flex alignItems="center">
                   <Avatar
+                    size="sm"
                     name="Ryan Florence"
                     src="https://bit.ly/ryan-florence"
                     mr={4}
@@ -271,17 +283,21 @@ export const RelatedProjectInfo: React.FC = () => {
               <Spacer />
               <WrapItem>
                 <Box>
-                  <ButtonGroup variant="solid" spacing="6">
-                    <Button colorScheme="twitter">承認</Button>
-                    <Button>拒否</Button>
+                  <ButtonGroup variant="solid" spacing="2">
+                    <Button colorScheme="twitter" size="sm">
+                      承認
+                    </Button>
+                    <Button size="sm">拒否</Button>
                   </ButtonGroup>
                 </Box>
               </WrapItem>
             </Wrap>
-            <Wrap alignItems="center">
+            <Divider mx={2} />
+            <Wrap align="center">
               <WrapItem>
                 <Flex alignItems="center">
                   <Avatar
+                    size="sm"
                     name="Ryan Florence"
                     src="https://bit.ly/ryan-florence"
                     mr={4}
@@ -294,11 +310,14 @@ export const RelatedProjectInfo: React.FC = () => {
                 <Box>
                   <ButtonGroup variant="outline" spacing="6">
                     {/* <Button colorScheme="twitter">承認</Button> */}
-                    <Button isDisabled>承認待ち</Button>
+                    <Button isDisabled size="sm">
+                      承認待ち
+                    </Button>
                   </ButtonGroup>
                 </Box>
               </WrapItem>
             </Wrap>
+            <Divider mx={2} />
           </VStack>
         </TabPanel>
         <TabPanel p={0}>
