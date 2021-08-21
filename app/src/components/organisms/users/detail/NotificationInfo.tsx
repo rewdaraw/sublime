@@ -1,6 +1,8 @@
 import { Badge, Box, Divider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 
+// TODO: informationsテーブル | adminInformationsテーブルを作る
+// TODO: id, project_id, user_id, description, unread(boolean) | id, message
 export const NotificationInfo: React.VFC = () => {
   return (
     <VStack align="left" spacing={6} maxH="300px" overflow="scroll">
