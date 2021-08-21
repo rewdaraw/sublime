@@ -1,4 +1,25 @@
-custom scalar typeの追加の仕方
+## codegen.yml
+
+```
+overwrite: true
+schema: "http://localhost:3000/api/graphql" # graphqlのエンドポイントを指定
+documents: "src/**/*.{ts,tsx}" # clientで使うqueryやmutationが書いてあるファイルを指定
+generates:
+  src/graphql/generated/types.ts:
+    config:
+      scalars:
+        DateTime: Date
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"
+      - "typescript-react-apollo"
+
+```
+
+
+
+## custom scalar typeの追加の仕方
 
 1. codegen.ymlにconfigオプションを以下のように追加
 
