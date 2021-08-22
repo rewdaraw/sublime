@@ -159,7 +159,7 @@ model ProjectFeature {
 
   @@map("project_features")
 }
-
+// TODO: Projectの大文字を直す
 model ProjectToProjectFeature {
   id               Int            @id @default(autoincrement())
   Project          Project        @relation(fields: [projectId], references: [id])

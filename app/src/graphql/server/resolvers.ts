@@ -78,5 +78,82 @@ export const resolvers: Resolvers = {
       });
       return project;
     },
+    async getUserById(parent, args) {
+      const user = await prisma.user.findUnique({
+        where: {
+          id: args.id,
+        },
+        include: {
+          // userの保有するスキル
+          skills: {
+            include: {
+              skill: true,
+            },
+          },
+          // userがいいねしたプロジェクト
+          projectsLiked: {
+            include: {
+              project: {
+                include: {
+                  // userがいいねしたプロジェクトの特徴
+                  projectFeatures: {
+                    include: {
+                      projectFeature: true,
+                    },
+                  },
+                  // userがいいねしたプロジェクトの進捗状況
+                  projectStatuses: {
+                    include: {
+                      progressStatus: true,
+                    },
+                  },
+                  usersRequested: {
+                    include: {
+                      user: {
+                        select: {
+                          image_url: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+          // userが参加 / 参加申請 中のプロジェクト
+          projectsRequested: {
+            include: {
+              project: {
+                include: {
+                  // userが参加 / 参加申請 中のプロジェクトの特徴
+                  projectFeatures: {
+                    include: {
+                      projectFeature: true,
+                    },
+                  },
+                  // userが参加 / 参加申請 中のプロジェクトの進捗状況
+                  projectStatuses: {
+                    include: {
+                      progressStatus: true,
+                    },
+                  },
+                  // userがいいねしたプロジェクトの参加ユーザー
+                  usersRequested: {
+                    include: {
+                      user: {
+                        select: {
+                          image_url: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+      return user;
+    },
   },
 };

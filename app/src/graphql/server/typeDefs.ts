@@ -7,6 +7,7 @@ export const typeDefs = gql`
     # 以下Fields
     getAllProjects: [Project]
     getProjectById(id: Int!): Project
+    getUserById(id: Int!): User
   }
 
   # --------------------------------------------------
@@ -92,7 +93,7 @@ export const typeDefs = gql`
     updatedAt: DateTime
     createdAt: DateTime
   }
-
+  # TODO: Projectをprojectへ直す
   type ProjectToProjectFeature {
     id: Int
     Project: Project
