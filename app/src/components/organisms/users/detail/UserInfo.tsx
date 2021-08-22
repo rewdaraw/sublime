@@ -9,9 +9,32 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { SkillToUser } from "../../../../graphql/generated/types";
 import { SkillList } from "../../../molecules/SkillList";
 
-export const UserInfo: React.VFC = () => {
+interface IUserInfo {
+  imageUrl: string;
+  type: string;
+  name: string;
+  email: string;
+  github: string;
+  twitter: string;
+  experience: string;
+  skills: SkillToUser[];
+  description: string;
+}
+
+export const UserInfo: React.VFC<IUserInfo> = ({
+  imageUrl,
+  type,
+  name,
+  email,
+  github,
+  twitter,
+  experience,
+  skills,
+  description,
+}) => {
   return (
     <Box d={{ base: "block", md: "flex" }} alignItems="center">
       <Box
@@ -24,7 +47,7 @@ export const UserInfo: React.VFC = () => {
           mr={{ base: "30px", md: "0px" }}
         >
           <Image
-            src="/assets/images/avatar.jpg"
+            src={imageUrl}
             boxSize={{ base: "80px", md: "130px" }}
             rounded="full"
             alt=""
@@ -38,14 +61,14 @@ export const UserInfo: React.VFC = () => {
               mt={{ sm: "0px", md: "16px" }}
               fontSize="xs"
             >
-              engineer
+              {type}
             </Text>
             <Text
               d={{ sm: "flex", md: "block" }}
               maxW={{ base: "130px", sm: "300px", md: "130px" }}
               fontWeight="bold"
             >
-              Nora Tsunoda
+              {name}
             </Text>
           </Box>
           {/* ソーシャルアイコン */}
@@ -55,7 +78,7 @@ export const UserInfo: React.VFC = () => {
             w="fit-content"
             mx={{ base: "0px", sm: "auto" }}
           >
-            <Link href="/" target="_blank">
+            <Link href={email} target="_blank">
               <Image
                 src="/assets/images/icons/mail.svg"
                 boxSize="24px"
@@ -63,7 +86,7 @@ export const UserInfo: React.VFC = () => {
               />
             </Link>
             <Spacer d={{ base: "none", sm: "block" }} />
-            <Link href="/" target="_blank">
+            <Link href={github} target="_blank">
               <Image
                 src="/assets/images/icons/github.svg"
                 boxSize="24px"
@@ -71,7 +94,7 @@ export const UserInfo: React.VFC = () => {
               />
             </Link>
             <Spacer d={{ base: "none", sm: "block" }} />
-            <Link href="/" target="_blank">
+            <Link href={twitter} target="_blank">
               <Image
                 src="/assets/images/icons/twitter.svg"
                 boxSize="24px"
@@ -84,47 +107,21 @@ export const UserInfo: React.VFC = () => {
       {/* プログラム歴 / スキル / 自己紹介 */}
       <VStack
         align="left"
-        spacing={3}
+        spacing={6}
         ml={{ md: "30px" }}
         mt={{ base: "12px", md: "0px" }}
       >
         <Box d={{ base: "none", md: "block" }}>
-          {/* <Text
-            d={{ sm: "none", md: "block" }}
-            fontSize="xs"
-            color="red"
-            mb={1}
-          >
-            プログラム歴
-          </Text> */}
-          <Badge>プログラム歴</Badge>
-          <Text>2年くらい</Text>
+          <Badge mb={1}>プログラム歴</Badge>
+          <Text>{experience}</Text>
         </Box>
         <Box>
-          {/* <Text
-            d={{ base: "none", md: "block" }}
-            fontSize="xs"
-            color="red"
-            mb={2}
-          >
-            スキル
-          </Text> */}
-          <Badge>スキル</Badge>
-          <SkillList />
+          <Badge mb={2}>スキル</Badge>
+          <SkillList skills={skills} />
         </Box>
-        <Box>
-          {/* <Text
-            d={{ base: "none", md: "block" }}
-            fontSize="xs"
-            color="red"
-            mb={1}
-          >
-            自己紹介
-          </Text> */}
-          <Badge>自己紹介</Badge>
-          <Text>
-            大学4年生。エンジニアを目指して日々勉強中。フロント周りに興味あり。
-          </Text>
+        <Box mb={4}>
+          <Badge mb={1}>自己紹介</Badge>
+          <Text>{description}</Text>
         </Box>
       </VStack>
     </Box>

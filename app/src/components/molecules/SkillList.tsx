@@ -1,9 +1,9 @@
 import React from "react";
 import { Wrap, WrapItem, Tag } from "@chakra-ui/react";
-import { ProjectToSkill } from "../../graphql/generated/types";
+import { ProjectToSkill, SkillToUser } from "../../graphql/generated/types";
 
 interface ISkills {
-  skills: ProjectToSkill[];
+  skills: ProjectToSkill[] | SkillToUser[];
 }
 
 export const SkillList: React.VFC<ISkills> = ({ skills }) => {

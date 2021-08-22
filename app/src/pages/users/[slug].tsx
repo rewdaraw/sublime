@@ -44,7 +44,17 @@ const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
                   ユーザー情報
                 </Heading>
                 <WhiteRoundedCard>
-                  <UserInfo />
+                  <UserInfo
+                    imageUrl={user.image_url}
+                    type={user.type}
+                    name={user.user_name}
+                    email={user.email}
+                    github={user.github_account_url}
+                    twitter={user.twitter_account_url}
+                    experience={user.experience}
+                    skills={user.skills}
+                    description={user.description}
+                  />
                 </WhiteRoundedCard>
                 <Button size="sm" colorScheme="twitter" mt={2} float="right">
                   編集
