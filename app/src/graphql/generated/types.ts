@@ -143,9 +143,14 @@ export type Query = {
   __typename?: "Query";
   getAllProjects?: Maybe<Array<Maybe<Project>>>;
   getProjectById?: Maybe<Project>;
+  getUserById?: Maybe<User>;
 };
 
 export type QueryGetProjectByIdArgs = {
+  id: Scalars["Int"];
+};
+
+export type QueryGetUserByIdArgs = {
   id: Scalars["Int"];
 };
 
@@ -349,6 +354,148 @@ export type GetProjectByIdQuery = {
             user_name?: Maybe<string>;
             type?: Maybe<string>;
             image_url?: Maybe<string>;
+          }>;
+        }>
+      >
+    >;
+  }>;
+};
+
+export type GetUserByIdQueryVariables = Exact<{
+  id: Scalars["Int"];
+}>;
+
+export type GetUserByIdQuery = {
+  __typename?: "Query";
+  getUserById?: Maybe<{
+    __typename?: "User";
+    id?: Maybe<number>;
+    user_name?: Maybe<string>;
+    email?: Maybe<string>;
+    twitter_account_url?: Maybe<string>;
+    github_account_url?: Maybe<string>;
+    image_url?: Maybe<string>;
+    type?: Maybe<string>;
+    experience?: Maybe<string>;
+    description?: Maybe<string>;
+    skills?: Maybe<
+      Array<
+        Maybe<{
+          __typename?: "SkillToUser";
+          skill?: Maybe<{ __typename?: "Skill"; description?: Maybe<string> }>;
+        }>
+      >
+    >;
+    projectsLiked?: Maybe<
+      Array<
+        Maybe<{
+          __typename?: "Like";
+          project?: Maybe<{
+            __typename?: "Project";
+            id?: Maybe<number>;
+            title?: Maybe<string>;
+            skills?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToSkill";
+                  skill?: Maybe<{
+                    __typename?: "Skill";
+                    description?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            projectFeatures?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToProjectFeature";
+                  projectFeature?: Maybe<{
+                    __typename?: "ProjectFeature";
+                    description?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            projectStatuses?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToProgressStatus";
+                  progressStatus?: Maybe<{
+                    __typename?: "ProgressStatus";
+                    rate?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            usersRequested?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "JoinRequest";
+                  status?: Maybe<number>;
+                  user?: Maybe<{
+                    __typename?: "User";
+                    image_url?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+          }>;
+        }>
+      >
+    >;
+    projectsRequested?: Maybe<
+      Array<
+        Maybe<{
+          __typename?: "JoinRequest";
+          project?: Maybe<{
+            __typename?: "Project";
+            id?: Maybe<number>;
+            title?: Maybe<string>;
+            skills?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToSkill";
+                  skill?: Maybe<{
+                    __typename?: "Skill";
+                    description?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            projectFeatures?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToProjectFeature";
+                  projectFeature?: Maybe<{
+                    __typename?: "ProjectFeature";
+                    description?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            projectStatuses?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "ProjectToProgressStatus";
+                  progressStatus?: Maybe<{
+                    __typename?: "ProgressStatus";
+                    rate?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
+            usersRequested?: Maybe<
+              Array<
+                Maybe<{
+                  __typename?: "JoinRequest";
+                  status?: Maybe<number>;
+                  user?: Maybe<{
+                    __typename?: "User";
+                    image_url?: Maybe<string>;
+                  }>;
+                }>
+              >
+            >;
           }>;
         }>
       >
@@ -818,6 +965,12 @@ export type QueryResolvers<
     ContextType,
     RequireFields<QueryGetProjectByIdArgs, "id">
   >;
+  getUserById?: Resolver<
+    Maybe<ResolversTypes["User"]>,
+    ParentType,
+    ContextType,
+    RequireFields<QueryGetUserByIdArgs, "id">
+  >;
 };
 
 export type SkillResolvers<
@@ -1140,4 +1293,127 @@ export type GetProjectByIdLazyQueryHookResult = ReturnType<
 export type GetProjectByIdQueryResult = Apollo.QueryResult<
   GetProjectByIdQuery,
   GetProjectByIdQueryVariables
+>;
+export const GetUserByIdDocument = gql`
+  query getUserById($id: Int!) {
+    getUserById(id: $id) {
+      id
+      user_name
+      email
+      twitter_account_url
+      github_account_url
+      image_url
+      type
+      experience
+      description
+      skills {
+        skill {
+          description
+        }
+      }
+      projectsLiked {
+        project {
+          id
+          title
+          skills {
+            skill {
+              description
+            }
+          }
+          projectFeatures {
+            projectFeature {
+              description
+            }
+          }
+          projectStatuses {
+            progressStatus {
+              rate
+            }
+          }
+          usersRequested {
+            status
+            user {
+              image_url
+            }
+          }
+        }
+      }
+      projectsRequested {
+        project {
+          id
+          title
+          skills {
+            skill {
+              description
+            }
+          }
+          projectFeatures {
+            projectFeature {
+              description
+            }
+          }
+          projectStatuses {
+            progressStatus {
+              rate
+            }
+          }
+          usersRequested {
+            status
+            user {
+              image_url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+/**
+ * __useGetUserByIdQuery__
+ *
+ * To run a query within a React component, call `useGetUserByIdQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetUserByIdQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetUserByIdQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetUserByIdQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    GetUserByIdQuery,
+    GetUserByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
+    GetUserByIdDocument,
+    options
+  );
+}
+export function useGetUserByIdLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetUserByIdQuery,
+    GetUserByIdQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
+    GetUserByIdDocument,
+    options
+  );
+}
+export type GetUserByIdQueryHookResult = ReturnType<typeof useGetUserByIdQuery>;
+export type GetUserByIdLazyQueryHookResult = ReturnType<
+  typeof useGetUserByIdLazyQuery
+>;
+export type GetUserByIdQueryResult = Apollo.QueryResult<
+  GetUserByIdQuery,
+  GetUserByIdQueryVariables
 >;
