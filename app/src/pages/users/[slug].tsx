@@ -1,4 +1,8 @@
-import { NextPage } from "next";
+import {
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+  NextPage,
+} from "next";
 import React from "react";
 import Head from "next/head";
 import { Header } from "../../components/organisms/Header";
@@ -8,9 +12,15 @@ import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRound
 import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
 import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
 import { RelatedProjectInfo } from "../../components/organisms/users/detail/RelatedProjectInfo";
+import { apolloClient } from "../../graphql/client";
+import { GetUserByIdQuery } from "../../graphql/generated/types";
+import { GET_USER_BY_ID } from "../../graphql/client/queries";
 
-const UserDetailPage: NextPage = () => {
+type UserDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
   console.log("UserDetailPage rendered!");
+  console.log(user);
   return (
     <>
       <Head>
@@ -36,14 +46,16 @@ const UserDetailPage: NextPage = () => {
                 <WhiteRoundedCard>
                   <UserInfo />
                 </WhiteRoundedCard>
-                <Button size="sm" colorScheme="twitter" mt={2} float="right">編集</Button>
+                <Button size="sm" colorScheme="twitter" mt={2} float="right">
+                  編集
+                </Button>
               </Box>
               <Box mb={12}>
                 <Heading as="h3" size="sm" mb={4}>
                   関連プロジェクト
                 </Heading>
                 {/* <WhiteRoundedCard> */}
-                  <RelatedProjectInfo />
+                <RelatedProjectInfo />
                 {/* </WhiteRoundedCard> */}
               </Box>
             </Main>
@@ -57,15 +69,17 @@ const UserDetailPage: NextPage = () => {
 export default UserDetailPage;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export async function getServerSideProps() {
-  const paths = [
-    { params: { slug: "a" } },
-    { params: { slug: "b" } },
-    { params: { slug: "c" } },
-  ];
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const apolloQueryResult = await apolloClient.query<GetUserByIdQuery>({
+    query: GET_USER_BY_ID,
+    variables: { id: Number(context.query.slug) },
+  });
+
+  const user = apolloQueryResult.data.getUserById;
+
   return {
     props: {
-      paths,
+      user,
     },
   };
 }
