@@ -8,7 +8,6 @@ import { project_types } from "./seedData/project_types";
 
 const prisma = new PrismaClient();
 
-// TODO: 以下createをupsertへ変更する
 async function main() {
   // skillsテーブル
   for (const data of skills) {

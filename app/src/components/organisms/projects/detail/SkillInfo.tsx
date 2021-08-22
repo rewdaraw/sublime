@@ -16,7 +16,6 @@ export const SkillInfo: React.VFC<ISkillInfo> = ({
     <>
       <SkillList skills={skills} />
       <Box mt="24px !important">
-        {/* TODO: projectsテーブルにskill_descriptionカラムを持たせる */}
         <Text fontSize="md" lineHeight="1.9em !important">
           {skillDescription}
           <br />
