@@ -100,7 +100,7 @@ export type ProjectToProgressStatus = {
 export type ProjectToProjectFeature = {
   __typename?: "ProjectToProjectFeature";
   id?: Maybe<Scalars["Int"]>;
-  Project?: Maybe<Project>;
+  project?: Maybe<Project>;
   projectId?: Maybe<Scalars["Int"]>;
   projectFeature?: Maybe<ProjectFeature>;
   projectFeatureId?: Maybe<Scalars["Int"]>;
@@ -853,7 +853,7 @@ export type ProjectToProjectFeatureResolvers<
   ParentType extends ResolversParentTypes["ProjectToProjectFeature"] = ResolversParentTypes["ProjectToProjectFeature"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  Project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
+  project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   projectFeature?: Resolver<
     Maybe<ResolversTypes["ProjectFeature"]>,

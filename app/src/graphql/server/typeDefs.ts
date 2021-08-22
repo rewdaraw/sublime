@@ -93,10 +93,10 @@ export const typeDefs = gql`
     updatedAt: DateTime
     createdAt: DateTime
   }
-  # TODO: Projectをprojectへ直す
+  
   type ProjectToProjectFeature {
     id: Int
-    Project: Project
+    project: Project
     projectId: Int
     projectFeature: ProjectFeature
     projectFeatureId: Int
