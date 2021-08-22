@@ -10,7 +10,7 @@ interface IOwnersInfo {
 export const OwnersInfo: React.VFC<IOwnersInfo> = ({ owners }) => {
   console.log("OwnersInfo component rendered!");
 
-  const displayOwners = owners.filter(owner => owner.status)
+  const displayOwners = owners.filter((owner) => owner.status);
 
   return (
     <>

@@ -93,7 +93,7 @@ export const typeDefs = gql`
     updatedAt: DateTime
     createdAt: DateTime
   }
-  
+
   type ProjectToProjectFeature {
     id: Int
     project: Project

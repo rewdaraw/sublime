@@ -1,6 +1,6 @@
 /**
  * 日付をYYYY.MM.DDの形式にフォーマットする
- * 
+ *
  * @param dateStr: Date
  * @returns formattedDate: string
  */
