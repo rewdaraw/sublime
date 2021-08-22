@@ -434,10 +434,14 @@ export type GetUserByIdQuery = {
                   status?: Maybe<number>;
                   user?: Maybe<{
                     __typename?: "User";
+                    user_name?: Maybe<string>;
                     image_url?: Maybe<string>;
                   }>;
                 }>
               >
+            >;
+            usersLiked?: Maybe<
+              Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>
             >;
           }>;
         }>
@@ -447,6 +451,7 @@ export type GetUserByIdQuery = {
       Array<
         Maybe<{
           __typename?: "JoinRequest";
+          status?: Maybe<number>;
           project?: Maybe<{
             __typename?: "Project";
             id?: Maybe<number>;
@@ -491,10 +496,14 @@ export type GetUserByIdQuery = {
                   status?: Maybe<number>;
                   user?: Maybe<{
                     __typename?: "User";
+                    user_name?: Maybe<string>;
                     image_url?: Maybe<string>;
                   }>;
                 }>
               >
+            >;
+            usersLiked?: Maybe<
+              Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>
             >;
           }>;
         }>
@@ -1333,12 +1342,17 @@ export const GetUserByIdDocument = gql`
           usersRequested {
             status
             user {
+              user_name
               image_url
             }
+          }
+          usersLiked {
+            userId
           }
         }
       }
       projectsRequested {
+        status
         project {
           id
           title
@@ -1360,8 +1374,12 @@ export const GetUserByIdDocument = gql`
           usersRequested {
             status
             user {
+              user_name
               image_url
             }
+          }
+          usersLiked {
+            userId
           }
         }
       }

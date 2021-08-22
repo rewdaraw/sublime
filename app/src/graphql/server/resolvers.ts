@@ -95,6 +95,16 @@ export const resolvers: Resolvers = {
             include: {
               project: {
                 include: {
+                  // userがいいねしたプロジェクトのスキル
+                  skills: {
+                    include: {
+                      skill: {
+                        select: {
+                          description: true,
+                        },
+                      },
+                    },
+                  },
                   // userがいいねしたプロジェクトの特徴
                   projectFeatures: {
                     include: {
@@ -107,13 +117,21 @@ export const resolvers: Resolvers = {
                       progressStatus: true,
                     },
                   },
+                  // userがいいねしたプロジェクトに参加 / 参加申請中のuser
                   usersRequested: {
                     include: {
                       user: {
                         select: {
+                          user_name: true,
                           image_url: true,
                         },
                       },
+                    },
+                  },
+                  // userがいいねしたプロジェクトにいいねしたuser
+                  usersLiked: {
+                    select: {
+                      userId: true,
                     },
                   },
                 },
@@ -125,6 +143,16 @@ export const resolvers: Resolvers = {
             include: {
               project: {
                 include: {
+                  // userが参加 / 参加申請 中のプロジェクトのスキル
+                  skills: {
+                    include: {
+                      skill: {
+                        select: {
+                          description: true,
+                        },
+                      },
+                    },
+                  },
                   // userが参加 / 参加申請 中のプロジェクトの特徴
                   projectFeatures: {
                     include: {
@@ -137,14 +165,21 @@ export const resolvers: Resolvers = {
                       progressStatus: true,
                     },
                   },
-                  // userがいいねしたプロジェクトの参加ユーザー
+                  // userが参加 / 参加申請 中のプロジェクトの参加ユーザー
                   usersRequested: {
                     include: {
                       user: {
                         select: {
+                          user_name: true,
                           image_url: true,
                         },
                       },
+                    },
+                  },
+                  // userが参加 / 参加申請 中のプロジェクトにいいねしたuser
+                  usersLiked: {
+                    select: {
+                      userId: true,
                     },
                   },
                 },

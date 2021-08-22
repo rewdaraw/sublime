@@ -122,6 +122,7 @@ export const GET_USER_BY_ID = gql`
         project {
           id
           title
+          # userがいいねしたプロジェクトのスキル
           skills {
             skill {
               description
@@ -143,16 +144,23 @@ export const GET_USER_BY_ID = gql`
           usersRequested {
             status
             user {
+              user_name
               image_url
             }
+          }
+          # userがいいねしたプロジェクトにいいねしたユーザー
+          usersLiked {
+            userId
           }
         }
       }
       # userが参加 / 参加申請 中のプロジェクト
       projectsRequested {
+        status
         project {
           id
           title
+          # userが参加 / 参加申請 中のプロジェクトのスキル
           skills {
             skill {
               description
@@ -174,8 +182,13 @@ export const GET_USER_BY_ID = gql`
           usersRequested {
             status
             user {
+              user_name
               image_url
             }
+          }
+          # userが参加 / 参加申請 中のプロジェクトにいいねしたuser
+          usersLiked {
+            userId
           }
         }
       }

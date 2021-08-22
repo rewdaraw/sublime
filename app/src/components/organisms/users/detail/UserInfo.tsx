@@ -107,9 +107,8 @@ export const UserInfo: React.VFC<IUserInfo> = ({
       {/* プログラム歴 / スキル / 自己紹介 */}
       <VStack
         align="left"
-        spacing={6}
+        spacing={{base: "12px", sm: "24px"}}
         ml={{ md: "30px" }}
-        mt={{ base: "12px", md: "0px" }}
       >
         <Box d={{ base: "none", md: "block" }}>
           <Badge mb={1}>プログラム歴</Badge>

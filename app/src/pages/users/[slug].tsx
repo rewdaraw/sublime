@@ -9,7 +9,7 @@ import { Header } from "../../components/organisms/Header";
 import { Box, Button, Container, Flex, Heading } from "@chakra-ui/react";
 import { Main } from "../../components/organisms/Main";
 import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
-import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
+// import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
 import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
 import { RelatedProjectInfo } from "../../components/organisms/users/detail/RelatedProjectInfo";
 import { apolloClient } from "../../graphql/client";
@@ -20,7 +20,7 @@ type UserDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
   console.log("UserDetailPage rendered!");
-  console.log(user);
+  console.log({user});
   return (
     <>
       <Head>
@@ -31,14 +31,14 @@ const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
         <Container maxW="1120px">
           <Flex>
             <Main>
-              <Box mb={12}>
+              {/* <Box mb={12}>
                 <Heading as="h3" size="sm" mb={4}>
                   お知らせ
                 </Heading>
                 <WhiteRoundedCard>
                   <NotificationInfo />
                 </WhiteRoundedCard>
-              </Box>
+              </Box> */}
               <Box mb={12}>
                 <Heading as="h3" size="sm" mb={4}>
                   ユーザー情報
@@ -56,16 +56,21 @@ const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
                     description={user.description}
                   />
                 </WhiteRoundedCard>
-                <Button size="sm" colorScheme="twitter" mt={2} float="right">
-                  編集
-                </Button>
+                <Box align="right">
+                  <Button size="sm" colorScheme="twitter" mt={2}>
+                    編集
+                  </Button>
+                </Box>
               </Box>
               <Box mb={12}>
                 <Heading as="h3" size="sm" mb={4}>
                   関連プロジェクト
                 </Heading>
                 {/* <WhiteRoundedCard> */}
-                <RelatedProjectInfo />
+                <RelatedProjectInfo
+                  projectsLiked={user.projectsLiked}
+                  projectsRequested={user.projectsRequested}
+                />
                 {/* </WhiteRoundedCard> */}
               </Box>
             </Main>

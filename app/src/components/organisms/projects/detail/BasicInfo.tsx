@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Text, Badge, Box } from "@chakra-ui/react";
+import { Text, Badge, Box } from "@chakra-ui/react";
 
 interface IBasicInfo {
   title: string;
