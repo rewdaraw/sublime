@@ -6,21 +6,23 @@ import {
   Flex,
   Heading,
   IconButton,
+  Button,
   Image,
   Spacer,
   Avatar,
   Container,
   Text,
 } from "@chakra-ui/react";
+import { SearchSwitchButton } from "../molecules/SearchSwitchButton";
 
 export const Header: React.VFC = () => {
   return (
     <Box
       px={6}
-      py={2}
+      py={4}
       w="100%"
       bgColor="white"
-      // boxShadow="base"
+      boxShadow="sm"
       pos="fixed"
       zIndex={999}
     >
@@ -29,76 +31,19 @@ export const Header: React.VFC = () => {
           {/* logo */}
           <Heading as="h1">
             <Link href="/" passHref={true}>
-              <Image src="/assets/images/logo.svg" alt="Co." />
+              <Image
+                src="/assets/images/logo-temp.png"
+                alt="logo-temp"
+                height="40px"
+              />
             </Link>
           </Heading>
           <Spacer />
+          {/* SearchSwitchButton */}
+          <SearchSwitchButton />
+          <Spacer />
           {/* menu - icons */}
           <HStack spacing={2}>
-            {/* プロジェクト */}
-            <Link href="/projects" passHref={true}>
-              <Box pos="relative">
-                <IconButton
-                  bg="transparent"
-                  aria-label="Search People"
-                  _before={{
-                    pos: "absolute",
-                    left: "8px",
-                    top: "40px",
-                    content: '""',
-                    w: "24px",
-                    h: "2px",
-                    borderRadius: "1px",
-                    verticalAlign: "middle",
-                    bg: "#1da1f2",
-                  }}
-                  icon={
-                    <Image
-                      src="/assets/images/icons/Project.svg"
-                      width="24px"
-                      height="24px"
-                      alt="共同作業者を探す"
-                    />
-                  }
-                />
-                {/* <Text
-                pos="absolute"
-                top="34px"
-                fontSize="11px"
-                mt="0px !important"
-              >
-                Project
-              </Text> */}
-              </Box>
-            </Link>
-
-            {/* パートナー */}
-            <Link href="/users/1" passHref={true}>
-              <Box pos="relative">
-                <IconButton
-                  bg="transparent"
-                  aria-label="Search People"
-                  icon={
-                    <Image
-                      src="/assets/images/icons/People.svg"
-                      width="24px"
-                      height="24px"
-                      alt="共同作業者を探す"
-                    />
-                  }
-                />
-                {/* <Text
-                pos="absolute"
-                top="34px"
-                left="9px"
-                fontSize="11px"
-                mt="0px !important"
-              >
-                User
-              </Text> */}
-              </Box>
-            </Link>
-
             {/* お知らせ */}
             {/* <Box pos="relative">
               <IconButton
@@ -123,15 +68,22 @@ export const Header: React.VFC = () => {
               </Text>
             </Box> */}
 
+            <Button bgColor="black" color="white" variant="solid">
+              + 新規作成
+            </Button>
+
             {/* ユーザー */}
-            <Avatar
-              as="button"
-              name=""
-              src="https://bit.ly/ryan-florence"
-              w="40px"
-              h="40px"
-              _hover={{ opacity: "0.7" }}
-            ></Avatar>
+            <Link href="/users/1" passHref>
+              <Avatar
+                as="button"
+                name=""
+                // border="1px solid gray"
+                src="https://bit.ly/ryan-florence"
+                w="40px"
+                h="40px"
+                _hover={{ opacity: "0.7" }}
+              ></Avatar>
+            </Link>
           </HStack>
         </Flex>
       </Container>
