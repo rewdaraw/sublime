@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   HStack,
   Box,
@@ -16,10 +17,10 @@ export const Header: React.VFC = () => {
   return (
     <Box
       px={6}
-      py={4}
+      py={2}
       w="100%"
       bgColor="white"
-      boxShadow="base"
+      // boxShadow="base"
       pos="fixed"
       zIndex={999}
     >
@@ -27,37 +28,40 @@ export const Header: React.VFC = () => {
         <Flex align="center">
           {/* logo */}
           <Heading as="h1">
-            <Image src="/assets/images/logo.svg" alt="Co." />
+            <Link href="/" passHref={true}>
+              <Image src="/assets/images/logo.svg" alt="Co." />
+            </Link>
           </Heading>
           <Spacer />
           {/* menu - icons */}
-          <HStack spacing={8}>
+          <HStack spacing={2}>
             {/* プロジェクト */}
-            <Box pos="relative">
-              <IconButton
-                bg="transparent"
-                aria-label="Search People"
-                _before={{
-                  pos: "absolute",
-                  left: "16px",
-                  top: "-5px",
-                  content: '""',
-                  w: "8px",
-                  h: "8px",
-                  borderRadius: "4px",
-                  verticalAlign: "middle",
-                  bg: "linear-gradient(80.21deg, #E84B81 15.29%, #E2675B 59.57%, #E39053 93.29%)",
-                }}
-                icon={
-                  <Image
-                    src="/assets/images/icons/Project.svg"
-                    width="24px"
-                    height="24px"
-                    alt="共同作業者を探す"
-                  />
-                }
-              />
-              {/* <Text
+            <Link href="/projects" passHref={true}>
+              <Box pos="relative">
+                <IconButton
+                  bg="transparent"
+                  aria-label="Search People"
+                  _before={{
+                    pos: "absolute",
+                    left: "8px",
+                    top: "40px",
+                    content: '""',
+                    w: "24px",
+                    h: "2px",
+                    borderRadius: "1px",
+                    verticalAlign: "middle",
+                    bg: "#1da1f2",
+                  }}
+                  icon={
+                    <Image
+                      src="/assets/images/icons/Project.svg"
+                      width="24px"
+                      height="24px"
+                      alt="共同作業者を探す"
+                    />
+                  }
+                />
+                {/* <Text
                 pos="absolute"
                 top="34px"
                 fontSize="11px"
@@ -65,22 +69,25 @@ export const Header: React.VFC = () => {
               >
                 Project
               </Text> */}
-            </Box>
+              </Box>
+            </Link>
+
             {/* パートナー */}
-            <Box pos="relative">
-              <IconButton
-                bg="transparent"
-                aria-label="Search People"
-                icon={
-                  <Image
-                    src="/assets/images/icons/People.svg"
-                    width="24px"
-                    height="24px"
-                    alt="共同作業者を探す"
-                  />
-                }
-              />
-              {/* <Text
+            <Link href="/users/1" passHref={true}>
+              <Box pos="relative">
+                <IconButton
+                  bg="transparent"
+                  aria-label="Search People"
+                  icon={
+                    <Image
+                      src="/assets/images/icons/People.svg"
+                      width="24px"
+                      height="24px"
+                      alt="共同作業者を探す"
+                    />
+                  }
+                />
+                {/* <Text
                 pos="absolute"
                 top="34px"
                 left="9px"
@@ -89,7 +96,8 @@ export const Header: React.VFC = () => {
               >
                 User
               </Text> */}
-            </Box>
+              </Box>
+            </Link>
 
             {/* お知らせ */}
             {/* <Box pos="relative">
