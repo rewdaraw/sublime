@@ -7,6 +7,7 @@ npx prisma init
 ## prisma schemaを修正したら
 
 ```
+// prismaディレクトリにDATABASE_URLが記載された.envがある事を確認し、/appで以下を実行
 npx prisma generate
 ```
 

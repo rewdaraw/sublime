@@ -1,6 +1,7 @@
 version: "3"
 services:
   mysql:
+    platform: linux/x86_64 # M1チップ対応のため追記
     image: mysql:5.7
     env_file: ./mysql/mysql.env
     environment:
@@ -19,7 +20,7 @@ services:
 
   app:
     # 起動するイメージを指定（ここではNode.js v14-alpineの公式イメージ）
-    image: node:latest
+    image: node:16
     # 環境変数を設定
     environment:
       - TZ=Asia/Tokyo

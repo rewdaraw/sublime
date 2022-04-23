@@ -6,7 +6,7 @@
 # https://github.com/Sequel-Ace/Sequel-Ace
 #
 # ホスト: localhost (MySQL 5.7.35)
-# データベース: sublime
+# データベース: sublime_dev
 # Generation Time: 2021-08-19 16:08:21 +0000
 # ************************************************************
 
