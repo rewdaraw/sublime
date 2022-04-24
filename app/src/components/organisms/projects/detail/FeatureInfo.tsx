@@ -1,17 +1,16 @@
 import React from "react";
+
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { OutlinedFeatureList } from "../../../molecules/OutlinedFeatureList";
+
 import { ProjectToProjectFeature } from "../../../../graphql/generated/types";
+import { OutlinedFeatureList } from "../../../molecules/OutlinedFeatureList";
 
 interface IFeatureInfo {
   featureDescription: string;
   features: ProjectToProjectFeature[];
 }
 
-export const FeatureInfo: React.VFC<IFeatureInfo> = ({
-  featureDescription,
-  features,
-}) => {
+export const FeatureInfo: React.VFC<IFeatureInfo> = ({ featureDescription, features }) => {
   console.log("FeatureInfo component rendered!");
   return (
     <>

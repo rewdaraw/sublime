@@ -1,54 +1,29 @@
+import { AsyncSelect, CreatableSelect, GroupBase, OptionBase, Select } from "chakra-react-select";
+import { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from "next";
+import Head from "next/head";
+import React from "react";
+
 import {
-  Box,
-  Button,
-  ButtonGroup,
-  Container,
-  Flex,
-  Heading,
-  IconButton,
-  Input,
-  Text,
-  useEditableControls,
-  Editable,
-  EditableInput,
-  EditablePreview,
-  FormControl,
-  Textarea,
-  FormLabel,
-  Code,
+    Badge, Box, Button, ButtonGroup, Code, Container, Editable, EditableInput, EditablePreview,
+    Flex, FormControl, FormLabel, Heading, IconButton, Input, Text, Textarea, useEditableControls
 } from "@chakra-ui/react";
 
-import Head from "next/head";
-import {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
-import React from "react";
+import { TitleWithButton } from "../../../components/molecules/TitleWithButton";
+import { Aside } from "../../../components/organisms/Aside";
 import { Header } from "../../../components/organisms/Header";
 import { Main } from "../../../components/organisms/Main";
-import { Aside } from "../../../components/organisms/Aside";
-import { WhiteRoundedCard } from "../../../components/organisms/projects/WhiteRoundedCard";
 import { BasicInfo } from "../../../components/organisms/projects/detail/BasicInfo";
-import { SkillInfo } from "../../../components/organisms/projects/detail/SkillInfo";
-import { FeatureInfo } from "../../../components/organisms/projects/detail/FeatureInfo";
 import { DevelopmentInfo } from "../../../components/organisms/projects/detail/DevelopmentInfo";
-import { OwnersInfo } from "../../../components/organisms/projects/detail/OwnersInfo";
 import { FaqInfo } from "../../../components/organisms/projects/detail/FaqInfo";
+import { FeatureInfo } from "../../../components/organisms/projects/detail/FeatureInfo";
+import { OwnersInfo } from "../../../components/organisms/projects/detail/OwnersInfo";
 import { SendRequestion } from "../../../components/organisms/projects/detail/SendRequestion";
-import { TitleWithButton } from "../../../components/molecules/TitleWithButton";
-import { apolloClient } from "../../../graphql/client";
-import { GetProjectByIdQuery } from "../../../graphql/generated/types";
-import { GET_PROJECT_BY_ID } from "../../../graphql/client/queries";
-import { Badge } from "@chakra-ui/react";
+import { SkillInfo } from "../../../components/organisms/projects/detail/SkillInfo";
 import { ToolFilter } from "../../../components/organisms/projects/list/ToolFilter";
-import {
-  Select,
-  CreatableSelect,
-  AsyncSelect,
-  OptionBase,
-  GroupBase,
-} from "chakra-react-select";
+import { WhiteRoundedCard } from "../../../components/organisms/projects/WhiteRoundedCard";
+import { apolloClient } from "../../../graphql/client";
+import { GET_PROJECT_BY_ID } from "../../../graphql/client/queries";
+import { GetProjectByIdQuery } from "../../../graphql/generated/types";
 
 type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 interface FlavorOrColorOption extends OptionBase {
@@ -136,11 +111,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                         Select Colors and Flavours{" "}
                         <Code size="md"> (default)</Code>
                       </FormLabel> */}
-                      <Select<
-                        FlavorOrColorOption,
-                        true,
-                        GroupBase<FlavorOrColorOption>
-                      >
+                      <Select<FlavorOrColorOption, true, GroupBase<FlavorOrColorOption>>
                         isMulti
                         name="colors"
                         options={groupedOptions}
@@ -159,9 +130,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                     進捗状況
                   </Heading>
                   <WhiteRoundedCard>
-                    <DevelopmentInfo
-                      projectStatuses={project.projectStatuses}
-                    />
+                    <DevelopmentInfo projectStatuses={project.projectStatuses} />
                   </WhiteRoundedCard>
                 </Box>
                 <Box mb={8}>

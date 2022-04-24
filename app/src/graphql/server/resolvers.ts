@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+
 import { Resolvers } from "../generated/types";
 
 const prisma = new PrismaClient();

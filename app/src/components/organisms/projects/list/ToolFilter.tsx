@@ -1,5 +1,6 @@
-import React from "react";
 import { CUIAutoComplete } from "chakra-ui-autocomplete";
+import React from "react";
+
 import { Avatar, Box, Flex, Text } from "@chakra-ui/react";
 
 export interface Item {
@@ -85,9 +86,7 @@ export const ToolFilter: React.VFC = () => {
         itemRenderer={customRender}
         createItemRenderer={customCreateItemRender}
         selectedItems={selectedItems}
-        onSelectedItemsChange={(changes) =>
-          handleSelectedItemsChange(changes.selectedItems)
-        }
+        onSelectedItemsChange={(changes) => handleSelectedItemsChange(changes.selectedItems)}
       />
     </>
   );

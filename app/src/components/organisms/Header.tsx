@@ -1,41 +1,21 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
+
 import {
-  HStack,
-  Box,
-  Flex,
-  Heading,
-  IconButton,
-  Button,
-  Image,
-  Spacer,
-  Avatar,
-  Container,
-  Text,
+    Avatar, Box, Button, Container, Flex, Heading, HStack, IconButton, Image, Spacer, Text
 } from "@chakra-ui/react";
+
 import { SearchSwitchButton } from "../molecules/SearchSwitchButton";
 
 export const Header: React.VFC = () => {
   return (
-    <Box
-      px={6}
-      py={4}
-      w="100%"
-      bgColor="white"
-      boxShadow="sm"
-      pos="fixed"
-      zIndex={999}
-    >
+    <Box px={6} py={4} w="100%" bgColor="white" boxShadow="sm" pos="fixed" zIndex={999}>
       <Container maxW="1120px" px={{ base: "0px", sm: "16px" }}>
         <Flex align="center">
           {/* logo */}
           <Heading as="h1">
             <Link href="/" passHref={true}>
-              <Image
-                src="/assets/images/logo-temp.png"
-                alt="logo-temp"
-                height="40px"
-              />
+              <Image src="/assets/images/logo-temp.png" alt="logo-temp" height="40px" />
             </Link>
           </Heading>
           <Spacer />

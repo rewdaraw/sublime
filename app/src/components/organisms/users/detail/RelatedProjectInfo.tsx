@@ -1,29 +1,15 @@
+import Link from "next/link";
 import React from "react";
+
 import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  HStack,
-  Box,
-  Flex,
-  Image,
-  Text,
-  Wrap,
-  WrapItem,
-  Spacer,
-  VStack,
-  Avatar,
-  AvatarGroup,
-  Button,
-  ButtonGroup,
-  Divider,
+    Avatar, AvatarGroup, Box, Button, ButtonGroup, Divider, Flex, HStack, Image, Spacer, Tab,
+    TabList, TabPanel, TabPanels, Tabs, Text, VStack, Wrap, WrapItem
 } from "@chakra-ui/react";
-import { WhiteRoundedCard } from "../../projects/WhiteRoundedCard";
+
+import { JoinRequest, Like } from "../../../../graphql/generated/types";
 import { FeatureList } from "../../../molecules/FeatureList";
 import { SkillList } from "../../../molecules/SkillList";
-import { JoinRequest, Like } from "../../../../graphql/generated/types";
+import { WhiteRoundedCard } from "../../projects/WhiteRoundedCard";
 
 interface IRelatedProjectInfo {
   projectsLiked: Like[];
@@ -74,30 +60,17 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                               <Box mr={12}>
                                 <Text>
                                   進捗率
-                                  <Box
-                                    as="span"
-                                    fontSize="xl"
-                                    fontWeight="bold"
-                                    color="red"
-                                    mx={2}
-                                  >
+                                  <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
                                     {p.project.projectStatuses &&
-                                      p.project.projectStatuses.slice(-1)[0] // 最後のステータスのデータを表示
-                                        .progressStatus.rate}
+                                      p.project.projectStatuses.slice(-1)[0].progressStatus // 最後のステータスのデータを表示
+                                        .rate}
                                   </Box>
                                   %
                                 </Text>
                                 <Text>
                                   お気に入りされた数
-                                  <Box
-                                    as="span"
-                                    fontSize="xl"
-                                    fontWeight="bold"
-                                    color="red"
-                                    mx={2}
-                                  >
-                                    {p.project.usersLiked &&
-                                      p.project.usersLiked.length}
+                                  <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
+                                    {p.project.usersLiked && p.project.usersLiked.length}
                                   </Box>
                                   人
                                 </Text>
@@ -109,9 +82,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                                 {p.project.usersRequested &&
                                   p.project.usersRequested
                                     .filter((ur) => ur.status) // 参加承認済みのユーザーのみ
-                                    .map((u, i) => (
-                                      <Avatar key={i} src={u.user.image_url} />
-                                    ))}
+                                    .map((u, i) => <Avatar key={i} src={u.user.image_url} />)}
                               </AvatarGroup>
                             </WrapItem>
                           </Wrap>
@@ -122,11 +93,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                         <Text fontWeight="bold" textAlign="center" mb={2}>
                           進捗率
                         </Text>
-                        <Image
-                          src="/assets/images/dummy-chart.png"
-                          boxSize="140px"
-                          alt="chart"
-                        />
+                        <Image src="/assets/images/dummy-chart.png" boxSize="140px" alt="chart" />
                       </Box>
                       <Spacer />
                       <Box d={{ base: "none", xl: "flex" }} alignItems="center">
@@ -150,8 +117,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                   </Box>
                   {/* オファー */}
                   {p.project.usersRequested &&
-                    p.project.usersRequested.filter((ur) => !ur.status).length >
-                      0 && ( // 参加オファー中で未承認のユーザーいるなら
+                    p.project.usersRequested.filter((ur) => !ur.status).length > 0 && ( // 参加オファー中で未承認のユーザーいるなら
                       <VStack align="left" p={4}>
                         <Text fontSize="sm" fontWeight="bold" mb={1}>
                           参加未承認のユーザー
@@ -164,14 +130,8 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                                 <Wrap key={i} align="center">
                                   <WrapItem>
                                     <Flex alignItems="center">
-                                      <Avatar
-                                        size="sm"
-                                        src={u.user.image_url}
-                                        mr={4}
-                                      />
-                                      <Text fontWeight="bold">
-                                        {u.user.user_name}
-                                      </Text>
+                                      <Avatar size="sm" src={u.user.image_url} mr={4} />
+                                      <Text fontWeight="bold">{u.user.user_name}</Text>
                                     </Flex>
                                   </WrapItem>
                                   <Spacer />
@@ -219,30 +179,17 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                               <Box mr={12}>
                                 <Text>
                                   進捗率
-                                  <Box
-                                    as="span"
-                                    fontSize="xl"
-                                    fontWeight="bold"
-                                    color="red"
-                                    mx={2}
-                                  >
+                                  <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
                                     {p.project.projectStatuses &&
-                                      p.project.projectStatuses.slice(-1)[0] // 最後のステータスのデータを表示
-                                        .progressStatus.rate}
+                                      p.project.projectStatuses.slice(-1)[0].progressStatus // 最後のステータスのデータを表示
+                                        .rate}
                                   </Box>
                                   %
                                 </Text>
                                 <Text>
                                   お気に入りされた数
-                                  <Box
-                                    as="span"
-                                    fontSize="xl"
-                                    fontWeight="bold"
-                                    color="red"
-                                    mx={2}
-                                  >
-                                    {p.project.usersLiked &&
-                                      p.project.usersLiked.length}
+                                  <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
+                                    {p.project.usersLiked && p.project.usersLiked.length}
                                   </Box>
                                   人
                                 </Text>
@@ -254,9 +201,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                                 {p.project.usersRequested &&
                                   p.project.usersRequested
                                     .filter((ur) => ur.status) // 参加承認済みのユーザーのみ
-                                    .map((u, i) => (
-                                      <Avatar key={i} src={u.user.image_url} />
-                                    ))}
+                                    .map((u, i) => <Avatar key={i} src={u.user.image_url} />)}
                               </AvatarGroup>
                             </WrapItem>
                           </Wrap>
@@ -267,11 +212,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                         <Text fontWeight="bold" textAlign="center" mb={2}>
                           進捗率
                         </Text>
-                        <Image
-                          src="/assets/images/dummy-chart.png"
-                          boxSize="140px"
-                          alt="chart"
-                        />
+                        <Image src="/assets/images/dummy-chart.png" boxSize="140px" alt="chart" />
                       </Box>
                       <Spacer />
                       <Box d={{ base: "none", xl: "flex" }} alignItems="center">
@@ -289,14 +230,17 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                     </HStack>
                   </WhiteRoundedCard>
                   <Box align="right">
-                    <Button size="sm" colorScheme="twitter" mt={2}>
-                      編集
-                    </Button>
+                    <Link href={`/projects/1/edit`}>
+                      <a>
+                        <Button size="sm" colorScheme="twitter" mt={2}>
+                          編集
+                        </Button>
+                      </a>
+                    </Link>
                   </Box>
                   {/* オファー */}
                   {p.project.usersRequested &&
-                    p.project.usersRequested.filter((ur) => !ur.status).length >
-                      0 && ( // 参加オファー中で未承認のユーザーいるなら
+                    p.project.usersRequested.filter((ur) => !ur.status).length > 0 && ( // 参加オファー中で未承認のユーザーいるなら
                       <VStack align="left" p={4}>
                         <Text fontSize="sm" fontWeight="bold" mb={1}>
                           参加未承認のユーザー
@@ -309,14 +253,8 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                                 <Wrap key={i} align="center">
                                   <WrapItem>
                                     <Flex alignItems="center">
-                                      <Avatar
-                                        size="sm"
-                                        src={u.user.image_url}
-                                        mr={4}
-                                      />
-                                      <Text fontWeight="bold">
-                                        {u.user.user_name}
-                                      </Text>
+                                      <Avatar size="sm" src={u.user.image_url} mr={4} />
+                                      <Text fontWeight="bold">{u.user.user_name}</Text>
                                     </Flex>
                                   </WrapItem>
                                   <Spacer />
@@ -359,30 +297,17 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                             <Box mr={12}>
                               <Text>
                                 進捗率
-                                <Box
-                                  as="span"
-                                  fontSize="xl"
-                                  fontWeight="bold"
-                                  color="red"
-                                  mx={2}
-                                >
+                                <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
                                   {p.project.projectStatuses &&
-                                    p.project.projectStatuses.slice(-1)[0] // 最後のステータスのデータを表示
-                                      .progressStatus.rate}
+                                    p.project.projectStatuses.slice(-1)[0].progressStatus // 最後のステータスのデータを表示
+                                      .rate}
                                 </Box>
                                 %
                               </Text>
                               <Text>
                                 お気に入りされた数
-                                <Box
-                                  as="span"
-                                  fontSize="xl"
-                                  fontWeight="bold"
-                                  color="red"
-                                  mx={2}
-                                >
-                                  {p.project.usersLiked &&
-                                    p.project.usersLiked.length}
+                                <Box as="span" fontSize="xl" fontWeight="bold" color="red" mx={2}>
+                                  {p.project.usersLiked && p.project.usersLiked.length}
                                 </Box>
                                 人
                               </Text>
@@ -394,9 +319,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                               {p.project.usersRequested &&
                                 p.project.usersRequested
                                   .filter((ur) => ur.status) // 参加承認済みのユーザーのみ
-                                  .map((u, i) => (
-                                    <Avatar key={i} src={u.user.image_url} />
-                                  ))}
+                                  .map((u, i) => <Avatar key={i} src={u.user.image_url} />)}
                             </AvatarGroup>
                           </WrapItem>
                         </Wrap>
@@ -407,11 +330,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                       <Text fontWeight="bold" textAlign="center" mb={2}>
                         進捗率
                       </Text>
-                      <Image
-                        src="/assets/images/dummy-chart.png"
-                        boxSize="140px"
-                        alt="chart"
-                      />
+                      <Image src="/assets/images/dummy-chart.png" boxSize="140px" alt="chart" />
                     </Box>
                     <Spacer />
                     <Box d={{ base: "none", xl: "flex" }} alignItems="center">
@@ -435,8 +354,7 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                 </Box>
                 {/* オファー */}
                 {p.project.usersRequested &&
-                  p.project.usersRequested.filter((ur) => !ur.status).length >
-                    0 && ( // 参加オファー中で未承認のユーザーいるなら
+                  p.project.usersRequested.filter((ur) => !ur.status).length > 0 && ( // 参加オファー中で未承認のユーザーいるなら
                     <VStack align="left" p={4}>
                       <Text fontSize="sm" fontWeight="bold" mb={1}>
                         参加未承認のユーザー
@@ -449,14 +367,8 @@ export const RelatedProjectInfo: React.FC<IRelatedProjectInfo> = ({
                               <Wrap key={i} align="center">
                                 <WrapItem>
                                   <Flex alignItems="center">
-                                    <Avatar
-                                      size="sm"
-                                      src={u.user.image_url}
-                                      mr={4}
-                                    />
-                                    <Text fontWeight="bold">
-                                      {u.user.user_name}
-                                    </Text>
+                                    <Avatar size="sm" src={u.user.image_url} mr={4} />
+                                    <Text fontWeight="bold">{u.user.user_name}</Text>
                                   </Flex>
                                 </WrapItem>
                                 <Spacer />

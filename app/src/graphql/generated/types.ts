@@ -1,18 +1,13 @@
-import {
-  GraphQLResolveInfo,
-  GraphQLScalarType,
-  GraphQLScalarTypeConfig,
-} from "graphql";
-import { gql } from "@apollo/client";
+import { GraphQLResolveInfo, GraphQLScalarType, GraphQLScalarTypeConfig } from "graphql";
+
 import * as Apollo from "@apollo/client";
+
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
 };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> &
-  { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type RequireFields<T, K extends keyof T> = {
   [X in Exclude<keyof T, K>]?: T[X];
 } &
@@ -440,9 +435,7 @@ export type GetUserByIdQuery = {
                 }>
               >
             >;
-            usersLiked?: Maybe<
-              Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>
-            >;
+            usersLiked?: Maybe<Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>>;
           }>;
         }>
       >
@@ -502,9 +495,7 @@ export type GetUserByIdQuery = {
                 }>
               >
             >;
-            usersLiked?: Maybe<
-              Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>
-            >;
+            usersLiked?: Maybe<Array<Maybe<{ __typename?: "Like"; userId?: Maybe<number> }>>>;
           }>;
         }>
       >
@@ -549,18 +540,8 @@ export interface SubscriptionSubscriberObject<
   TContext,
   TArgs
 > {
-  subscribe: SubscriptionSubscribeFn<
-    { [key in TKey]: TResult },
-    TParent,
-    TContext,
-    TArgs
-  >;
-  resolve?: SubscriptionResolveFn<
-    TResult,
-    { [key in TKey]: TResult },
-    TContext,
-    TArgs
-  >;
+  subscribe: SubscriptionSubscribeFn<{ [key in TKey]: TResult }, TParent, TContext, TArgs>;
+  resolve?: SubscriptionResolveFn<TResult, { [key in TKey]: TResult }, TContext, TArgs>;
 }
 
 export interface SubscriptionResolverObject<TResult, TParent, TContext, TArgs> {
@@ -568,13 +549,7 @@ export interface SubscriptionResolverObject<TResult, TParent, TContext, TArgs> {
   resolve: SubscriptionResolveFn<TResult, any, TContext, TArgs>;
 }
 
-export type SubscriptionObject<
-  TResult,
-  TKey extends string,
-  TParent,
-  TContext,
-  TArgs
-> =
+export type SubscriptionObject<TResult, TKey extends string, TParent, TContext, TArgs> =
   | SubscriptionSubscriberObject<TResult, TKey, TParent, TContext, TArgs>
   | SubscriptionResolverObject<TResult, TParent, TContext, TArgs>;
 
@@ -585,9 +560,7 @@ export type SubscriptionResolver<
   TContext = {},
   TArgs = {}
 > =
-  | ((
-      ...args: any[]
-    ) => SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>)
+  | ((...args: any[]) => SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>)
   | SubscriptionObject<TResult, TKey, TParent, TContext, TArgs>;
 
 export type TypeResolveFn<TTypes, TParent = {}, TContext = {}> = (
@@ -604,12 +577,7 @@ export type IsTypeOfResolverFn<T = {}, TContext = {}> = (
 
 export type NextResolverFn<T> = () => Promise<T>;
 
-export type DirectiveResolverFn<
-  TResult = {},
-  TParent = {},
-  TContext = {},
-  TArgs = {}
-> = (
+export type DirectiveResolverFn<TResult = {}, TParent = {}, TContext = {}, TArgs = {}> = (
   next: NextResolverFn<TResult>,
   parent: TParent,
   args: TArgs,
@@ -676,16 +644,8 @@ export type JoinRequestResolvers<
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   status?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -698,16 +658,8 @@ export type LikeResolvers<
   userId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -717,16 +669,8 @@ export type ProgressStatusResolvers<
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   rate?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -736,26 +680,10 @@ export type ProjectResolvers<
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   title?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  skillDescription?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  featureDescription?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  projectType?: Resolver<
-    Maybe<ResolversTypes["ProjectType"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  skillDescription?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  featureDescription?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  projectType?: Resolver<Maybe<ResolversTypes["ProjectType"]>, ParentType, ContextType>;
   projectFeatures?: Resolver<
     Maybe<Array<Maybe<ResolversTypes["ProjectToProjectFeature"]>>>,
     ParentType,
@@ -766,36 +694,16 @@ export type ProjectResolvers<
     ParentType,
     ContextType
   >;
-  skills?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["ProjectToSkill"]>>>,
-    ParentType,
-    ContextType
-  >;
-  usersLiked?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Like"]>>>,
-    ParentType,
-    ContextType
-  >;
+  skills?: Resolver<Maybe<Array<Maybe<ResolversTypes["ProjectToSkill"]>>>, ParentType, ContextType>;
+  usersLiked?: Resolver<Maybe<Array<Maybe<ResolversTypes["Like"]>>>, ParentType, ContextType>;
   usersRequested?: Resolver<
     Maybe<Array<Maybe<ResolversTypes["JoinRequest"]>>>,
     ParentType,
     ContextType
   >;
-  usersAsked?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Qa"]>>>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  usersAsked?: Resolver<Maybe<Array<Maybe<ResolversTypes["Qa"]>>>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -804,21 +712,9 @@ export type ProjectFeatureResolvers<
   ParentType extends ResolversParentTypes["ProjectFeature"] = ResolversParentTypes["ProjectFeature"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -827,33 +723,13 @@ export type ProjectToProgressStatusResolvers<
   ParentType extends ResolversParentTypes["ProjectToProgressStatus"] = ResolversParentTypes["ProjectToProgressStatus"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  progressStatus?: Resolver<
-    Maybe<ResolversTypes["ProgressStatus"]>,
-    ParentType,
-    ContextType
-  >;
-  progressStatusId?: Resolver<
-    Maybe<ResolversTypes["Int"]>,
-    ParentType,
-    ContextType
-  >;
+  progressStatus?: Resolver<Maybe<ResolversTypes["ProgressStatus"]>, ParentType, ContextType>;
+  progressStatusId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -864,26 +740,10 @@ export type ProjectToProjectFeatureResolvers<
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  projectFeature?: Resolver<
-    Maybe<ResolversTypes["ProjectFeature"]>,
-    ParentType,
-    ContextType
-  >;
-  projectFeatureId?: Resolver<
-    Maybe<ResolversTypes["Int"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  projectFeature?: Resolver<Maybe<ResolversTypes["ProjectFeature"]>, ParentType, ContextType>;
+  projectFeatureId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -896,16 +756,8 @@ export type ProjectToSkillResolvers<
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   skill?: Resolver<Maybe<ResolversTypes["Skill"]>, ParentType, ContextType>;
   skillId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -914,21 +766,9 @@ export type ProjectTypeResolvers<
   ParentType extends ResolversParentTypes["ProjectType"] = ResolversParentTypes["ProjectType"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -941,21 +781,9 @@ export type QaResolvers<
   userId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   project?: Resolver<Maybe<ResolversTypes["Project"]>, ParentType, ContextType>;
   projectId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -987,11 +815,7 @@ export type SkillResolvers<
   ParentType extends ResolversParentTypes["Skill"] = ResolversParentTypes["Skill"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1004,16 +828,8 @@ export type SkillToUserResolvers<
   skillId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
   user?: Resolver<Maybe<ResolversTypes["User"]>, ParentType, ContextType>;
   userId?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1022,68 +838,24 @@ export type UserResolvers<
   ParentType extends ResolversParentTypes["User"] = ResolversParentTypes["User"]
 > = {
   id?: Resolver<Maybe<ResolversTypes["Int"]>, ParentType, ContextType>;
-  user_name?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
+  user_name?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   email?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  twitter_account_url?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  github_account_url?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  image_url?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
+  twitter_account_url?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  github_account_url?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  image_url?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
   type?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
-  experience?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  description?: Resolver<
-    Maybe<ResolversTypes["String"]>,
-    ParentType,
-    ContextType
-  >;
-  skills?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["SkillToUser"]>>>,
-    ParentType,
-    ContextType
-  >;
-  projectsLiked?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Like"]>>>,
-    ParentType,
-    ContextType
-  >;
+  experience?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  description?: Resolver<Maybe<ResolversTypes["String"]>, ParentType, ContextType>;
+  skills?: Resolver<Maybe<Array<Maybe<ResolversTypes["SkillToUser"]>>>, ParentType, ContextType>;
+  projectsLiked?: Resolver<Maybe<Array<Maybe<ResolversTypes["Like"]>>>, ParentType, ContextType>;
   projectsRequested?: Resolver<
     Maybe<Array<Maybe<ResolversTypes["JoinRequest"]>>>,
     ParentType,
     ContextType
   >;
-  projectsQa?: Resolver<
-    Maybe<Array<Maybe<ResolversTypes["Project"]>>>,
-    ParentType,
-    ContextType
-  >;
-  createdAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
-  updatedAt?: Resolver<
-    Maybe<ResolversTypes["DateTime"]>,
-    ParentType,
-    ContextType
-  >;
+  projectsQa?: Resolver<Maybe<Array<Maybe<ResolversTypes["Project"]>>>, ParentType, ContextType>;
+  createdAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
+  updatedAt?: Resolver<Maybe<ResolversTypes["DateTime"]>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1161,10 +933,7 @@ export const GetAllProjectsDocument = gql`
  * });
  */
 export function useGetAllProjectsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetAllProjectsQuery,
-    GetAllProjectsQueryVariables
-  >
+  baseOptions?: Apollo.QueryHookOptions<GetAllProjectsQuery, GetAllProjectsQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetAllProjectsQuery, GetAllProjectsQueryVariables>(
@@ -1173,10 +942,7 @@ export function useGetAllProjectsQuery(
   );
 }
 export function useGetAllProjectsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetAllProjectsQuery,
-    GetAllProjectsQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<GetAllProjectsQuery, GetAllProjectsQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<GetAllProjectsQuery, GetAllProjectsQueryVariables>(
@@ -1184,12 +950,8 @@ export function useGetAllProjectsLazyQuery(
     options
   );
 }
-export type GetAllProjectsQueryHookResult = ReturnType<
-  typeof useGetAllProjectsQuery
->;
-export type GetAllProjectsLazyQueryHookResult = ReturnType<
-  typeof useGetAllProjectsLazyQuery
->;
+export type GetAllProjectsQueryHookResult = ReturnType<typeof useGetAllProjectsQuery>;
+export type GetAllProjectsLazyQueryHookResult = ReturnType<typeof useGetAllProjectsLazyQuery>;
 export type GetAllProjectsQueryResult = Apollo.QueryResult<
   GetAllProjectsQuery,
   GetAllProjectsQueryVariables
@@ -1270,10 +1032,7 @@ export const GetProjectByIdDocument = gql`
  * });
  */
 export function useGetProjectByIdQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetProjectByIdQuery,
-    GetProjectByIdQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<GetProjectByIdQuery, GetProjectByIdQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useQuery<GetProjectByIdQuery, GetProjectByIdQueryVariables>(
@@ -1282,10 +1041,7 @@ export function useGetProjectByIdQuery(
   );
 }
 export function useGetProjectByIdLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetProjectByIdQuery,
-    GetProjectByIdQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<GetProjectByIdQuery, GetProjectByIdQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<GetProjectByIdQuery, GetProjectByIdQueryVariables>(
@@ -1293,12 +1049,8 @@ export function useGetProjectByIdLazyQuery(
     options
   );
 }
-export type GetProjectByIdQueryHookResult = ReturnType<
-  typeof useGetProjectByIdQuery
->;
-export type GetProjectByIdLazyQueryHookResult = ReturnType<
-  typeof useGetProjectByIdLazyQuery
->;
+export type GetProjectByIdQueryHookResult = ReturnType<typeof useGetProjectByIdQuery>;
+export type GetProjectByIdLazyQueryHookResult = ReturnType<typeof useGetProjectByIdLazyQuery>;
 export type GetProjectByIdQueryResult = Apollo.QueryResult<
   GetProjectByIdQuery,
   GetProjectByIdQueryVariables
@@ -1404,22 +1156,13 @@ export const GetUserByIdDocument = gql`
  * });
  */
 export function useGetUserByIdQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetUserByIdQuery,
-    GetUserByIdQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
-    GetUserByIdDocument,
-    options
-  );
+  return Apollo.useQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(GetUserByIdDocument, options);
 }
 export function useGetUserByIdLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetUserByIdQuery,
-    GetUserByIdQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<GetUserByIdQuery, GetUserByIdQueryVariables>
 ) {
   const options = { ...defaultOptions, ...baseOptions };
   return Apollo.useLazyQuery<GetUserByIdQuery, GetUserByIdQueryVariables>(
@@ -1428,9 +1171,7 @@ export function useGetUserByIdLazyQuery(
   );
 }
 export type GetUserByIdQueryHookResult = ReturnType<typeof useGetUserByIdQuery>;
-export type GetUserByIdLazyQueryHookResult = ReturnType<
-  typeof useGetUserByIdLazyQuery
->;
+export type GetUserByIdLazyQueryHookResult = ReturnType<typeof useGetUserByIdLazyQuery>;
 export type GetUserByIdQueryResult = Apollo.QueryResult<
   GetUserByIdQuery,
   GetUserByIdQueryVariables

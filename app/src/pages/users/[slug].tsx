@@ -1,26 +1,25 @@
-import {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
-import React from "react";
+import { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import { Header } from "../../components/organisms/Header";
+import Link from "next/link";
+import React from "react";
+
 import { Box, Button, Container, Flex, Heading } from "@chakra-ui/react";
+
+import { Header } from "../../components/organisms/Header";
 import { Main } from "../../components/organisms/Main";
 import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
+import { RelatedProjectInfo } from "../../components/organisms/users/detail/RelatedProjectInfo";
 // import { NotificationInfo } from "../../components/organisms/users/detail/NotificationInfo";
 import { UserInfo } from "../../components/organisms/users/detail/UserInfo";
-import { RelatedProjectInfo } from "../../components/organisms/users/detail/RelatedProjectInfo";
 import { apolloClient } from "../../graphql/client";
-import { GetUserByIdQuery } from "../../graphql/generated/types";
 import { GET_USER_BY_ID } from "../../graphql/client/queries";
+import { GetUserByIdQuery } from "../../graphql/generated/types";
 
 type UserDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const UserDetailPage: NextPage<UserDetailPage> = ({ user }) => {
   console.log("UserDetailPage rendered!");
-  console.log({user});
+  console.log({ user });
   return (
     <>
       <Head>

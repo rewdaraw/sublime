@@ -1,4 +1,5 @@
 import React from "react";
+
 import { VStack } from "@chakra-ui/react";
 
 export const WhiteRoundedCard: React.FC<React.ReactNode> = ({ children }) => {

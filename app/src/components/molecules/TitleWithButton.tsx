@@ -1,15 +1,13 @@
-import { Flex, Spacer, Heading, IconButton, Image } from "@chakra-ui/react";
 import React from "react";
+
+import { Flex, Heading, IconButton, Image, Spacer } from "@chakra-ui/react";
 
 interface ITitleWithButton {
   title: string;
   iconName: string;
 }
 
-export const TitleWithButton: React.FC<ITitleWithButton> = ({
-  title,
-  iconName,
-}) => {
+export const TitleWithButton: React.FC<ITitleWithButton> = ({ title, iconName }) => {
   return (
     <Flex align="center">
       <Heading as="h3" size="sm">

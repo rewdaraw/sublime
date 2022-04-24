@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Image, Tag, TagLabel, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { ProjectToProjectFeature } from "../../graphql/generated/types";
 
 interface IFeatureList {
@@ -13,14 +15,7 @@ export const FeatureList: React.VFC<IFeatureList> = ({ features }) => {
       {features &&
         features.map((feature, i) => (
           <WrapItem key={i}>
-            <Tag
-              size="md"
-              variant="solid"
-              bg="white"
-              color="gray.400"
-              ps={0}
-              pe={0}
-            >
+            <Tag size="md" variant="solid" bg="white" color="gray.400" ps={0} pe={0}>
               <Image
                 src={
                   feature.projectFeature.id === 1 // 企業案件

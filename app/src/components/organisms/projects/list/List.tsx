@@ -1,13 +1,7 @@
-import {
-  Link,
-  Flex,
-  Spacer,
-  Image,
-  Text,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
 import React from "react";
+
+import { Flex, Image, Link, Spacer, Text, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { Project } from "../../../../graphql/generated/types";
 import { FeatureList } from "../../../molecules/FeatureList";
 import { SkillList } from "../../../molecules/SkillList";

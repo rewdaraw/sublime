@@ -1,6 +1,9 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "../styles/theme";
 import "@fontsource/noto-sans-jp"; // Defaults to weight 400.
+
+import { ChakraProvider } from "@chakra-ui/react";
+
+import theme from "../styles/theme";
+
 // import { ApolloProvider } from "@apollo/client";
 // import { apolloClient } from "../graphql/client";
 

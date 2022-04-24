@@ -1,31 +1,22 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  IconButton,
-  Spacer,
-  Text,
-  Image,
-  Container,
-} from "@chakra-ui/react";
-import Head from "next/head";
 import { InferGetServerSidePropsType, NextPage } from "next";
+import Head from "next/head";
 import React from "react";
-import { ProjectList } from "../../components/organisms/projects/list/List";
-import { Main } from "../../components/organisms/Main";
+
+import { Box, Container, Flex, Heading, IconButton, Image, Spacer, Text } from "@chakra-ui/react";
+
 import { Aside } from "../../components/organisms/Aside";
-import { ListAsidePanel } from "../../components/organisms/projects/ListAsidePanel";
+import { Header } from "../../components/organisms/Header";
+import { Main } from "../../components/organisms/Main";
+import { FeatureFilter } from "../../components/organisms/projects/list/FeatureFilter";
+import { ProjectList } from "../../components/organisms/projects/list/List";
 import { ToolFilter } from "../../components/organisms/projects/list/ToolFilter";
 import { TypeFilter } from "../../components/organisms/projects/list/TypeFilter";
-import { FeatureFilter } from "../../components/organisms/projects/list/FeatureFilter";
-import { Header } from "../../components/organisms/Header";
+import { ListAsidePanel } from "../../components/organisms/projects/ListAsidePanel";
 import { apolloClient } from "../../graphql/client";
 import { GET_ALL_PROJECTS } from "../../graphql/client/queries";
 import { GetAllProjectsQuery } from "../../graphql/generated/types";
 
-type ProjectListsPageType = InferGetServerSidePropsType<
-  typeof getServerSideProps
->;
+type ProjectListsPageType = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
   console.log("ProjectListsPage rendered!");
@@ -54,11 +45,7 @@ const ProjectListsPage: NextPage<ProjectListsPageType> = ({ projects }) => {
                     boxShadow="lg"
                     aria-label="Search People"
                     icon={
-                      <Image
-                        src="/assets/images/icons/Fold.svg"
-                        boxSize={4}
-                        alt="折りたたむ"
-                      />
+                      <Image src="/assets/images/icons/Fold.svg" boxSize={4} alt="折りたたむ" />
                     }
                   />
                 </Flex>

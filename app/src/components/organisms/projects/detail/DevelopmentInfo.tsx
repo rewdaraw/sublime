@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Heading,
-  Wrap,
-  WrapItem,
-  Table,
-  Tbody,
-  Tr,
-  Td,
-  Spacer,
-} from "@chakra-ui/react";
+
+import { Heading, Image, Spacer, Table, Tbody, Td, Tr, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { ProjectToProgressStatus } from "../../../../graphql/generated/types";
 import { formatDate } from "../../../../utils";
 
@@ -17,9 +9,7 @@ interface IDevelopmentInfo {
   projectStatuses: ProjectToProgressStatus[];
 }
 
-export const DevelopmentInfo: React.VFC<IDevelopmentInfo> = ({
-  projectStatuses,
-}) => {
+export const DevelopmentInfo: React.VFC<IDevelopmentInfo> = ({ projectStatuses }) => {
   console.log("DevelopmentInfo component rendered!");
   return (
     <>
@@ -44,11 +34,7 @@ export const DevelopmentInfo: React.VFC<IDevelopmentInfo> = ({
         <Spacer d={{ base: "none", md: "block" }} />
         <WrapItem d="inline-block">
           {/* TODO: グラフを動的に描画する */}
-          <Image
-            src="/assets/images/dummy-chart.png"
-            boxSize="140px"
-            alt="chart"
-          />
+          <Image src="/assets/images/dummy-chart.png" boxSize="140px" alt="chart" />
         </WrapItem>
       </Wrap>
     </>

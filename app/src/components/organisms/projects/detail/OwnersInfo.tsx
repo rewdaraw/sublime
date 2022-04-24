@@ -1,7 +1,9 @@
 import React from "react";
+
 import { Heading, Wrap, WrapItem } from "@chakra-ui/react";
-import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
+
 import { JoinRequest } from "../../../../graphql/generated/types";
+import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
 
 interface IOwnersInfo {
   owners: JoinRequest[];

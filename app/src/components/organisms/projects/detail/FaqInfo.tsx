@@ -1,8 +1,10 @@
 import React from "react";
-import { Heading, VStack, Box, Text, Divider } from "@chakra-ui/react";
-import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
+
+import { Box, Divider, Heading, Text, VStack } from "@chakra-ui/react";
+
 import { Qa } from "../../../../graphql/generated/types";
 import { formatDate } from "../../../../utils";
+import { PeopleInfoLabel } from "../../../molecules/PeopleInfoLabel";
 
 interface IFaqInfo {
   qas: Qa[];

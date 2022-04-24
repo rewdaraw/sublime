@@ -1,26 +1,24 @@
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
 import React from "react";
-import { Main } from "../../components/organisms/Main";
-import { Aside } from "../../components/organisms/Aside";
-import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
-import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
-import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
-import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
-import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
-import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
-import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
-import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
+
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+
 import { TitleWithButton } from "../../components/molecules/TitleWithButton";
+import { Aside } from "../../components/organisms/Aside";
 import { Header } from "../../components/organisms/Header";
+import { Main } from "../../components/organisms/Main";
+import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
+import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
+import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
+import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
+import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
+import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
+import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
+import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
 import { apolloClient } from "../../graphql/client";
-import { GetProjectByIdQuery } from "../../graphql/generated/types";
 import { GET_PROJECT_BY_ID } from "../../graphql/client/queries";
+import { GetProjectByIdQuery } from "../../graphql/generated/types";
 
 type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 
@@ -53,10 +51,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                   使用している技術やツール
                 </Heading>
                 <WhiteRoundedCard>
-                  <SkillInfo
-                    skills={project.skills}
-                    skillDescription={project.skillDescription}
-                  />
+                  <SkillInfo skills={project.skills} skillDescription={project.skillDescription} />
                 </WhiteRoundedCard>
               </Box>
               <Box mb={8}>
@@ -97,36 +92,23 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
             </Main>
             <Aside title="プロジェクトに参加する">
               <Box mb={2}>
-                <TitleWithButton
-                  title="お気に入りに登録する"
-                  iconName="WhiteOutlinedHeart"
-                />
+                <TitleWithButton title="お気に入りに登録する" iconName="WhiteOutlinedHeart" />
               </Box>
               <Text mb={4} fontSize="sm">
                 現在
-                <Box
-                  as="span"
-                  color="red"
-                  fontSize="2xl"
-                  fontWeight="bold"
-                  px={2}
-                >
+                <Box as="span" color="red" fontSize="2xl" fontWeight="bold" px={2}>
                   9
                 </Box>
                 人がお気に入りに登録しています
               </Text>
               <Text fontSize="sm" mb={16}>
-                オーナーは、プロジェクトをお気に入り登録した人に
-                参加オファーを送ることができます。
+                オーナーは、プロジェクトをお気に入り登録した人に 参加オファーを送ることができます。
                 お気に入りに登録すると参加オファーが届く可能性 が発生します。
               </Text>
 
               <Box mb={16}>
                 <SendRequestion placeholder="何名くらいで開発を行う予定でしょうか？">
-                  <TitleWithButton
-                    title="プロジェクトについて質問する"
-                    iconName="Send"
-                  />
+                  <TitleWithButton title="プロジェクトについて質問する" iconName="Send" />
                 </SendRequestion>
               </Box>
 
@@ -135,10 +117,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPage> = ({ project }) => {
                   placeholder="(例)はじめまして、xxxです。こちらのプロジェクトに参加したいです。
         よろしくお願いします。"
                 >
-                  <TitleWithButton
-                    title="参加リクエストを送る"
-                    iconName="Send"
-                  />
+                  <TitleWithButton title="参加リクエストを送る" iconName="Send" />
                 </SendRequestion>
               </Box>
             </Aside>

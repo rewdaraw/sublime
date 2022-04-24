@@ -1,14 +1,7 @@
-import {
-  Badge,
-  Box,
-  HStack,
-  Image,
-  Link,
-  Spacer,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
 import React from "react";
+
+import { Badge, Box, HStack, Image, Link, Spacer, Text, VStack } from "@chakra-ui/react";
+
 import { SkillToUser } from "../../../../graphql/generated/types";
 import { SkillList } from "../../../molecules/SkillList";
 
@@ -42,25 +35,13 @@ export const UserInfo: React.VFC<IUserInfo> = ({
         minW={{ base: "", md: "130px" }}
         mr={{ sm: "0px", md: "0px" }}
       >
-        <Box
-          d={{ base: "inline-flex", md: "block" }}
-          mr={{ base: "30px", md: "0px" }}
-        >
-          <Image
-            src={imageUrl}
-            boxSize={{ base: "80px", md: "130px" }}
-            rounded="full"
-            alt=""
-          />
+        <Box d={{ base: "inline-flex", md: "block" }} mr={{ base: "30px", md: "0px" }}>
+          <Image src={imageUrl} boxSize={{ base: "80px", md: "130px" }} rounded="full" alt="" />
         </Box>
         <Box>
           {/* typeと名前 */}
           <Box textAlign={{ base: "left", sm: "center" }}>
-            <Text
-              d={{ sm: "flex", md: "block" }}
-              mt={{ sm: "0px", md: "16px" }}
-              fontSize="xs"
-            >
+            <Text d={{ sm: "flex", md: "block" }} mt={{ sm: "0px", md: "16px" }} fontSize="xs">
               {type}
             </Text>
             <Text
@@ -72,44 +53,23 @@ export const UserInfo: React.VFC<IUserInfo> = ({
             </Text>
           </Box>
           {/* ソーシャルアイコン */}
-          <HStack
-            mt={3}
-            spacing="10px"
-            w="fit-content"
-            mx={{ base: "0px", sm: "auto" }}
-          >
+          <HStack mt={3} spacing="10px" w="fit-content" mx={{ base: "0px", sm: "auto" }}>
             <Link href={email} target="_blank">
-              <Image
-                src="/assets/images/icons/mail.svg"
-                boxSize="24px"
-                alt=""
-              />
+              <Image src="/assets/images/icons/mail.svg" boxSize="24px" alt="" />
             </Link>
             <Spacer d={{ base: "none", sm: "block" }} />
             <Link href={github} target="_blank">
-              <Image
-                src="/assets/images/icons/github.svg"
-                boxSize="24px"
-                alt=""
-              />
+              <Image src="/assets/images/icons/github.svg" boxSize="24px" alt="" />
             </Link>
             <Spacer d={{ base: "none", sm: "block" }} />
             <Link href={twitter} target="_blank">
-              <Image
-                src="/assets/images/icons/twitter.svg"
-                boxSize="24px"
-                alt=""
-              />
+              <Image src="/assets/images/icons/twitter.svg" boxSize="24px" alt="" />
             </Link>
           </HStack>
         </Box>
       </Box>
       {/* プログラム歴 / スキル / 自己紹介 */}
-      <VStack
-        align="left"
-        spacing={{base: "12px", sm: "24px"}}
-        ml={{ md: "30px" }}
-      >
+      <VStack align="left" spacing={{ base: "12px", sm: "24px" }} ml={{ md: "30px" }}>
         <Box d={{ base: "none", md: "block" }}>
           <Badge mb={1}>プログラム歴</Badge>
           <Text>{experience}</Text>
