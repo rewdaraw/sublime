@@ -1,14 +1,6 @@
-import {
-  Box,
-  Image,
-  Flex,
-  Spacer,
-  Text,
-  VStack,
-  Avatar,
-  IconButton,
-} from "@chakra-ui/react";
 import React from "react";
+
+import { Avatar, Box, Flex, IconButton, Image, Spacer, Text, VStack } from "@chakra-ui/react";
 
 export const VerticalHeader: React.VFC = () => {
   return (

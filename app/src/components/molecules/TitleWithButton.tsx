@@ -1,5 +1,6 @@
-import { Flex, Spacer, Heading, IconButton, Image } from "@chakra-ui/react";
 import React from "react";
+
+import { Flex, Heading, IconButton, Image, Spacer } from "@chakra-ui/react";
 
 interface ITitleWithButton {
   title: string;

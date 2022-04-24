@@ -1,14 +1,7 @@
-import {
-  Badge,
-  Box,
-  HStack,
-  Image,
-  Link,
-  Spacer,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
 import React from "react";
+
+import { Badge, Box, HStack, Image, Link, Spacer, Text, VStack } from "@chakra-ui/react";
+
 import { SkillToUser } from "../../../../graphql/generated/types";
 import { SkillList } from "../../../molecules/SkillList";
 

@@ -1,26 +1,24 @@
-import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+import { GetServerSidePropsContext, InferGetServerSidePropsType, NextPage } from "next";
 import Head from "next/head";
-import {
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-  NextPage,
-} from "next";
 import React from "react";
-import { Main } from "../../components/organisms/Main";
-import { Aside } from "../../components/organisms/Aside";
-import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
-import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
-import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
-import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
-import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
-import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
-import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
-import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
+
+import { Box, Container, Flex, Heading, Text } from "@chakra-ui/react";
+
 import { TitleWithButton } from "../../components/molecules/TitleWithButton";
+import { Aside } from "../../components/organisms/Aside";
 import { Header } from "../../components/organisms/Header";
+import { Main } from "../../components/organisms/Main";
+import { BasicInfo } from "../../components/organisms/projects/detail/BasicInfo";
+import { DevelopmentInfo } from "../../components/organisms/projects/detail/DevelopmentInfo";
+import { FaqInfo } from "../../components/organisms/projects/detail/FaqInfo";
+import { FeatureInfo } from "../../components/organisms/projects/detail/FeatureInfo";
+import { OwnersInfo } from "../../components/organisms/projects/detail/OwnersInfo";
+import { SendRequestion } from "../../components/organisms/projects/detail/SendRequestion";
+import { SkillInfo } from "../../components/organisms/projects/detail/SkillInfo";
+import { WhiteRoundedCard } from "../../components/organisms/projects/WhiteRoundedCard";
 import { apolloClient } from "../../graphql/client";
-import { GetProjectByIdQuery } from "../../graphql/generated/types";
 import { GET_PROJECT_BY_ID } from "../../graphql/client/queries";
+import { GetProjectByIdQuery } from "../../graphql/generated/types";
 
 type ProjectDetailPage = InferGetServerSidePropsType<typeof getServerSideProps>;
 

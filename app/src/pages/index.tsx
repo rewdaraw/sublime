@@ -1,5 +1,6 @@
 // import { Link } from "@chakra-ui/react";
 import Link from "next/link";
+
 // import { FloatButton } from "../components/atoms/buttons/FloatButton";
 
 export default function Home() {

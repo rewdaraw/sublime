@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Heading,
-  Wrap,
-  WrapItem,
-  Table,
-  Tbody,
-  Tr,
-  Td,
-  Spacer,
-} from "@chakra-ui/react";
+
+import { Heading, Image, Spacer, Table, Tbody, Td, Tr, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { ProjectToProgressStatus } from "../../../../graphql/generated/types";
 import { formatDate } from "../../../../utils";
 

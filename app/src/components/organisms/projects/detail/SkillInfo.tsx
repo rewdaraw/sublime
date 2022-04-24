@@ -1,7 +1,10 @@
 import React from "react";
+
 import { Box, Heading, Text } from "@chakra-ui/react";
-import { SkillList } from "../../../molecules/SkillList";
+
 import { ProjectToSkill } from "../../../../graphql/generated/types";
+import { SkillList } from "../../../molecules/SkillList";
+
 interface ISkillInfo {
   skills: ProjectToSkill[];
   skillDescription: string;

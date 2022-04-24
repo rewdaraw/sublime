@@ -1,5 +1,6 @@
-import { Badge, Box, Divider, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+
+import { Badge, Box, Divider, Text, VStack } from "@chakra-ui/react";
 
 // TODO: informationsテーブル | adminInformationsテーブルを作る
 // TODO: id, project_id, user_id, description, unread(boolean) | id, message

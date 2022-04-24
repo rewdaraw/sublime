@@ -1,5 +1,7 @@
 import React from "react";
-import { Image, Box, Flex, Text } from "@chakra-ui/react";
+
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
+
 import { User } from "../../graphql/generated/types";
 
 interface IPeopleInfoLabel {

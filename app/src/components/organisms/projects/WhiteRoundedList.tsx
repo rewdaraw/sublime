@@ -1,4 +1,5 @@
 import React from "react";
+
 import { VStack } from "@chakra-ui/react";
 
 // TODO: WhiteRoundedCard componentと統合予定

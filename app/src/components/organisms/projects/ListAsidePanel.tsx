@@ -1,5 +1,6 @@
-import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
 import React from "react";
+
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 interface IPanel {
   children: React.ReactNode;

@@ -1,5 +1,7 @@
 import React from "react";
-import { Wrap, WrapItem, Tag } from "@chakra-ui/react";
+
+import { Tag, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { ProjectToSkill, SkillToUser } from "../../graphql/generated/types";
 
 interface ISkills {

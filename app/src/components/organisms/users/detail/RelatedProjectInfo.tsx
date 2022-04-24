@@ -1,29 +1,14 @@
 import React from "react";
+
 import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  HStack,
-  Box,
-  Flex,
-  Image,
-  Text,
-  Wrap,
-  WrapItem,
-  Spacer,
-  VStack,
-  Avatar,
-  AvatarGroup,
-  Button,
-  ButtonGroup,
-  Divider,
+    Avatar, AvatarGroup, Box, Button, ButtonGroup, Divider, Flex, HStack, Image, Spacer, Tab,
+    TabList, TabPanel, TabPanels, Tabs, Text, VStack, Wrap, WrapItem
 } from "@chakra-ui/react";
-import { WhiteRoundedCard } from "../../projects/WhiteRoundedCard";
+
+import { JoinRequest, Like } from "../../../../graphql/generated/types";
 import { FeatureList } from "../../../molecules/FeatureList";
 import { SkillList } from "../../../molecules/SkillList";
-import { JoinRequest, Like } from "../../../../graphql/generated/types";
+import { WhiteRoundedCard } from "../../projects/WhiteRoundedCard";
 
 interface IRelatedProjectInfo {
   projectsLiked: Like[];

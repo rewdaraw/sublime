@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Checkbox, CheckboxGroup, VStack } from "@chakra-ui/react";
 
 export const FeatureFilter: React.VFC = () => {

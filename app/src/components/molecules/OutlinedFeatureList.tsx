@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Image, Tag, TagLabel, Wrap, WrapItem } from "@chakra-ui/react";
+
 import { ProjectToProjectFeature } from "../../graphql/generated/types";
 
 interface IOutlinedFeatureList {

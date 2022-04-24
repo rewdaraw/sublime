@@ -1,6 +1,7 @@
-import React from "react";
-import { Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import React from "react";
+
+import { Box } from "@chakra-ui/react";
 
 interface IMain {
   children: React.ReactNode;

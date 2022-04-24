@@ -1,18 +1,10 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
+
 import {
-  HStack,
-  Box,
-  Flex,
-  Heading,
-  IconButton,
-  Button,
-  Image,
-  Spacer,
-  Avatar,
-  Container,
-  Text,
+    Avatar, Box, Button, Container, Flex, Heading, HStack, IconButton, Image, Spacer, Text
 } from "@chakra-ui/react";
+
 import { SearchSwitchButton } from "../molecules/SearchSwitchButton";
 
 export const Header: React.VFC = () => {

@@ -1,7 +1,9 @@
-import React from "react";
 import Image from "next/image";
-import SearchGlass from "../../../public/assets/images/icons/SearchGlass.svg";
+import React from "react";
+
 import { Box, Button, ButtonGroup, Flex, IconButton } from "@chakra-ui/react";
+
+import SearchGlass from "../../../public/assets/images/icons/SearchGlass.svg";
 import { ProjectToProjectFeature } from "../../graphql/generated/types";
 
 // interface ISearchSwitchButton {
