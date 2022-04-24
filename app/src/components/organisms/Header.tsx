@@ -68,8 +68,8 @@ export const Header: React.VFC = () => {
               </Text>
             </Box> */}
 
-            <Button bgColor="black" color="white" variant="solid">
-              + 新規作成
+            <Button size="sm" colorScheme="twitter" mr={4}>
+              + 新規プロジェクト
             </Button>
 
             {/* ユーザー */}
